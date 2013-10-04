@@ -49,96 +49,166 @@ users =
     3:
         username: 'Chaser324'
         fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=45793'
-        stream: 'chasepettit'
+        stream: 'CrispyLovesYou'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/2840/961540-profile.png'
-    # 4:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 5:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 6:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 7:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 8:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 9:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 10:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 11:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 12:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 13:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 14:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 15:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 16:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 17:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 18:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 19:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 20:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 21:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 22:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 23:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 24:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
-    # 25:
-    #     username: 'Matt'
-    #     fund: 'http://www.extra-life.org/participant/pascual'
-    #     stream: 'mattpascual'
+    4:
+        username: 'Crispy'
+        fund: 'http://www.extra-life.org/participant/Crispy'
+        stream: 'chasepettit'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1587/1095730-nekkiddave.jpg'
+    5:
+        username: 'TheFakePsychic'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=51960'
+        stream: 'thefakepsychic'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/121659/2550653-naoto+winter+icon.png'
+    6:
+        username: 'thdemn'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=51931'
+        stream: 'grtnpwrflgary'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/14/148764/2345749-8_bit_cody.gif'
+    7:
+        username: 'IrrelevantJohn'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=51999'
+        stream: 'lleg3nd'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/209/2351454-icon1.png'
+    8:
+        username: 'ArclightBorealis'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=47921'
+        stream: 'arclightborealis'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/7785/2531220-avatar.png'
+    9:
+        username: 'Fattony12000'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=45819'
+        stream: 'fattony12000'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/88760/2190087-max_opp_crop.jpg'
+    10:
+        username: 'Rincewind'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=52246'
+        stream: 'rincewind_uk'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/87446/2511144-2510225-taswell.jpg'
+    11:
+        username: 'RandyF'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=50573'
+        stream: 'rabdt'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/7/79739/1293428-120px_smw_mario_holding_a_shell.jpg'
+    12:
+        username: 'Skytylz'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=52622'
+        stream: 'skytylz'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/2/29721/2509953-2459536-2135100-2135095-newavatar.jpg'
+    13:
+        username: 'GullumF'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=52603'
+        stream: 'pfalcon2013'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/5/59857/1147869-avatar_body.png'
+    14:
+        username: 'mwjeffcott'
+        fund: 'http://www.extra-life.org/participant/mwjeffcott'
+        stream: 'mwjeffcott'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/3/37622/1059624-playstation_1_one_sony_audiophile_cd_player_transport_rca_1.jpg'
+    15:
+        username: 'Danteveli'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=52909'
+        stream: 'danteveli24'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/95390/2463117-develi.jpg'
+    16:
+        username: 'coribald'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=52939'
+        stream: 'coribald'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/14/140836/2205878-2205876-c4zcg.jpg'
+    17:
+        username: 'shinboy630'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=52918'
+        stream: 'shinboy630'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/14/142023/2455540-2455538-8722972267-cyberp.jpeg'
+    18:
+        username: 'busted1der'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=48731'
+        stream: 'JacobMcCourt'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/8525/2207947-2207946-img_20120319_00080.jpg'
+    19:
+        username: 'PXAbstraction'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=47415'
+        stream: 'PXAbstraction'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/17949/1917373-pxaavatar.jpg'
+    20:
+        username: 'Sparklykiss'
+        fund: 'http://www.extra-life.org/participant/Sparklykiss'
+        stream: 'sparklykiss'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/63338/2141065-sparklykisspony.png'
+    21:
+        username: 'bpriller'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=45144'
+        stream: 'bpriller'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/7/78739/1335849-album_joystick.png'
+    22:
+        username: 'Confirm4Crit'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=53737'
+        stream: 'confirm4crit'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/15/151224/2510387-14ysjt.png'
+    23:
+        username: 'subrandom'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=46734'
+        stream: 'subrandom'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/191/1322646-objection.png'
+    24:
+        username: 'TonyBlue87'
+        fund: 'http://www.extra-life.org/team/happyhourimprov'
+        stream: 'happyhourimprov'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/7/71314/1724240-sparkster_tron.png'
+    25:
+        username: 'Nickieroonie'
+        fund: 'http://www.extra-life.org/participant/nickieroonie'
+        stream: 'nickieroonie'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/116307/1645548-metadp.jpg'
+    26:
+        username: 'LaserJesus'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=54268'
+        stream: 'lasermessiah'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/91592/1351458-ljriflesteam.jpg'
+    27:
+        username: 'datarez'
+        fund: 'http://www.extra-life.org/participant/datarez'
+        stream: 'datarez'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1592/1542722-ned_stark_game_of_thrones.jpg'
+    28:
+        username: 'RioStarwind'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=54461'
+        stream: 'riostarwind'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/5/56971/2380994-images.jpg'
+    29:
+        username: 'KingRingtail85'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=54458'
+        stream: 'jeff_mcfly'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/66397/2533827-daft-punk-helmets-columbia-album-artwork.jpg'
+    30:
+        username: 'eccentrix'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=54707'
+        stream: 'eccentrix'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/65153/1325815-77522907342156928d992e8he.gif'
+    31:
+        username: 'Capaneus'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=53121'
+        stream: 'capane_us'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/110891/2522906-metroid4_07.png'
+    32:
+        username: 'Squill2k4'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=54767'
+        stream: 'squill2k4'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/15/156838/2386706-rebel_alliance_logo.svg.png'
+    33:
+        username: 'B0nd07'
+        fund: 'http://www.extra-life.org/participant/b0nd07'
+        stream: 'b0nd07'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/8991/2274238-avatar3.png'
+
+
+
+
+
+
+
+
 
 #################
 ### VARIABLES ###
