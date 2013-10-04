@@ -1,0 +1,51 @@
+@import "../less-bootstrap/variables.less";
+@import "../less-bootstrap/mixins.less";
+
+/* ==========================================================================
+   Variables & Mixins
+   ========================================================================== */
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (max-width: 979px) {
+    /* Fix top padding when using the responsive grid with the fixed topbar */
+    body.top-navbar {
+        padding-top: 0;
+    }
+}
+
+@import "base.less";
+
+/* Landscape phones and down */
+@media only screen and (min-width: 481px) {
+    @import "481up.less";
+}
+ 
+/* Landscape phone to portrait tablet */
+@media only screen and (min-width: 768px) {
+    @import "768up.less";
+}
+ 
+@media only screen and (min-width: 980px) {
+    @import "980up.less";
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    @import "1200up.less";
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    
+    // styles in 2x.less 
+    @import "2x.less"; 
+
+} // end of media query 

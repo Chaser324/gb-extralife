@@ -1,0 +1,307 @@
+
+html, body {
+    position: relative;
+    min-width: 780px;
+    background-image: url(../img/alexis.png), url(../img/drew.png);
+    background-repeat: no-repeat;
+    background-position: bottom right, bottom left;
+}
+
+
+/**************/
+/* Navigation */
+/**************/
+
+.navbar-brand {
+    padding: 5px 15px;
+
+    img {
+        display: inline;
+        height: 40px;
+    }
+}
+
+.navbar {
+    #gradient .vertical(#222; #333; 0%; 100%);
+    border: 0;
+    border-bottom: 2px solid #a23131;
+    box-shadow: inset 0 -2px 0 -1px #ff0000, 0 1px 0 #690000;
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;    
+}
+
+ul.nav {
+    border-left: 1px solid #000;
+    border-right: 1px solid #444;
+}
+
+ul.nav li a {
+    font-family: @font-family-serif;
+    text-shadow: 1px 1px 1px #000;
+}
+
+ul#main-nav > li > a {
+    border-left: 1px solid #444;
+    border-right: 1px solid #000;
+}
+
+ul.dropdown-menu {
+    text-align: center;
+}
+
+a.navbar-brand {
+    font-family: @font-family-serif;
+    font-weight: 700;
+    #gradient .vertical(#000; #222; 0%; 100%);
+    box-shadow: inset 0 -2px 0 -1px #ff0000;
+    .transition(all 0.3s);
+
+    &:hover {
+        text-shadow: 0 0 10px #333;
+    }
+
+    span {
+        display: none;
+    }
+}
+
+p.navbar-text {
+    font-family: @font-family-serif;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 15px 15px;
+    text-shadow: 2px 2px 2px #000;
+}
+
+ul.nav.navbar-right {
+    border-left: 0;
+    border-right: 0;
+}
+
+.navbar-nav > li > a.navbar-btn {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-right: 15px;
+    border-radius: 20px;
+    background: #a23131;
+    border: 2px solid #f5f5f5;
+    box-shadow: 2px 2px 2px #000;
+
+    &:hover {
+        background: lighten(#a23131, 15%);
+    }
+}
+
+/**********/
+/* Alerts */
+/**********/
+
+.alert {
+    margin-bottom: 0;
+}
+
+.alert-dismissable {
+    .close {
+        opacity: 0.5;
+        font-size: 35px;
+        top: -8px;
+    }
+}
+
+/******************/
+/* Streams & Chat */
+/******************/
+
+#streams-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.layoutElement {
+    position: absolute;
+}
+
+#chat1 {
+}
+
+/****************/
+/* Content Tabs */
+/****************/
+
+#content-nav {
+    margin-top: 5px;
+    margin-left: 5px;
+
+    &> li > a {
+        border-left: 1px solid lighten(#a23131, 5%);
+        border-right: 1px solid darken(#a23131, 20%);
+        border-top: 1px solid lighten(#a23131, 15%);
+        #gradient .vertical(darken(#a23131, 15%); darken(#a23131, 20%); 50%; 100%);
+    }
+
+    li a:hover, li a.active {
+        background: #a23131;
+    }
+}
+
+/****************/
+/* Info Section */
+/****************/
+
+#info-content {
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+#donate-widget {
+    border: 3px solid #a23131;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px #000;
+}
+
+#info-banners {
+    width: 310px;
+    float: left;
+    margin-top: -23px;
+}
+
+#info-video {
+    padding-top: 100px;
+    margin-left: 325px;
+}
+
+#info-text {
+    h1 {
+        text-align: center;
+        font-size: 66px;
+        margin-bottom: 0;
+        border-bottom: 1px solid #000;
+    }
+    p {
+        font-size: 16px;
+        font-weight: 300;
+        color: #ccc;
+    }
+}
+
+.videoWrapper {
+    background: #000;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    z-index: 10;
+    box-shadow: 5px 5px 15px #000;
+    border: 3px solid #a23131;
+    border-radius: 3px;
+}
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.row-buffer {
+    margin-top: 25px;
+}
+
+/*****************/
+/* Index Section */
+/*****************/
+
+#stream-index {
+    margin-top: 20px;
+    padding-top: 20px;
+
+    h2 {
+        margin-top: 2px;
+        margin-bottom: 0;
+        padding-bottom: 5px;
+        font-size: 20px;
+        line-height: 23px;
+    }
+
+    p.stream-info {
+    }
+
+    .btn-default {
+        color: #f5f5f5;
+        background: #a23131;
+
+        &:hover {
+            background: lighten(#a23131, 10%);
+        }
+    }
+
+    .btn-donate {
+        box-shadow: 2px 2px 2px #000;
+    }
+
+    .btn-group {
+        box-shadow: 2px 2px 2px #000;   
+    }
+
+    .row-buffer {
+        margin-top: 50px;
+    }
+}
+
+.profile-pic {
+    position: absolute;
+    border-radius: 20px;
+    border: 2px solid #FFFFFF;
+    box-shadow: 1px 1px 1px #000;
+    top: 2px;
+    left: 6px;
+}
+
+.live {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 16px;
+    color: #333;
+    text-shadow: 0 1px 0px #444;
+
+    &.on-air {
+        color: #a23131;
+        text-shadow: 0 0 10px #a23131;
+
+    }
+}
+
+.stream-pic {
+    margin-top: 20px;
+    border: 2px solid #a23131;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px #000;
+}
+
+.index-entry {
+    margin-bottom: 50px;
+}
+
+/**********/
+/* Footer */
+/**********/
+
+#footer {
+    margin-top: 200px;
+    #gradient .vertical(#222; #333; 0%; 100%);
+    border-top: 2px solid #a23131;
+    box-shadow: inset 0 2px 0 -1px #ff0000, 0 -1px 0 #690000;
+    height: 100px;
+}
+
+h2.ddp {
+    margin: 12px 0 0;
+    font-size: 68px;
+    font-family: @font-family-sans-serif;
+    font-weight: 800;
+    color: #111;
+    text-shadow: 0px 1px 1px #444;   
+}
