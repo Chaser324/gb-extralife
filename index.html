@@ -126,17 +126,17 @@
 
     <script id="index-template" type="text/x-handlebars-template">
         {{#each users}}
-        <div class="col-xs-3 index-entry">
+        <div class="col-xs-3 index-entry" data-channel="{{stream}}">
             <p class="live">LIVE</p>
             <img class="profile-pic" src="{{profilePic}}" />
             <img class="img-responsive stream-pic" src="assets/img/stream-test.jpg" />
-            <h2>Stream Title</h2>
-            <p class="stream-info">{{username}} playing Game Title</p>
+            <h2>Off-Air</h2>
+            <p class="stream-info"><strong><em>{{username}}</em></strong> playing <span class="game-title">nothing at the moment.</span></p>
             <a class="btn btn-default btn-donate" href="{{fund}}">Donate</a>
             <div class="btn-group btn-view">
-                <a class="btn btn-default" href="{{stream}}">1</a>
-                <a class="btn btn-default" href="{{stream}}">2</a>
-                <a class="btn btn-default" href="{{stream}}">3</a>
+                <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream1','{{stream}}');">1</a>
+                <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream2','{{stream}}');">2</a>
+                <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream3','{{stream}}');">3</a>
             </div>
         </div>
         {{/each}}

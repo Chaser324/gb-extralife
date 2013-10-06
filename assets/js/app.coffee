@@ -4,6 +4,7 @@
 #################
 
 PLAYER_URL = 'http://www.twitch.tv/widgets/raw/live_embed_player.swf'
+STREAM_API_URL = 'https://api.twitch.tv/kraken/streams/'
 
 CHAT_WIDTH = 300
 
@@ -19,6 +20,7 @@ HEIGHT_SMALL = 0
 BANNER_HEIGHT = 252
 
 TOTAL_UPDATE_RATE = 30000
+STREAM_UPDATE_RATE = 60000
 
 flashvars = 
     enable_javascript: "true"
@@ -26,6 +28,7 @@ flashvars =
     video_width: "427"
     video_height: "240"
     auto_play: "true"
+    start_volume: 0
 
 params =
     allowFullScreen: "true"
@@ -49,12 +52,12 @@ users =
     3:
         username: 'Chaser324'
         fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=45793'
-        stream: 'CrispyLovesYou'
+        stream: 'chasepettit'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/2840/961540-profile.png'
     4:
         username: 'Crispy'
         fund: 'http://www.extra-life.org/participant/Crispy'
-        stream: 'chasepettit'
+        stream: 'CrispyLovesYou'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1587/1095730-nekkiddave.jpg'
     5:
         username: 'TheFakePsychic'
@@ -204,12 +207,6 @@ users =
 
 
 
-
-
-
-
-
-
 #################
 ### VARIABLES ###
 #################
@@ -260,7 +257,36 @@ initIndex = ->
     template = Handlebars.compile source
     context = {users}
     html = template context
+    
     $('#stream-container').append html
+
+    $('.index-entry:nth-child(4n+5)').css "clear", "both"
+
+    $('.index-entry').each ->
+        refreshStream $(this).attr 'data-channel'
+
+refreshStream = (channel) ->
+    $.ajax
+        type: 'GET'
+        dataType: 'jsonp'
+        crossDomain: true
+        jsonp: 'callback'
+        url: STREAM_API_URL + channel
+        success: (data) ->
+            stream = data["stream"]
+            channelEntry = $("div[data-channel='" + channel + "']")
+            if stream is null
+                channelEntry.find('p.live').removeClass 'on-air'
+            else
+                channelEntry.find('p.live').addClass 'on-air'
+                channelEntry.find('h2').text stream["channel"]["status"]
+                channelEntry.find('.stream-pic').attr 'src', stream["preview"]["large"]
+                channelEntry.find('.game-title').text stream["channel"]["game"]
+
+
+        complete:
+            setTimeout (-> refreshStream channel), STREAM_UPDATE_RATE
+
 
 
 doResize = ->
@@ -480,6 +506,7 @@ updateTotal = ->
 
 swapStream = (slot, channel) ->
     playerChannels[slot] = channel
+    removePlayer $('#'+slot)
     setupLayout currentLayout
 
 ###################
