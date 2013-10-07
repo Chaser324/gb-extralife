@@ -7,6 +7,7 @@ PLAYER_URL = 'http://www.twitch.tv/widgets/raw/live_embed_player.swf'
 STREAM_API_URL = 'https://api.twitch.tv/kraken/streams/'
 
 CHAT_WIDTH = 300
+CHAT_TAB_HEIGHT = 42
 
 WIDTH_LARGE = 0
 HEIGHT_LARGE = 0
@@ -28,7 +29,6 @@ flashvars =
     video_width: "427"
     video_height: "240"
     auto_play: "true"
-    start_volume: 0
 
 params =
     allowFullScreen: "true"
@@ -139,11 +139,6 @@ users =
         fund: 'http://www.extra-life.org/participant/Sparklykiss'
         stream: 'sparklykiss'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/63338/2141065-sparklykisspony.png'
-    21:
-        username: 'bpriller'
-        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=45144'
-        stream: 'bpriller'
-        profilePic: 'http://static.giantbomb.com/uploads/square_mini/7/78739/1335849-album_joystick.png'
     22:
         username: 'Confirm4Crit'
         fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=53737'
@@ -277,8 +272,12 @@ refreshStream = (channel) ->
             channelEntry = $("div[data-channel='" + channel + "']")
             if stream is null
                 channelEntry.find('p.live').removeClass 'on-air'
+                channelEntry.find('.stream-pic').removeClass 'on-air'
+                channelEntry.find('h2').text 'Off-Air'
+                channelEntry.find('.game-title').text 'nothing at the moment'
             else
                 channelEntry.find('p.live').addClass 'on-air'
+                channelEntry.find('.stream-pic').addClass 'on-air'
                 channelEntry.find('h2').text stream["channel"]["status"]
                 channelEntry.find('.stream-pic').attr 'src', stream["preview"]["large"]
                 channelEntry.find('.game-title').text stream["channel"]["game"]
@@ -362,9 +361,14 @@ setCoords = ->
                 height: HEIGHT_MED
             chat1:
                 x: WIDTH_MED
-                y: HEIGHT_MED
+                y: HEIGHT_MED + CHAT_TAB_HEIGHT
                 width: WIDTH_MED - 4
-                height: HEIGHT_MED - 4
+                height: HEIGHT_MED - 4 - CHAT_TAB_HEIGHT
+            chatnav:
+                x: WIDTH_MED
+                y: HEIGHT_MED
+                width: WIDTH_MED
+                height: CHAT_TAB_HEIGHT
             overallHeight: HEIGHT_MED * 2
         oneUp:
             stream1:
@@ -374,9 +378,14 @@ setCoords = ->
                 height: HEIGHT_LARGE
             chat1:
                 x: WIDTH_LARGE
-                y: 0
+                y: CHAT_TAB_HEIGHT
                 width: CHAT_WIDTH - 4
-                height: HEIGHT_LARGE - 4
+                height: HEIGHT_LARGE - 4 - CHAT_TAB_HEIGHT
+            chatnav:
+                x: WIDTH_LARGE
+                y: 0
+                width: CHAT_WIDTH
+                height: CHAT_TAB_HEIGHT
             overallHeight: HEIGHT_LARGE
         threeUp:
             stream1:
@@ -396,9 +405,14 @@ setCoords = ->
                 height: HEIGHT_SMALL
             chat1:
                 x: WIDTH_LARGE
-                y: 0
+                y: CHAT_TAB_HEIGHT
                 width: CHAT_WIDTH - 4
-                height: HEIGHT_LARGE + HEIGHT_SMALL - 4
+                height: HEIGHT_LARGE + HEIGHT_SMALL - 4 - CHAT_TAB_HEIGHT
+            chatnav:
+                x: WIDTH_LARGE
+                y: 0
+                width: CHAT_WIDTH
+                height: CHAT_TAB_HEIGHT
             overallHeight: HEIGHT_LARGE + HEIGHT_SMALL
         threeUpHorizontal:
             stream1:
@@ -418,9 +432,14 @@ setCoords = ->
                 height: HEIGHT_SMALL
             chat1:
                 x: WIDTH_LARGE
-                y: HEIGHT_SMALL * 2
+                y: HEIGHT_SMALL * 2 + CHAT_TAB_HEIGHT
                 width: CHAT_WIDTH - 4
-                height: HEIGHT_LARGE - (HEIGHT_SMALL * 2) - 4
+                height: HEIGHT_LARGE - (HEIGHT_SMALL * 2) - 4 - CHAT_TAB_HEIGHT
+            chatnav:
+                x: WIDTH_LARGE
+                y: HEIGHT_SMALL * 2
+                width: CHAT_WIDTH
+                height: CHAT_TAB_HEIGHT
             overallHeight: HEIGHT_LARGE
 
 setupLayout = (layoutType) ->
@@ -435,6 +454,8 @@ setupLayout = (layoutType) ->
 
     layoutChat 'chat1'
 
+    layoutChatNav 'chatnav'
+
     $('#streams-wrapper').height layouts[currentLayout].overallHeight
 
 
@@ -447,6 +468,16 @@ layoutChat = (chat) ->
         chat.css 'top', layout.y
         chat.width layout.width
         chat.height layout.height
+
+layoutChatNav = (chatnav) ->
+    layout = layouts[currentLayout][chatnav]
+    chatnav = $('#' + chatnav)
+
+    if layout
+        chatnav.css 'left', layout.x
+        chatnav.css 'top', layout.y
+        chatnav.width layout.width
+        chatnav.height layout.height
 
 toggleChat = ->
     $('#chat1').toggle()
@@ -490,9 +521,6 @@ removePlayer = (playerElement) ->
     name = playerElement.attr 'id'
     div = "<div id='" + name + "'></div>"
     playerElement.replaceWith(div)
-
-# $('#donate-widget').load ->
-#     $('#donate-widget').contents().find('head').append($("<style type='text/css'> body {background: transparent;} </style>"))
 
 updateTotal = ->    
     $.ajax

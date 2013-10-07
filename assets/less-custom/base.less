@@ -126,6 +126,20 @@ ul.nav.navbar-right {
 #chat1 {
 }
 
+#chatnav {
+    position: absolute;
+    min-height: 0;
+
+    ul {
+        li {
+            a {
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+        }
+    }
+}
+
 /****************/
 /* Content Tabs */
 /****************/
@@ -257,6 +271,7 @@ ul.nav.navbar-right {
     box-shadow: 1px 1px 1px #000;
     top: 2px;
     left: 6px;
+    z-index: 2;
 }
 
 .live {
@@ -275,10 +290,17 @@ ul.nav.navbar-right {
 }
 
 .stream-pic {
+    position: relative;
     margin-top: 20px;
     border: 2px solid #a23131;
     border-radius: 3px;
     box-shadow: 2px 2px 2px #000;
+    opacity: 0.5;
+    z-index: 1;
+
+    &.on-air {
+        opacity: 1.0;
+    }
 }
 
 .index-entry {

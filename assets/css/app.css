@@ -120,6 +120,14 @@ ul.nav.navbar-right {
 .layoutElement {
   position: absolute;
 }
+#chatnav {
+  position: absolute;
+  min-height: 0;
+}
+#chatnav ul li a {
+  font-size: 12px;
+  padding: 10px 15px;
+}
 /****************/
 /* Content Tabs */
 /****************/
@@ -234,6 +242,7 @@ ul.nav.navbar-right {
   box-shadow: 1px 1px 1px #000;
   top: 2px;
   left: 6px;
+  z-index: 2;
 }
 .live {
   position: absolute;
@@ -249,10 +258,16 @@ ul.nav.navbar-right {
   font-weight: 700;
 }
 .stream-pic {
+  position: relative;
   margin-top: 20px;
   border: 2px solid #a23131;
   border-radius: 3px;
   box-shadow: 2px 2px 2px #000;
+  opacity: 0.5;
+  z-index: 1;
+}
+.stream-pic.on-air {
+  opacity: 1.0;
 }
 .index-entry {
   margin-bottom: 50px;
