@@ -103,7 +103,7 @@ users =
     13:
         username: 'GullumF'
         fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=52603'
-        stream: 'pfalcon2013'
+        stream: 'GullumF'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/5/59857/1147869-avatar_body.png'
     14:
         username: 'mwjeffcott'
@@ -222,9 +222,25 @@ layouts = null
 #################
 
 initPage = ->
+    param1 = getURLParameter '1'
+    param2 = getURLParameter '2'
+    param3 = getURLParameter '3'
+    initLayout = getURLParameter 'layout'
+
+    if param1 isnt null
+        playerChannels['stream1'] = param1
+    if param2 isnt null
+        playerChannels['stream2'] = param2
+    if param3 isnt null
+        playerChannels['stream3'] = param3
+    if initLayout is null
+        initLayout = 'threeUp'
+
+    $('#chat1').show()
+
     for key, value of playerChannels
         addPlayer value, key
-    setupLayout 'threeUp'
+    setupLayout initLayout
 
 initEvents = ->
     $('.alert').bind 'closed.bs.alert', ->
@@ -529,11 +545,16 @@ getChatUrl = (channel) ->
         url = 'http://www.twitch.tv/chat/embed?channel=' + channel + '&popout_chat=true'
     return url
 
+getURLParameter = (name) -> 
+    decodeURIComponent((new RegExp("[?|&]#{name}=([^&;]+?)(&|##|;|$)").exec(location.search) || [null,""] )[1].replace(/\+/g, '%20'))||null;
+
 ###################
 ### MAIN SCRIPT ###
 ###################
 
-$(document).ready ->
+
+
+$(window).load ->
     initPage()
     initEvents()
     initIndex()
