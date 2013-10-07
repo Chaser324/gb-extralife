@@ -99,6 +99,14 @@ ul.nav.navbar-right {
 .navbar-nav > li > a.navbar-btn:hover {
   background: #cb5454;
 }
+.navbar-nav li:hover > a,
+.navbar-nav li:focus > a,
+.navbar-nav li.open > a {
+  background: #a23131;
+}
+ul.dropdown-menu li a:hover {
+  background: #cb5454;
+}
 /**********/
 /* Alerts */
 /**********/
@@ -123,10 +131,48 @@ ul.nav.navbar-right {
 #chatnav {
   position: absolute;
   min-height: 0;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#000000), to(#333333));
+  background-image: -webkit-linear-gradient(top, #000000, 0%, #333333, 100%);
+  background-image: -moz-linear-gradient(top, #000000 0%, #333333 100%);
+  background-image: linear-gradient(to bottom, #000000 0%, #333333 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff000000', endColorstr='#ff333333', GradientType=0);
+}
+#chatnav ul {
+  border-right: none;
 }
 #chatnav ul li a {
   font-size: 12px;
   padding: 10px 15px;
+  border-left: 1px solid #b63737;
+  border-right: 1px solid #541919;
+  background-image: -webkit-gradient(linear, left 50%, left 100%, from(#671f1f), to(#541919));
+  background-image: -webkit-linear-gradient(top, #671f1f, 50%, #541919, 100%);
+  background-image: -moz-linear-gradient(top, #671f1f 50%, #541919 100%);
+  background-image: linear-gradient(to bottom, #671f1f 50%, #541919 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff671f1f', endColorstr='#ff541919', GradientType=0);
+}
+#chatnav ul li a:hover,
+#chatnav ul li a.active {
+  background: #a23131;
+}
+#chatnav .navbar-header {
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
+  font-weight: 700;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#000000), to(#222222));
+  background-image: -webkit-linear-gradient(top, #000000, 0%, #222222, 100%);
+  background-image: -moz-linear-gradient(top, #000000 0%, #222222 100%);
+  background-image: linear-gradient(to bottom, #000000 0%, #222222 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff000000', endColorstr='#ff222222', GradientType=0);
+  box-shadow: inset 0 -2px 0 -1px #ff0000;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  height: 100%;
+  font-size: 16px;
+  padding: 10px 8px;
+  border-left: 1px solid #333;
 }
 /****************/
 /* Content Tabs */
@@ -235,7 +281,7 @@ ul.nav.navbar-right {
 #stream-index .row-buffer {
   margin-top: 50px;
 }
-.profile-pic {
+#stream-index .profile-pic {
   position: absolute;
   border-radius: 20px;
   border: 2px solid #FFFFFF;
@@ -244,7 +290,7 @@ ul.nav.navbar-right {
   left: 6px;
   z-index: 2;
 }
-.live {
+#stream-index .live {
   position: absolute;
   top: 0;
   right: 15px;
@@ -252,12 +298,12 @@ ul.nav.navbar-right {
   color: #333;
   text-shadow: 0 1px 0px #444;
 }
-.live.on-air {
+#stream-index .live.on-air {
   color: #a23131;
   text-shadow: 0 0 10px #a23131;
   font-weight: 700;
 }
-.stream-pic {
+#stream-index .stream-pic {
   position: relative;
   margin-top: 20px;
   border: 2px solid #a23131;
@@ -266,10 +312,10 @@ ul.nav.navbar-right {
   opacity: 0.5;
   z-index: 1;
 }
-.stream-pic.on-air {
+#stream-index .stream-pic.on-air {
   opacity: 1.0;
 }
-.index-entry {
+#stream-index .index-entry {
   margin-bottom: 50px;
 }
 /**********/

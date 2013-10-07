@@ -94,6 +94,16 @@ ul.nav.navbar-right {
     }
 }
 
+.navbar-nav li {
+    &:hover > a, &:focus > a, &.open > a {
+        background: #a23131;
+    }
+}
+
+ul.dropdown-menu li a:hover {
+    background: lighten(#a23131, 15%);
+}
+
 /**********/
 /* Alerts */
 /**********/
@@ -129,14 +139,37 @@ ul.nav.navbar-right {
 #chatnav {
     position: absolute;
     min-height: 0;
+    #gradient .vertical(#000; #333; 0%; 100%);
 
     ul {
+        border-right: none;
+
         li {
             a {
                 font-size: 12px;
                 padding: 10px 15px;
+
+                border-left: 1px solid lighten(#a23131, 5%);
+                border-right: 1px solid darken(#a23131, 20%);
+                #gradient .vertical(darken(#a23131, 15%); darken(#a23131, 20%); 50%; 100%);
             }
         }
+
+        li a:hover, li a.active {
+            background: #a23131;
+        }
+    }
+
+    .navbar-header {
+        font-family: @font-family-serif;
+        font-weight: 700;
+        #gradient .vertical(#000; #222; 0%; 100%);
+        box-shadow: inset 0 -2px 0 -1px #ff0000;
+        .transition(all 0.3s);
+        height: 100%;
+        font-size: 16px;
+        padding: 10px 8px;
+        border-left: 1px solid #333;
     }
 }
 
@@ -262,49 +295,49 @@ ul.nav.navbar-right {
     .row-buffer {
         margin-top: 50px;
     }
-}
 
-.profile-pic {
-    position: absolute;
-    border-radius: 20px;
-    border: 2px solid #FFFFFF;
-    box-shadow: 1px 1px 1px #000;
-    top: 2px;
-    left: 6px;
-    z-index: 2;
-}
-
-.live {
-    position: absolute;
-    top: 0;
-    right: 15px;
-    font-size: 16px;
-    color: #333;
-    text-shadow: 0 1px 0px #444;
-
-    &.on-air {
-        color: #a23131;
-        text-shadow: 0 0 10px #a23131;
-        font-weight: 700;
+    .profile-pic {
+        position: absolute;
+        border-radius: 20px;
+        border: 2px solid #FFFFFF;
+        box-shadow: 1px 1px 1px #000;
+        top: 2px;
+        left: 6px;
+        z-index: 2;
     }
-}
 
-.stream-pic {
-    position: relative;
-    margin-top: 20px;
-    border: 2px solid #a23131;
-    border-radius: 3px;
-    box-shadow: 2px 2px 2px #000;
-    opacity: 0.5;
-    z-index: 1;
+    .live {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        font-size: 16px;
+        color: #333;
+        text-shadow: 0 1px 0px #444;
 
-    &.on-air {
-        opacity: 1.0;
+        &.on-air {
+            color: #a23131;
+            text-shadow: 0 0 10px #a23131;
+            font-weight: 700;
+        }
     }
-}
 
-.index-entry {
-    margin-bottom: 50px;
+    .stream-pic {
+        position: relative;
+        margin-top: 20px;
+        border: 2px solid #a23131;
+        border-radius: 3px;
+        box-shadow: 2px 2px 2px #000;
+        opacity: 0.5;
+        z-index: 1;
+
+        &.on-air {
+            opacity: 1.0;
+        }
+    }
+
+    .index-entry {
+        margin-bottom: 50px;
+    }
 }
 
 /**********/

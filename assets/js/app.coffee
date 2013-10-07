@@ -5,6 +5,7 @@
 
 PLAYER_URL = 'http://www.twitch.tv/widgets/raw/live_embed_player.swf'
 STREAM_API_URL = 'https://api.twitch.tv/kraken/streams/'
+IRC_URL = 'http://webchat.quakenet.org/?channels=gbendurancerun&uio=MT1mYWxzZSY4PWZhbHNlJjExPTM2OSYxMz1mYWxzZSYxND1mYWxzZQfc'
 
 CHAT_WIDTH = 300
 CHAT_TAB_HEIGHT = 42
@@ -212,7 +213,7 @@ playerChannels =
     stream3: "fattony12000"
 
 currentLayout = ''
-currentChat = ''
+currentChat = IRC_URL
 
 layouts = null
 
@@ -362,8 +363,8 @@ setCoords = ->
             chat1:
                 x: WIDTH_MED
                 y: HEIGHT_MED + CHAT_TAB_HEIGHT
-                width: WIDTH_MED - 4
-                height: HEIGHT_MED - 4 - CHAT_TAB_HEIGHT
+                width: WIDTH_MED
+                height: HEIGHT_MED - CHAT_TAB_HEIGHT
             chatnav:
                 x: WIDTH_MED
                 y: HEIGHT_MED
@@ -379,8 +380,8 @@ setCoords = ->
             chat1:
                 x: WIDTH_LARGE
                 y: CHAT_TAB_HEIGHT
-                width: CHAT_WIDTH - 4
-                height: HEIGHT_LARGE - 4 - CHAT_TAB_HEIGHT
+                width: CHAT_WIDTH
+                height: HEIGHT_LARGE - CHAT_TAB_HEIGHT
             chatnav:
                 x: WIDTH_LARGE
                 y: 0
@@ -406,41 +407,14 @@ setCoords = ->
             chat1:
                 x: WIDTH_LARGE
                 y: CHAT_TAB_HEIGHT
-                width: CHAT_WIDTH - 4
-                height: HEIGHT_LARGE + HEIGHT_SMALL - 4 - CHAT_TAB_HEIGHT
+                width: CHAT_WIDTH
+                height: HEIGHT_LARGE + HEIGHT_SMALL - CHAT_TAB_HEIGHT
             chatnav:
                 x: WIDTH_LARGE
                 y: 0
                 width: CHAT_WIDTH
                 height: CHAT_TAB_HEIGHT
             overallHeight: HEIGHT_LARGE + HEIGHT_SMALL
-        threeUpHorizontal:
-            stream1:
-                x: 0
-                y: 0
-                width: WIDTH_LARGE
-                height: HEIGHT_LARGE
-            stream2:
-                x: WIDTH_LARGE
-                y: 0
-                width: WIDTH_SMALL
-                height: HEIGHT_SMALL
-            stream3:
-                x: WIDTH_LARGE
-                y: HEIGHT_SMALL
-                width: WIDTH_SMALL
-                height: HEIGHT_SMALL
-            chat1:
-                x: WIDTH_LARGE
-                y: HEIGHT_SMALL * 2 + CHAT_TAB_HEIGHT
-                width: CHAT_WIDTH - 4
-                height: HEIGHT_LARGE - (HEIGHT_SMALL * 2) - 4 - CHAT_TAB_HEIGHT
-            chatnav:
-                x: WIDTH_LARGE
-                y: HEIGHT_SMALL * 2
-                width: CHAT_WIDTH
-                height: CHAT_TAB_HEIGHT
-            overallHeight: HEIGHT_LARGE
 
 setupLayout = (layoutType) ->
     currentLayout = layoutType
@@ -536,6 +510,24 @@ swapStream = (slot, channel) ->
     playerChannels[slot] = channel
     removePlayer $('#'+slot)
     setupLayout currentLayout
+
+loadChat = (channel) ->
+    channelKey = channel
+    if channel != 'irc'
+        channel = playerChannels[channel]
+    if (channel != currentChat) and $('#chat1').is(':visible')
+        document.getElementById('chat1').src = getChatUrl(channel)
+        currentChat = channel
+        $('#chatnav ul li a.active').removeClass 'active'
+        $("#chatnav ul li a[data-chat='" + channelKey + "']").addClass 'active'
+
+getChatUrl = (channel) ->
+    url = ''
+    if channel == 'irc'
+        url = IRC_URL;
+    else
+        url = 'http://www.twitch.tv/chat/embed?channel=' + channel + '&popout_chat=true'
+    return url
 
 ###################
 ### MAIN SCRIPT ###
