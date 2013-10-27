@@ -292,6 +292,8 @@ users =
 currentLayout = ''
 currentChat = IRC_URL
 
+onAirStreamCount = 0
+
 layouts = null
 
 #################
@@ -371,23 +373,35 @@ refreshStream = (channel) ->
         success: (data) ->
             stream = data["stream"]
             channelEntry = $("div[data-channel='" + channel + "']")
-            if stream is null
+            isLive = if channelEntry.find('p.live').hasClass 'on-air' then true else false
+            if stream is null and isLive is true
+                # Channel just went off-line
+                channelEntry.removeClass 'on-air'
                 channelEntry.find('p.live').removeClass 'on-air'
                 channelEntry.find('.stream-pic').removeClass 'on-air'
                 channelEntry.find('h2').text 'Off-Air'
                 channelEntry.find('.game-title').text 'nothing at the moment'
-            else
+                $('#stream-container').append channelEntry
+                $('.index-entry').css "clear", "none"
+                $('.index-entry:nth-child(4n+5)').css "clear", "both"
+                --onAirStreamCount
+            else if stream isnt null and isLive is false
+                # Channel just came on-line
+                channelEntry.addClass 'on-air'
                 channelEntry.find('p.live').addClass 'on-air'
                 channelEntry.find('.stream-pic').addClass 'on-air'
                 channelEntry.find('h2').text stream["channel"]["status"]
                 channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
                 channelEntry.find('.game-title').text stream["channel"]["game"]
-
-
+                $('#stream-container').prepend channelEntry
+                $('.index-entry').css "clear", "none"
+                $('.index-entry:nth-child(4n+5)').css "clear", "both"
+                ++onAirStreamCount
         complete:
             setTimeout (-> refreshStream channel), STREAM_UPDATE_RATE
 
-
+refreshAlerts = ->
+    return
 
 doResize = ->
     setupLayout currentLayout
