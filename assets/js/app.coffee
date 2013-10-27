@@ -207,11 +207,6 @@ users =
 ### VARIABLES ###
 #################
 
-playerChannels =
-    stream1: "giantbomb"
-    stream2: "chasepettit"
-    stream3: "fattony12000"
-
 currentLayout = ''
 currentChat = IRC_URL
 
@@ -381,6 +376,11 @@ setCoords = ->
                 y: HEIGHT_MED + CHAT_TAB_HEIGHT
                 width: WIDTH_MED
                 height: HEIGHT_MED - CHAT_TAB_HEIGHT - 8
+            chat2:
+                x: WIDTH_MED
+                y: HEIGHT_MED + CHAT_TAB_HEIGHT
+                width: WIDTH_MED
+                height: HEIGHT_MED - CHAT_TAB_HEIGHT - 8
             chatnav:
                 x: WIDTH_MED
                 y: HEIGHT_MED
@@ -394,6 +394,11 @@ setCoords = ->
                 width: WIDTH_LARGE
                 height: HEIGHT_LARGE
             chat1:
+                x: WIDTH_LARGE
+                y: CHAT_TAB_HEIGHT
+                width: CHAT_WIDTH
+                height: HEIGHT_LARGE - CHAT_TAB_HEIGHT - 8
+            chat2:
                 x: WIDTH_LARGE
                 y: CHAT_TAB_HEIGHT
                 width: CHAT_WIDTH
@@ -425,6 +430,11 @@ setCoords = ->
                 y: CHAT_TAB_HEIGHT
                 width: CHAT_WIDTH
                 height: HEIGHT_LARGE + HEIGHT_SMALL - CHAT_TAB_HEIGHT - 8
+            chat2:
+                x: WIDTH_LARGE
+                y: CHAT_TAB_HEIGHT
+                width: CHAT_WIDTH
+                height: HEIGHT_LARGE + HEIGHT_SMALL - CHAT_TAB_HEIGHT - 8
             chatnav:
                 x: WIDTH_LARGE
                 y: 0
@@ -447,6 +457,11 @@ setCoords = ->
                 y: CHAT_TAB_HEIGHT
                 width: WIDTH_MED
                 height: HEIGHT_MED * 2 - CHAT_TAB_HEIGHT - 8
+            chat2:
+                x: WIDTH_MED
+                y: CHAT_TAB_HEIGHT
+                width: WIDTH_MED
+                height: HEIGHT_MED * 2 - CHAT_TAB_HEIGHT - 8
             chatnav:
                 x: WIDTH_MED
                 y: 0
@@ -465,6 +480,7 @@ setupLayout = (layoutType) ->
     layoutPlayerSlot 'stream3'
 
     layoutChat 'chat1'
+    layoutChat 'chat2'
 
     layoutChatNav 'chatnav'
 
@@ -553,11 +569,18 @@ loadChat = (channel) ->
     channelKey = channel
     if channel != 'irc'
         channel = playerChannels[channel]
-    if (channel != currentChat) and $('#chat1').is(':visible')
-        document.getElementById('chat1').src = getChatUrl(channel)
+        $('#chat1').hide()
+        $('#chat2').show()
+    else 
+        $('#chat2').hide()
+        $('#chat1').show()
+
+    if (channel != currentChat) and (channel != 'irc')
+        document.getElementById('chat2').src = getChatUrl(channel)
         currentChat = channel
-        $('#chatnav ul li a.active').removeClass 'active'
-        $("#chatnav ul li a[data-chat='" + channelKey + "']").addClass 'active'
+        
+    $('#chatnav ul li a.active').removeClass 'active'
+    $("#chatnav ul li a[data-chat='" + channelKey + "']").addClass 'active'
 
 getChatUrl = (channel) ->
     url = ''
