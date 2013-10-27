@@ -259,6 +259,11 @@ initEvents = ->
                 scrollTop: $("#content-nav").offset().top
                 , 600
 
+    $('a.tweet-link').click (e) ->
+        e.preventDefault()
+        loc = $(this).attr 'href'
+        window.open loc, 'twitterwindow', 'height=450, width=550, top=' + ($(window).height()/2 - 225) + ', left=' + $(window).width()/2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0'
+
 initIndex = ->
     source = $('#index-template').html()
     template = Handlebars.compile source
@@ -514,6 +519,8 @@ toggleChat = ->
 layoutPlayerSlot = (slot) ->
     layout = layouts[currentLayout][slot]
     player = $('#' + slot)
+    overlay = $('#' + slot + 'Overlay')
+    number = slot.charAt (slot.length - 1)
 
     if layout
         if player.is('div')
@@ -523,8 +530,16 @@ layoutPlayerSlot = (slot) ->
         player.css 'top', layout.y
         player.width layout.width
         player.height layout.height
+
+        overlay.css 'left', layout.x
+        overlay.css 'top', layout.y
+        overlay.width layout.width
+        overlay.height layout.height - 30
+        overlay.tooltip
+            title: number + ': ' + playerChannels[slot]
     else
         removePlayer player
+        overlay.hide()
 
 layoutElement = (element, layout) ->
     if layout

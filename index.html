@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <title>Extra Life 2013 - Team Giant Bomb</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <meta property="og:title" content="Extra Life 2013 with Giant Bomb! Play Games. Help Kids." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.explosiveruns.com/" />
+    <meta property="og:image" content="http://www.explosiveruns.com/assets/img/test.png" />
 
     <link href="assets/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="assets/css/font-awesome.css" rel="stylesheet" media="screen">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
     <link href="assets/css/app.css" rel="stylesheet" media="screen">
 
 
@@ -22,7 +27,7 @@
         playerChannels = {
             stream1: "giantbomb",
             stream2: "chasepettit",
-            stream3: "fattony12000" };
+            stream3: "thefakepsychic" };
     </script>
 
     <script src="http://code.jquery.com/jquery.min.js"></script>
@@ -33,6 +38,15 @@
 
     <script src="assets/js/jquery.xdomainajax.js"></script>
     <script src="assets/js/app.js"></script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-45196402-1', 'explosiveruns.com');
+        ga('send', 'pageview');
+    </script>
 
 </head>
 <body>
@@ -78,6 +92,10 @@
         <div id="stream2"></div>
         <div id="stream3"></div>
 
+        <div id="stream1Overlay" class="streamOverlay"></div>
+        <div id="stream2Overlay" class="streamOverlay"></div>
+        <div id="stream3Overlay" class="streamOverlay"></div>
+
         <nav id="chatnav" class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
                 Chat:
@@ -99,6 +117,9 @@
         <ul id="content-nav" class="nav navbar-nav">
             <li><a class="active" href="#info-content">Info</a></li>
             <li><a href="#stream-index">Live Streams</a></li>
+            <li class="social-header">SPREAD THE WORD:</li>
+            <li class="social-link"><a class="tweet-link" href="https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/&hashtags=gbxl&text=Play Games. Help Kids. The Giant Bomb Extra Life marathon rages on!" target="_blank"><i class="fa fa-twitter-square"></i> #GBXL</a></li>
+            <li class="social-link"><a class="tweet-link" href="http://www.facebook.com/sharer.php?u=http://www.explosiveruns.com/&t=Play Games. Help Kids. The Giant Bomb Extra Life marathon rages on!"><i class="fa fa-facebook-square"></i> LIKE</a></li>
         </ul>
     </nav>
 
@@ -117,8 +138,10 @@
             </div>
         </div>
         <div id="info-text" class="row clearfix row-buffer">
-            <div class="col-xs-2"></div>
-            <div class="col-xs-8">
+            <div class="col-xs-2 col-lg-3">
+                <img class="img-responsive visible-lg" src="assets/img/explosiveruns.png" />
+            </div>
+            <div class="col-xs-8 col-lg-9">
                 <h1>It's For The Kids, Duder!</h1>
                 <p style="padding-top: 10px; border-top: 1px solid #222;">Our team of duders are on a mission to save kids through the vigorous playing of video games, and we need your help.</p>
                 <p>Each of us has chosen our local Children's Miracle Network Hospital where thousands of children are treated each year, regardless of their family's ability to pay. These kids are facing scary stuff like cancer, cystic fibrosis, and injuries from accidents to name just a few.</p>
@@ -160,7 +183,7 @@
         <div class="col-xs-3 index-entry" data-channel="{{stream}}">
             <p class="live">LIVE</p>
             <img class="profile-pic" src="{{profilePic}}" />
-            <img class="img-responsive stream-pic" src="assets/img/stream-test.jpg" />
+            <img class="img-responsive stream-pic" src="assets/img/test.png" />
             <h2>Off-Air</h2>
             <p class="stream-info"><strong><em>{{username}}</em></strong> playing <span class="game-title">nothing at the moment</span></p>
             <div class="stream-buttons">

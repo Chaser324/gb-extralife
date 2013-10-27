@@ -5,6 +5,10 @@ html, body {
     background-image: url(../img/alexis.png), url(../img/drew.png);
     background-repeat: no-repeat;
     background-position: bottom right, bottom left;
+    width: 100%;
+    height: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 
@@ -173,6 +177,11 @@ ul.dropdown-menu li a:hover {
     }
 }
 
+.streamOverlay {
+    position: absolute;
+    z-index: 100;
+}
+
 /****************/
 /* Content Tabs */
 /****************/
@@ -180,6 +189,7 @@ ul.dropdown-menu li a:hover {
 #content-nav {
     margin-top: 5px;
     margin-left: 5px;
+    border-right: 0;
 
     &> li > a {
         border-left: 1px solid lighten(#a23131, 5%);
@@ -191,6 +201,27 @@ ul.dropdown-menu li a:hover {
     li a:hover, li a.active {
         background: #a23131;
     }
+
+    .social-header {
+        font-family: @font-family-serif;
+        font-size: 30px;
+        margin: 3px 10px 0 25px;
+        color: #111;
+        text-shadow: 0px 1px 1px #444;
+        font-weight: 700;
+    }
+
+    .social-link {
+        font-size: 25px;
+        margin-right: 10px;
+        margin-top: 5px;
+
+        a {
+            border-radius: 10px;
+            padding: 5px;
+            box-shadow: 2px 2px 3px #000;
+        }
+    }
 }
 
 /****************/
@@ -199,7 +230,7 @@ ul.dropdown-menu li a:hover {
 
 #info-content {
     margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
 #donate-widget {
