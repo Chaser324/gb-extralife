@@ -385,6 +385,7 @@ refreshStream = (channel) ->
                 $('.index-entry').css "clear", "none"
                 $('.index-entry:nth-child(4n+5)').css "clear", "both"
                 --onAirStreamCount
+                refreshOnAirCount()
             else if stream isnt null and isLive is false
                 # Channel just came on-line
                 channelEntry.addClass 'on-air'
@@ -397,11 +398,15 @@ refreshStream = (channel) ->
                 $('.index-entry').css "clear", "none"
                 $('.index-entry:nth-child(4n+5)').css "clear", "both"
                 ++onAirStreamCount
+                refreshOnAirCount()
         complete:
             setTimeout (-> refreshStream channel), STREAM_UPDATE_RATE
 
-refreshAlerts = ->
-    return
+refreshOnAirCount = ->
+    if onAirStreamCount > 0
+        $('.liveStreamCount').html onAirStreamCount + ' Streams Are <span class="on-air-count">LIVE!</span>'
+    else
+        $('.liveStreamCount').html 'Live Streams'
 
 doResize = ->
     setupLayout currentLayout
