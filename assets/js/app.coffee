@@ -264,6 +264,8 @@ initEvents = ->
         loc = $(this).attr 'href'
         window.open loc, 'twitterwindow', 'height=450, width=550, top=' + ($(window).height()/2 - 225) + ', left=' + $(window).width()/2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0'
 
+    $('.footer-logo').popover()
+
 initIndex = ->
     source = $('#index-template').html()
     template = Handlebars.compile source
