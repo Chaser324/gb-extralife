@@ -21,8 +21,8 @@ HEIGHT_SMALL = 0
 
 BANNER_HEIGHT = 252
 
-TOTAL_UPDATE_RATE = 30000
-STREAM_UPDATE_RATE = 60000
+TOTAL_UPDATE_RATE = 300000
+STREAM_UPDATE_RATE = 90000
 
 flashvars = 
     enable_javascript: "true"
@@ -296,7 +296,7 @@ refreshStream = (channel) ->
                 channelEntry.find('p.live').addClass 'on-air'
                 channelEntry.find('.stream-pic').addClass 'on-air'
                 channelEntry.find('h2').text stream["channel"]["status"]
-                channelEntry.find('.stream-pic').attr 'src', stream["preview"]["large"]
+                channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
                 channelEntry.find('.game-title').text stream["channel"]["game"]
 
 
@@ -380,7 +380,7 @@ setCoords = ->
                 x: WIDTH_MED
                 y: HEIGHT_MED + CHAT_TAB_HEIGHT
                 width: WIDTH_MED
-                height: HEIGHT_MED - CHAT_TAB_HEIGHT
+                height: HEIGHT_MED - CHAT_TAB_HEIGHT - 8
             chatnav:
                 x: WIDTH_MED
                 y: HEIGHT_MED
@@ -397,7 +397,7 @@ setCoords = ->
                 x: WIDTH_LARGE
                 y: CHAT_TAB_HEIGHT
                 width: CHAT_WIDTH
-                height: HEIGHT_LARGE - CHAT_TAB_HEIGHT
+                height: HEIGHT_LARGE - CHAT_TAB_HEIGHT - 8
             chatnav:
                 x: WIDTH_LARGE
                 y: 0
@@ -424,13 +424,35 @@ setCoords = ->
                 x: WIDTH_LARGE
                 y: CHAT_TAB_HEIGHT
                 width: CHAT_WIDTH
-                height: HEIGHT_LARGE + HEIGHT_SMALL - CHAT_TAB_HEIGHT
+                height: HEIGHT_LARGE + HEIGHT_SMALL - CHAT_TAB_HEIGHT - 8
             chatnav:
                 x: WIDTH_LARGE
                 y: 0
                 width: CHAT_WIDTH
                 height: CHAT_TAB_HEIGHT
             overallHeight: HEIGHT_LARGE + HEIGHT_SMALL
+        twoUp:
+            stream1:
+                x: 0
+                y: 0
+                width: WIDTH_MED
+                height: HEIGHT_MED
+            stream2:
+                x: 0
+                y: HEIGHT_MED
+                width: WIDTH_MED
+                height: HEIGHT_MED
+            chat1:
+                x: WIDTH_MED
+                y: CHAT_TAB_HEIGHT
+                width: WIDTH_MED
+                height: HEIGHT_MED * 2 - CHAT_TAB_HEIGHT - 8
+            chatnav:
+                x: WIDTH_MED
+                y: 0
+                width: WIDTH_MED
+                height: CHAT_TAB_HEIGHT
+            overallHeight: HEIGHT_MED * 2
 
 setupLayout = (layoutType) ->
     currentLayout = layoutType

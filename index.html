@@ -41,6 +41,7 @@
                     <li><a href="javascript:void(0)" onclick="setupLayout('threeUp');"><img src="assets/img/layout-icons-1.png" /></a></li>
                     <li><a href="javascript:void(0)" onclick="setupLayout('oneUp');"><img src="assets/img/layout-icons-2.png" /></a></li>
                     <li><a href="javascript:void(0)" onclick="setupLayout('grid');"><img src="assets/img/layout-icons-4.png" /></a></li>
+                    <li><a href="javascript:void(0)" onclick="setupLayout('twoUp');"><img src="assets/img/layout-icons-5.png" /></a></li>
                 </ul>
             </li>
             <li><a href="#info-content">Info</a></li>
@@ -58,6 +59,10 @@
     <div class="alert alert-info alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong>Welcome!</strong> Enjoy the gaming and please <strong><a href="http://www.extra-life.org/team/giantbomb">DONATE</a></strong>! All proceeds benefit Children's Miracle Network hostpitals. See below for more details.
+    </div>
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Check out the list of streams below and use the "1","2","3" buttons to move them into slots at the top of the page.
     </div>
 
 
@@ -126,11 +131,17 @@
     <div id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4 text-center">
+                <div class="col-xs-5">
+                    <img class="img-responsive pull-left footer-face" style="border-radius: 35px; height: 70px; border: 5px solid black; margin-right: 10px; margin-top: 15px;" src="http://static.giantbomb.com/uploads/square_tiny/0/2840/961540-profile.png">
+                    <h2 class="footer-face">Site by <a href="http://twitter.com/chasepettit">@ChasePettit</a></h2>
+                </div>
+                <div class="col-xs-2 text-center">
                     <h2 class="ddp">&lt;&gt;</h2>
                 </div>
-                <div class="col-xs-4"></div>
+                <div class="col-xs-5">
+                    <img class="img-responsive pull-right footer-logo" style="margin-left: 10px;" src="assets/img/streamgoblin-face.png" />
+                    <img class="img-responsive pull-right footer-logo"src="assets/img/streamgoblin-logo.png" />
+                </div>
             </div>
         </div>
     </div>
@@ -143,11 +154,13 @@
             <img class="img-responsive stream-pic" src="assets/img/stream-test.jpg" />
             <h2>Off-Air</h2>
             <p class="stream-info"><strong><em>{{username}}</em></strong> playing <span class="game-title">nothing at the moment</span></p>
-            <a class="btn btn-default btn-donate" href="{{fund}}">Donate</a>
-            <div class="btn-group btn-view">
-                <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream1','{{stream}}');">1</a>
-                <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream2','{{stream}}');">2</a>
-                <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream3','{{stream}}');">3</a>
+            <div class="stream-buttons">
+                <a class="btn btn-default btn-donate" href="{{fund}}">Donate</a>
+                <div class="btn-group btn-view">
+                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream1','{{stream}}');">1</a>
+                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream2','{{stream}}');">2</a>
+                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream3','{{stream}}');">3</a>
+                </div>
             </div>
         </div>
         {{/each}}

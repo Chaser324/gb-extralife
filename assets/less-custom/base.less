@@ -278,9 +278,11 @@ ul.dropdown-menu li a:hover {
     .btn-default {
         color: #f5f5f5;
         background: #a23131;
+        opacity: 0.85;
 
         &:hover {
             background: lighten(#a23131, 10%);
+            opacity: 1.0;
         }
     }
 
@@ -341,6 +343,17 @@ ul.dropdown-menu li a:hover {
     }
 }
 
+.stream-buttons {
+    position: absolute;
+    top: 90px;
+    left: 15px;
+    z-index: 10;
+
+    .btn-default {
+        padding: 3px 6px;
+    }
+}
+
 /**********/
 /* Footer */
 /**********/
@@ -360,4 +373,24 @@ h2.ddp {
     font-weight: 800;
     color: #111;
     text-shadow: 0px 1px 1px #444;   
+}
+
+img.footer-logo {
+    height: 53px;
+    margin-top: 23px; 
+}
+
+h2.footer-face {
+    font-size: 20px;
+    margin-top: 35px;
+    font-weight: 300;
+    text-shadow: 2px 2px 5px #111;
+    a {
+        color: #a23131;
+
+        &:hover {
+            color: lighten(#a23131, 15%);
+            text-decoration: none;
+        }
+    }
 }
