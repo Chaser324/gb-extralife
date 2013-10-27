@@ -621,6 +621,7 @@ layoutPlayerSlot = (slot) ->
         overlay.height layout.height - 30
         overlay.tooltip
             title: number + ': ' + playerChannels[slot]
+        overlay.show()
     else
         removePlayer player
         overlay.hide()
@@ -660,9 +661,13 @@ updateTotal = ->
             setTimeout updateTotal, TOTAL_UPDATE_RATE
 
 swapStream = (slot, channel) ->
-    playerChannels[slot] = channel
-    removePlayer $('#'+slot)
-    setupLayout currentLayout
+    if playerChannels[slot] != channel
+        for key, value of playerChannels when channel == value
+            playerChannels[key] = playerChannels[slot]
+            removePlayer $('#'+key)
+        playerChannels[slot] = channel
+        removePlayer $('#'+slot)
+        setupLayout currentLayout
 
 loadChat = (channel) ->
     channelKey = channel
