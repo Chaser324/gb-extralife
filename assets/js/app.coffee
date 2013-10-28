@@ -40,6 +40,21 @@ attributes =
     "class": "layoutElement"
 
 users = 
+    a:
+        username: 'TestA'
+        fund: 'http://www.extra-life.org/participant/pascual'
+        stream: 'StreamerHouse'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/50/1713152-avatar.png'
+    b:
+        username: 'TestB'
+        fund: 'http://www.extra-life.org/participant/pascual'
+        stream: 'Lefty643'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/50/1713152-avatar.png'
+    c:
+        username: 'TestC'
+        fund: 'http://www.extra-life.org/participant/pascual'
+        stream: 'TheMiscManiac'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/50/1713152-avatar.png'
     1:
         username: 'Matt'
         fund: 'http://www.extra-life.org/participant/pascual'
@@ -293,6 +308,7 @@ currentLayout = ''
 currentChat = IRC_URL
 
 onAirStreamCount = 0
+newAlerts = []
 
 layouts = null
 
@@ -363,6 +379,24 @@ initIndex = ->
     $('.index-entry').each ->
         refreshStream $(this).attr 'data-channel'
 
+    setTimeout refreshAlerts, 10000
+
+refreshAlerts = ->
+    if newAlerts.length is 0
+        $('#liveAlerts').fadeOut 'fast', ->
+            setTimeout refreshAlerts, STREAM_UPDATE_RATE
+    else
+        liveAlerts = $('#liveAlerts')
+        alertTextBox = liveAlerts.find('p').eq(0)
+        alertStr = newAlerts.pop()
+
+        $('#liveAlerts').fadeIn 'fast', ->
+            alertTextBox.hide().html(alertStr).fadeIn('fast').delay(3000).fadeOut 'fast', ->
+                refreshAlerts()
+
+        
+
+
 refreshStream = (channel) ->
     $.ajax
         type: 'GET'
@@ -373,6 +407,7 @@ refreshStream = (channel) ->
         success: (data) ->
             stream = data["stream"]
             channelEntry = $("div[data-channel='" + channel + "']")
+            gbUserName = channelEntry.find('.gb-username').text()
             isLive = if channelEntry.find('p.live').hasClass 'on-air' then true else false
             if stream is null and isLive is true
                 # Channel just went off-line
@@ -399,12 +434,25 @@ refreshStream = (channel) ->
                 $('.index-entry:nth-child(4n+5)').css "clear", "both"
                 ++onAirStreamCount
                 refreshOnAirCount()
+                alertStr = '<strong>' + gbUserName + '</strong> is now LIVE playing ' + stream["channel"]["game"]
+                newAlerts.push alertStr
+            else if stream isnt null
+                # Still On-Air. Check for new game, title, thumbnail.
+                currentGame = channelEntry.find('.game-title').text
+                channelEntry.find('h2').text stream["channel"]["status"]
+                channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
+                channelEntry.find('.game-title').text stream["channel"]["game"]
+                if currentGame != stream["channel"]["game"]
+                    alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + stream["channel"]["game"]
+                    newAlerts.push alertStr
+
+
         complete:
             setTimeout (-> refreshStream channel), STREAM_UPDATE_RATE
 
 refreshOnAirCount = ->
     if onAirStreamCount > 0
-        $('.liveStreamCount').html onAirStreamCount + ' Streams Are <span class="on-air-count">LIVE!</span>'
+        $('.liveStreamCount').html onAirStreamCount + ' Streams Are <span class="on-air-count">LIVE!</span> <i class="fa fa-chevron-circle-down"></i>'
     else
         $('.liveStreamCount').html 'Live Streams'
 
@@ -580,8 +628,6 @@ setCoords = ->
 setupLayout = (layoutType) ->
     currentLayout = layoutType
     setCoords()
-    $('div.layoutElement').each (index) ->
-        layoutElement $(this), layouts[layoutType][$(this).attr('id')]
 
     layoutPlayerSlot 'stream1'
     layoutPlayerSlot 'stream2'
@@ -608,12 +654,18 @@ layoutChat = (chat) ->
 layoutChatNav = (chatnav) ->
     layout = layouts[currentLayout][chatnav]
     chatnav = $('#' + chatnav)
+    liveAlerts = $('#liveAlerts')
 
     if layout
         chatnav.css 'left', layout.x
         chatnav.css 'top', layout.y
         chatnav.width layout.width
         chatnav.height layout.height
+
+        liveAlerts.css 'left', layout.x
+        liveAlerts.css 'top', layout.y
+        liveAlerts.width layout.width
+        liveAlerts.height layout.height
 
 toggleChat = ->
     $('#chat1').toggle()

@@ -1,7 +1,7 @@
 
 html, body {
     position: relative;
-    min-width: 780px;
+    min-width: 900px;
     background-image: url(../img/alexis.png), url(../img/drew.png);
     background-repeat: no-repeat;
     background-position: bottom right, bottom left;
@@ -155,10 +155,46 @@ ul.dropdown-menu li a:hover {
 }
 
 #chat1 {
+
+}
+
+#liveAlerts {
+    position: absolute;
+    z-index: 2;
+
+    background: darken(#a23131, 5%);
+
+    h2 {
+        position: absolute;
+        top:0;
+        left: 0;
+        height: 100%;
+        font-size: 20px;
+        font-weight: 400;
+        text-shadow: 1px 1px 2px #000;
+        padding: 9px 8px 0px;
+        margin: 0;
+
+        #gradient .vertical(darken(#a23131, 15%); darken(#a23131, 30%); 50%; 100%);
+
+        .box-shadow(2px 0 5px #000);
+    }
+
+    p {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin-left: 90px;
+        height: 100%;
+        padding-top: 12px;
+        font-weight: 300;
+    }
 }
 
 #chatnav {
     position: absolute;
+    z-index: 1;
     min-height: 0;
     #gradient .vertical(#000; #333; 0%; 100%);
 

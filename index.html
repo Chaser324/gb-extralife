@@ -68,8 +68,8 @@
                     <li><a href="javascript:void(0)" onclick="setupLayout('twoUp');"><img src="assets/img/layout-icons-5.png" /></a></li>
                 </ul>
             </li>
-            <li><a href="#info-content">Info</a></li>
-            <li><a class="liveStreamCount" href="#stream-index">Live Streams</a></li>
+            <li><a href="#info-content">Info <i class="fa fa-chevron-circle-down"></i></a></li>
+            <li><a class="liveStreamCount" href="#stream-index">Live Streams <i class="fa fa-chevron-circle-down"></i></a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -98,6 +98,11 @@
         <div id="stream1Overlay" class="streamOverlay"></div>
         <div id="stream2Overlay" class="streamOverlay"></div>
         <div id="stream3Overlay" class="streamOverlay"></div>
+
+        <div id="liveAlerts" style="display: none;">
+            <h2>Alerts</h2>
+            <p></p>
+        </div>
 
         <nav id="chatnav" class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
@@ -198,7 +203,7 @@
             <img class="profile-pic" src="{{profilePic}}" />
             <img class="img-responsive stream-pic" src="assets/img/test.png" />
             <h2>Off-Air</h2>
-            <p class="stream-info"><strong><em>{{username}}</em></strong> playing <span class="game-title">nothing at the moment</span></p>
+            <p class="stream-info"><strong><em class="gb-username">{{username}}</em></strong> playing <span class="game-title">nothing at the moment</span></p>
             <div class="stream-buttons">
                 <a class="btn btn-default btn-donate" href="{{fund}}">Donate</a>
                 <div class="btn-group btn-view">
