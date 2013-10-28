@@ -679,6 +679,7 @@ layoutChatNav = (chatnav) ->
     liveAlerts = $('#liveAlerts')
 
     if layout
+        chatnav.show()
         chatnav.css 'left', layout.x
         chatnav.css 'top', layout.y
         chatnav.width layout.width
@@ -820,6 +821,7 @@ $(window).load ->
     initPage()
     initEvents()
     initIndex()
+    $('#streamsLoading').remove();
     
 $(window).resize ->
     doResize()
