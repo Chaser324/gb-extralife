@@ -439,27 +439,33 @@ refreshStream = (channel) ->
                 refreshOnAirCount()
             else if stream isnt null and isLive is false
                 # Channel just came on-line
+                newGame = stream["channel"]["game"]
+                if newGame is null
+                    newGame = "something"
                 channelEntry.addClass 'on-air'
                 channelEntry.find('p.live').addClass 'on-air'
                 channelEntry.find('.stream-pic').addClass 'on-air'
                 channelEntry.find('h2').text stream["channel"]["status"]
                 channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
-                channelEntry.find('.game-title').text stream["channel"]["game"]
+                channelEntry.find('.game-title').text newGame
                 $('#stream-container').prepend channelEntry
                 $('.index-entry').css "clear", "none"
                 $('.index-entry:nth-child(4n+5)').css "clear", "both"
                 ++onAirStreamCount
                 refreshOnAirCount()
-                alertStr = '<strong>' + gbUserName + '</strong> is now LIVE playing ' + stream["channel"]["game"]
+                alertStr = '<strong>' + gbUserName + '</strong> is now LIVE playing ' + newGame
                 newAlerts.push alertStr
             else if stream isnt null
                 # Still On-Air. Check for new game, title, thumbnail.
                 currentGame = channelEntry.find('.game-title').text()
+                newGame = stream["channel"]["game"]
+                if newGame is null
+                    newGame = "something"
                 channelEntry.find('h2').text stream["channel"]["status"]
                 channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
-                channelEntry.find('.game-title').text stream["channel"]["game"]
-                if currentGame != stream["channel"]["game"]
-                    alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + stream["channel"]["game"]
+                channelEntry.find('.game-title').text newGame
+                if currentGame != newGame
+                    alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + newGame
                     newAlerts.push alertStr
 
 
