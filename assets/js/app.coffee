@@ -3,7 +3,7 @@
 ### CONSTANTS ###
 #################
 
-PLAYER_URL = 'http://www.twitch.tv/widgets/raw/live_embed_player.swf'
+PLAYER_URL = '//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf'
 STREAM_API_URL = 'https://api.twitch.tv/kraken/streams/'
 IRC_URL = 'http://webchat.quakenet.org/?channels=gbendurancerun&uio=MT1mYWxzZSY4PWZhbHNlJjExPTM2OSYxMz1mYWxzZSYxND1mYWxzZQfc'
 
@@ -29,7 +29,9 @@ flashvars =
     fullscreen_click: "true"
     video_width: "427"
     video_height: "240"
-    auto_play: "true"
+    embed: 1
+    initCallback: ""
+    channel: ""
 
 params =
     allowFullScreen: "true"
@@ -40,21 +42,6 @@ attributes =
     "class": "layoutElement"
 
 users = 
-    a:
-        username: 'TestA'
-        fund: 'http://www.extra-life.org/participant/pascual'
-        stream: 'StreamerHouse'
-        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/50/1713152-avatar.png'
-    b:
-        username: 'TestB'
-        fund: 'http://www.extra-life.org/participant/pascual'
-        stream: 'Lefty643'
-        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/50/1713152-avatar.png'
-    c:
-        username: 'TestC'
-        fund: 'http://www.extra-life.org/participant/pascual'
-        stream: 'TheMiscManiac'
-        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/50/1713152-avatar.png'
     1:
         username: 'Matt'
         fund: 'http://www.extra-life.org/participant/pascual'
@@ -321,17 +308,31 @@ initPage = ->
     param2 = getURLParameter '2'
     param3 = getURLParameter '3'
     initLayout = getURLParameter 'layout'
+    paramSpecified = false
 
     if param1 isnt null
         playerChannels['stream1'] = param1
+        paramSpecified = true
     if param2 isnt null
         playerChannels['stream2'] = param2
+        paramSpecified = true
     if param3 isnt null
         playerChannels['stream3'] = param3
+        paramSpecified = true
     if initLayout is null
         initLayout = 'threeUp'
 
     $('#chat1').show()
+
+    first_visit = $.cookie 'first_visit'
+    if not first_visit
+        $.cookie 'first_visit', 'true',
+            expires: 3
+            path: '/'
+        $('.first-alert').show()
+    else
+        newAlerts.push '<strong>Welcome Back!</strong>' 
+        newAlerts.push 'The Giant Bomb Extra Life marathon rages on! Don\'t forget to <strong><a href="http://www.extra-life.org/team/giantbomb">DONATE</a></strong>.'
 
     for key, value of playerChannels
         addPlayer value, key
@@ -340,7 +341,7 @@ initPage = ->
 initEvents = ->
     $('.alert').bind 'closed.bs.alert', ->
         setTimeout doResize, 100
-    setTimeout updateTotal, 5000
+    setTimeout updateTotal, 15000
 
     $("a[href='#info-content']").click ->
         $('#content-nav li a.active').removeClass 'active'
@@ -363,6 +364,24 @@ initEvents = ->
         e.preventDefault()
         loc = $(this).attr 'href'
         window.open loc, 'twitterwindow', 'height=450, width=550, top=' + ($(window).height()/2 - 225) + ', left=' + $(window).width()/2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0'
+
+    $('a.fullscreen-link').click ->
+        if screenfull.enabled
+            screenfull.toggle()
+
+    $('#main-nav').find('.fullscreen-link').tooltip
+        title: 'Toggle Fullscreen'
+        placement: 'bottom'
+    $('#main-nav').find('.liveStreamCount').tooltip
+        title: 'Click to View Full List'
+        placement: 'bottom'
+    $('#main-nav').find('.info-link').tooltip
+        title: 'Click to Find Out More'
+        placement: 'bottom'
+
+    $("a[data-chat='irc']").tooltip
+        title: 'View IRC Chat'
+        placement: 'bottom'
 
     $('.footer-logo').popover()
 
@@ -388,14 +407,11 @@ refreshAlerts = ->
     else
         liveAlerts = $('#liveAlerts')
         alertTextBox = liveAlerts.find('p').eq(0)
-        alertStr = newAlerts.pop()
+        alertStr = newAlerts.shift()
 
         $('#liveAlerts').fadeIn 'fast', ->
             alertTextBox.hide().html(alertStr).fadeIn('fast').delay(3000).fadeOut 'fast', ->
                 refreshAlerts()
-
-        
-
 
 refreshStream = (channel) ->
     $.ajax
@@ -438,7 +454,7 @@ refreshStream = (channel) ->
                 newAlerts.push alertStr
             else if stream isnt null
                 # Still On-Air. Check for new game, title, thumbnail.
-                currentGame = channelEntry.find('.game-title').text
+                currentGame = channelEntry.find('.game-title').text()
                 channelEntry.find('h2').text stream["channel"]["status"]
                 channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
                 channelEntry.find('.game-title').text stream["channel"]["game"]
@@ -676,6 +692,7 @@ layoutPlayerSlot = (slot) ->
     player = $('#' + slot)
     overlay = $('#' + slot + 'Overlay')
     number = slot.charAt (slot.length - 1)
+    chatLink = $('a[data-chat="' + slot + '"]')
 
     if layout
         if player.is('div')
@@ -690,9 +707,12 @@ layoutPlayerSlot = (slot) ->
         overlay.css 'top', layout.y
         overlay.width layout.width
         overlay.height layout.height - 30
-        overlay.tooltip
-            title: number + ': ' + playerChannels[slot]
+        overlay.attr 'data-original-title', number + ': ' + playerChannels[slot]
+        overlay.tooltip 'fixTitle'
         overlay.show()
+
+        chatLink.attr 'data-original-title', 'View ' + playerChannels[slot] + '\'s Twitch Chat'
+        chatLink.tooltip 'fixTitle'
     else
         removePlayer player
         overlay.hide()
@@ -709,17 +729,33 @@ layoutElement = (element, layout) ->
         element.hide()
 
 embedPlayer = (channel, replaceElem) ->
-    swfobject.embedSWF(PLAYER_URL + "?channel=" + channel,replaceElem,"100","100","9.0.0",
+    flashvars.channel = channel
+    flashvars.initCallback = replaceElem + "Loaded"
+    swfobject.embedSWF(PLAYER_URL,replaceElem,"100","100","9.0.0",
         "expressInstall.swf",flashvars,params,attributes)
 
 addPlayer = (channelName, slotName) ->
     embedPlayer channelName, slotName
-    $('#' + slotName).attr('class','layoutElement')
 
 removePlayer = (playerElement) ->
     name = playerElement.attr 'id'
     div = "<div id='" + name + "'></div>"
     playerElement.replaceWith(div)
+
+stream1Loaded = ->
+    player = $('#stream1')[0]
+    player.playVideo()
+    player.unmute()
+
+stream2Loaded = ->
+    player = $('#stream2')[0]
+    player.playVideo()
+    player.mute()
+
+stream3Loaded = ->
+    player = $('#stream3')[0]
+    player.playVideo()
+    player.mute()
 
 updateTotal = ->    
     $.ajax
