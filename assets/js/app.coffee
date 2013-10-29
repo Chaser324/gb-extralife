@@ -249,7 +249,7 @@ users =
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
     42:
         username: 'Danimo'
-        fund: 'www.extra-life.org/participant/danimo'
+        fund: 'http://www.extra-life.org/participant/danimo'
         stream: 'danimo25'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/16/164155/2520889-gardner.jpg'
     43:
@@ -269,7 +269,7 @@ users =
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/116634/2107379-598968c9a4fe075013fe74c2528213354c4c3511_full.jpg'
     46:
         username: 'TheSouthernDandy'
-        fund: 'www.extra-life.org/participant/snagglewolf'
+        fund: 'http://www.extra-life.org/participant/snagglewolf'
         stream: 'thesnagglewolf'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/99864/2462709-vxhxjec.png'
     47:
@@ -298,6 +298,8 @@ onAirStreamCount = 0
 newAlerts = []
 
 layouts = null
+
+iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
 
 #################
 ### FUNCTIONS ###
@@ -369,19 +371,19 @@ initEvents = ->
         if screenfull.enabled
             screenfull.toggle()
 
-    $('#main-nav').find('.fullscreen-link').tooltip
-        title: 'Toggle Fullscreen'
-        placement: 'bottom'
-    $('#main-nav').find('.liveStreamCount').tooltip
-        title: 'Click to View Full List'
-        placement: 'bottom'
-    $('#main-nav').find('.info-link').tooltip
-        title: 'Click to Find Out More'
-        placement: 'bottom'
-
-    $("a[data-chat='irc']").tooltip
-        title: 'View IRC Chat'
-        placement: 'bottom'
+    if !iOS
+        $('#main-nav').find('.fullscreen-link').tooltip
+            title: 'Toggle Fullscreen'
+            placement: 'bottom'
+        $('#main-nav').find('.liveStreamCount').tooltip
+            title: 'Click to View Full List'
+            placement: 'bottom'
+        $('#main-nav').find('.info-link').tooltip
+            title: 'Click to Find Out More'
+            placement: 'bottom'
+        $("a[data-chat='irc']").tooltip
+            title: 'View IRC Chat'
+            placement: 'bottom'
 
     $('.footer-logo').popover()
 
@@ -647,7 +649,7 @@ setCoords = ->
                 height: CHAT_TAB_HEIGHT
             overallHeight: HEIGHT_MED * 2
 
-setupLayout = (layoutType) ->
+window.setupLayout = (layoutType) ->
     currentLayout = layoutType
     setCoords()
 
@@ -710,16 +712,17 @@ layoutPlayerSlot = (slot) ->
         player.width layout.width
         player.height layout.height
 
-        overlay.css 'left', layout.x
-        overlay.css 'top', layout.y
-        overlay.width layout.width
-        overlay.height layout.height - 30
-        overlay.attr 'data-original-title', number + ': ' + playerChannels[slot]
-        overlay.tooltip 'fixTitle'
-        overlay.show()
+        if !iOS
+            overlay.css 'left', layout.x
+            overlay.css 'top', layout.y
+            overlay.width layout.width
+            overlay.height layout.height - 30
+            overlay.attr 'data-original-title', number + ': ' + playerChannels[slot]
+            overlay.tooltip 'fixTitle'
+            overlay.show()
 
-        chatLink.attr 'data-original-title', 'View ' + playerChannels[slot] + '\'s Twitch Chat'
-        chatLink.tooltip 'fixTitle'
+            chatLink.attr 'data-original-title', 'View ' + playerChannels[slot] + '\'s Twitch Chat'
+            chatLink.tooltip 'fixTitle'
     else
         removePlayer player
         overlay.hide()
@@ -736,10 +739,14 @@ layoutElement = (element, layout) ->
         element.hide()
 
 embedPlayer = (channel, replaceElem) ->
-    flashvars.channel = channel
-    flashvars.initCallback = replaceElem + "Loaded"
-    swfobject.embedSWF(PLAYER_URL,replaceElem,"100","100","9.0.0",
-        "expressInstall.swf",flashvars,params,attributes)
+    if iOS
+        url = 'http://www.twitch.tv/' + channel + '/hls'
+        $('#' + replaceElem).replaceWith '<iframe id="' + replaceElem + '" src="' + url + '" scrolling="no" frameborder="0"></iframe>'
+    else
+        flashvars.channel = channel
+        flashvars.initCallback = replaceElem + "Loaded"
+        swfobject.embedSWF(PLAYER_URL,replaceElem,"100","100","9.0.0",
+            "expressInstall.swf",flashvars,params,attributes)
 
 addPlayer = (channelName, slotName) ->
     embedPlayer channelName, slotName
@@ -774,7 +781,7 @@ updateTotal = ->
         complete: ->
             setTimeout updateTotal, TOTAL_UPDATE_RATE
 
-swapStream = (slot, channel) ->
+window.swapStream = (slot, channel) ->
     if playerChannels[slot] != channel
         for key, value of playerChannels when channel == value
             playerChannels[key] = playerChannels[slot]
@@ -783,7 +790,7 @@ swapStream = (slot, channel) ->
         removePlayer $('#'+slot)
         setupLayout currentLayout
 
-loadChat = (channel) ->
+window.loadChat = (channel) ->
     channelKey = channel
     if channel != 'irc'
         channel = playerChannels[channel]
@@ -821,8 +828,15 @@ $(window).load ->
     initPage()
     initEvents()
     initIndex()
-    $('#streamsLoading').remove();
-    
-$(window).resize ->
+    $('#streamsLoading').fadeOut 'fast', ->
+        $('#footer').css 'position', 'relative'
+        $('body').css 'height', 'auto'
+        $('html').css 'height', 'auto'
+        $('#info-content').show();
+        $('#info-navbar').show();
+        $('#streams-wrapper').fadeIn 'slow', ->
+            doResize()
+
+$(window).on "resize orientationchange", ->
     doResize()
 
