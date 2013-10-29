@@ -306,6 +306,10 @@ iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
 #################
 
 initPage = ->
+    if playerChannels isnt null
+        for key, value of playerChannels
+            playerChannels[key] = value.toLowerCase()
+
     param1 = getURLParameter '1'
     param2 = getURLParameter '2'
     param3 = getURLParameter '3'
@@ -313,13 +317,13 @@ initPage = ->
     paramSpecified = false
 
     if param1 isnt null
-        playerChannels['stream1'] = param1
+        playerChannels['stream1'] = param1.toLowerCase()
         paramSpecified = true
     if param2 isnt null
-        playerChannels['stream2'] = param2
+        playerChannels['stream2'] = param1.toLowerCase()
         paramSpecified = true
     if param3 isnt null
-        playerChannels['stream3'] = param3
+        playerChannels['stream3'] = param1.toLowerCase()
         paramSpecified = true
     if initLayout is null
         initLayout = 'threeUp'
@@ -392,6 +396,9 @@ initEvents = ->
     $('.footer-logo').popover()
 
 initIndex = ->
+    Handlebars.registerHelper 'toLowerCase', (value) ->
+        return value.toLowerCase()
+
     source = $('#index-template').html()
     template = Handlebars.compile source
     context = {users}
@@ -681,6 +688,8 @@ layoutPlayerSlot = (slot) ->
     overlay = $('#' + slot + 'Overlay')
     number = slot.charAt (slot.length - 1)
     chatLink = $('a[data-chat="' + slot + '"]')
+    channelEntry = $("div[data-channel='" + playerChannels[slot] + "']")
+    gbUserName = channelEntry.find('.gb-username').text()
 
     if layout
         if player.is('div')
@@ -696,11 +705,11 @@ layoutPlayerSlot = (slot) ->
             overlay.css 'top', layout.y
             overlay.width layout.width
             overlay.height layout.height - 30
-            overlay.attr 'data-original-title', number + ': ' + playerChannels[slot]
+            overlay.attr 'data-original-title', number + ': ' + gbUserName
             overlay.tooltip 'fixTitle'
             overlay.show()
 
-            chatLink.attr 'data-original-title', 'View ' + playerChannels[slot] + '\'s Twitch Chat'
+            chatLink.attr 'data-original-title', 'View ' + gbUserName + '\'s Twitch Chat'
             chatLink.tooltip 'fixTitle'
     else
         removePlayer player

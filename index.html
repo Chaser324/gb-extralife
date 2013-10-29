@@ -201,7 +201,7 @@
 
     <script id="index-template" type="text/x-handlebars-template">
         {{#each users}}
-        <div class="col-xs-3 index-entry" data-channel="{{stream}}">
+        <div class="col-xs-3 index-entry" data-channel="{{toLowerCase stream}}">
             <p class="live">LIVE</p>
             <img class="profile-pic" src="{{profilePic}}" />
             <img class="img-responsive stream-pic" src="assets/img/test.png" />
@@ -210,9 +210,9 @@
             <div class="stream-buttons">
                 <a class="btn btn-default btn-donate" href="{{fund}}">Donate</a>
                 <div class="btn-group btn-view">
-                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream1','{{stream}}');">1</a>
-                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream2','{{stream}}');">2</a>
-                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream3','{{stream}}');">3</a>
+                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream1','{{toLowerCase stream}}');">1</a>
+                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream2','{{toLowerCase stream}}');">2</a>
+                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream3','{{toLowerCase stream}}');">3</a>
                 </div>
             </div>
         </div>
