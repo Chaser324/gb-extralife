@@ -238,7 +238,7 @@ refreshStream = (channel) ->
             else if stream? and isLive is false
                 # Channel just came on-line
                 newGame = stream["channel"]["game"]
-                if newGame?
+                if not newGame?
                     newGame = "something"
                 channelEntry.addClass 'on-air'
                 channelEntry.find('p.live').addClass 'on-air'
@@ -257,7 +257,7 @@ refreshStream = (channel) ->
                 # Still On-Air. Check for new game, title, thumbnail.
                 currentGame = channelEntry.find('.game-title').text()
                 newGame = stream["channel"]["game"]
-                if newGame?
+                if not newGame?
                     newGame = "something"
                 channelEntry.find('h2').text stream["channel"]["status"]
                 channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
