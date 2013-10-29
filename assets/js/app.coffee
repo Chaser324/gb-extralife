@@ -171,7 +171,8 @@ initIndex = ->
 
     source = $('#index-template').html()
     template = Handlebars.compile source
-    context = window.users
+    context = 
+        users: window.users
     html = template context
 
     window.users = null
