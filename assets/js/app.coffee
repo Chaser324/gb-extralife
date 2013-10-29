@@ -773,8 +773,16 @@ updateTotal = ->
 window.swapStream = (slot, channel) ->
     if playerChannels[slot] != channel
         for key, value of playerChannels when channel == value
+            # playerChannels[key] = playerChannels[slot]
+            # removePlayer $('#'+key)
+            p1 = $('#' + key)
+            p2 = $('#' + slot)
+            p1.attr 'id', slot
+            p2.attr 'id', key
             playerChannels[key] = playerChannels[slot]
-            removePlayer $('#'+key)
+            playerChannels[slot] = value
+            doResize()
+            return null
         playerChannels[slot] = channel
         removePlayer $('#'+slot)
         setupLayout currentLayout
