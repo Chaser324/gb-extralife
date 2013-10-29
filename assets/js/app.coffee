@@ -301,32 +301,46 @@ layouts = null
 
 iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
 
+specifiedParams =
+    stream1: false
+    stream2: false
+    stream3: false
+
+playerChannels = 
+    stream1: ''
+    stream2: ''
+    stream3: ''
+
 #################
 ### FUNCTIONS ###
 #################
 
 initPage = ->
-    if playerChannels isnt null
+    if window.playerChannels?
         for key, value of playerChannels
-            playerChannels[key] = value.toLowerCase()
+            if window.playerChannels.hasOwnProperty(key)
+                playerChannels[key] = window.playerChannels[key].toLowerCase()
+                specifiedParams[key] = true
 
     param1 = getURLParameter '1'
     param2 = getURLParameter '2'
     param3 = getURLParameter '3'
     initLayout = getURLParameter 'layout'
-    paramSpecified = false
 
-    if param1 isnt null
+    if param1?
         playerChannels['stream1'] = param1.toLowerCase()
-        paramSpecified = true
-    if param2 isnt null
-        playerChannels['stream2'] = param1.toLowerCase()
-        paramSpecified = true
-    if param3 isnt null
-        playerChannels['stream3'] = param1.toLowerCase()
-        paramSpecified = true
-    if initLayout is null
+        specifiedParams.stream1 = true
+    if param2?
+        playerChannels['stream2'] = param2.toLowerCase()
+        specifiedParams.stream2 = true
+    if param3?
+        playerChannels['stream3'] = param3.toLowerCase()
+        specifiedParams.stream3 = true
+    if not initLayout?
         initLayout = 'threeUp'
+
+    for key, value of specifiedParams when value is false
+        specifiedParams[key] = randomUser()
 
     $('#chat-irc').show()
 
@@ -452,7 +466,7 @@ refreshStream = (channel) ->
             channelEntry = $("div[data-channel='" + channel + "']")
             gbUserName = channelEntry.find('.gb-username').text()
             isLive = if channelEntry.find('p.live').hasClass 'on-air' then true else false
-            if stream is null and isLive is true
+            if not stream? and isLive is true
                 # Channel just went off-line
                 channelEntry.removeClass 'on-air'
                 channelEntry.find('p.live').removeClass 'on-air'
@@ -464,10 +478,10 @@ refreshStream = (channel) ->
                 $('.index-entry:nth-child(4n+5)').css "clear", "both"
                 --onAirStreamCount
                 refreshOnAirCount()
-            else if stream isnt null and isLive is false
+            else if stream? and isLive is false
                 # Channel just came on-line
                 newGame = stream["channel"]["game"]
-                if newGame is null
+                if newGame?
                     newGame = "something"
                 channelEntry.addClass 'on-air'
                 channelEntry.find('p.live').addClass 'on-air'
@@ -482,11 +496,11 @@ refreshStream = (channel) ->
                 refreshOnAirCount()
                 alertStr = '<strong>' + gbUserName + '</strong> is now LIVE playing ' + newGame + '.'
                 newAlerts.push alertStr
-            else if stream isnt null
+            else if stream?
                 # Still On-Air. Check for new game, title, thumbnail.
                 currentGame = channelEntry.find('.game-title').text()
                 newGame = stream["channel"]["game"]
-                if newGame is null
+                if newGame?
                     newGame = "something"
                 channelEntry.find('h2').text stream["channel"]["status"]
                 channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
@@ -787,12 +801,16 @@ updateTotal = ->
 window.swapStream = (slot, channel) ->
     if playerChannels[slot] != channel
         for key, value of playerChannels when channel == value
-            # playerChannels[key] = playerChannels[slot]
-            # removePlayer $('#'+key)
             p1 = $('#' + key)
             p2 = $('#' + slot)
             p1.attr 'id', slot
             p2.attr 'id', key
+
+            p1chat = $('#chat-' + key)
+            p2chat = $('#chat-' + slot)
+            p1chat.attr 'id', 'chat-' + slot
+            p2chat.attr 'id', 'chat-' + key
+
             playerChannels[key] = playerChannels[slot]
             playerChannels[slot] = value
             doResize()
@@ -810,6 +828,9 @@ window.loadChat = (channel) ->
         $('#chatnav ul li a.active').removeClass 'active'
         $("#chatnav ul li a[data-chat='" + channel + "']").addClass 'active'
 
+getRandomUsers = ->
+    return null
+
 getChatUrl = (channel) ->
     url = ''
     if channel == 'irc'
@@ -826,9 +847,9 @@ getURLParameter = (name) ->
 ###################
 
 $(window).load ->
-    initPage()
-    initEvents()
     initIndex()
+    initEvents()
+    initPage()
     $('#streamsLoading').fadeOut 'fast', ->
         $('#footer').css 'position', 'relative'
         $('body').css 'height', 'auto'
