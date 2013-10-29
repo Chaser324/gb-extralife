@@ -371,6 +371,10 @@ initEvents = ->
         if screenfull.enabled
             screenfull.toggle()
 
+    $('a.alertDismiss').click ->
+        newAlerts = []
+        $('#liveAlerts').fadeOut 'fast'
+
     if !iOS
         $('#main-nav').find('.fullscreen-link').tooltip
             title: 'Toggle Fullscreen'
@@ -485,7 +489,7 @@ doResize = ->
 
 setCoords = ->
     CHAT_WIDTH = 300
-    
+
     WIDTH_LARGE = $('#streams-wrapper').width() - CHAT_WIDTH
     HEIGHT_LARGE = (WIDTH_LARGE * 9/16) + 28
 

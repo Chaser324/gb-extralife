@@ -167,15 +167,24 @@ ul.dropdown-menu li a:hover {
         top:0;
         left: 0;
         height: 100%;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 400;
         text-shadow: 1px 1px 2px #000;
-        padding: 9px 8px 0px;
+        padding: 12px 8px 0px 3px;
         margin: 0;
 
         #gradient .vertical(darken(#a23131, 15%); darken(#a23131, 30%); 50%; 100%);
 
         .box-shadow(2px 0 5px #000);
+
+        a.alertDismiss {
+            color: #f5f5f5;
+            margin-right: 4px;
+
+            &:hover {
+                color: darken(#f5f5f5,25%);
+            }
+        }
     }
 
     p {
