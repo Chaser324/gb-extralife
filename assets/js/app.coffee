@@ -292,7 +292,7 @@ users =
 #################
 
 currentLayout = ''
-currentChat = IRC_URL
+currentChat = 'irc'
 
 onAirStreamCount = 0
 newAlerts = []
@@ -324,7 +324,7 @@ initPage = ->
     if initLayout is null
         initLayout = 'threeUp'
 
-    $('#chat1').show()
+    $('#chat-irc').show()
 
     first_visit = $.cookie 'first_visit'
     if not first_visit
@@ -484,11 +484,8 @@ doResize = ->
     setupLayout currentLayout
 
 setCoords = ->
-    if $('#chat1').is(":visible")
-        CHAT_WIDTH = 300
-    else
-        CHAT_WIDTH = 0
-
+    CHAT_WIDTH = 300
+    
     WIDTH_LARGE = $('#streams-wrapper').width() - CHAT_WIDTH
     HEIGHT_LARGE = (WIDTH_LARGE * 9/16) + 28
 
@@ -551,12 +548,7 @@ setCoords = ->
                 y: HEIGHT_MED
                 width: WIDTH_MED
                 height: HEIGHT_MED
-            chat1:
-                x: WIDTH_MED
-                y: HEIGHT_MED + CHAT_TAB_HEIGHT
-                width: WIDTH_MED
-                height: HEIGHT_MED - CHAT_TAB_HEIGHT - 8
-            chat2:
+            chat:
                 x: WIDTH_MED
                 y: HEIGHT_MED + CHAT_TAB_HEIGHT
                 width: WIDTH_MED
@@ -573,12 +565,7 @@ setCoords = ->
                 y: 0
                 width: WIDTH_LARGE
                 height: HEIGHT_LARGE
-            chat1:
-                x: WIDTH_LARGE
-                y: CHAT_TAB_HEIGHT
-                width: CHAT_WIDTH
-                height: HEIGHT_LARGE - CHAT_TAB_HEIGHT - 8
-            chat2:
+            chat:
                 x: WIDTH_LARGE
                 y: CHAT_TAB_HEIGHT
                 width: CHAT_WIDTH
@@ -605,12 +592,7 @@ setCoords = ->
                 y: HEIGHT_LARGE
                 width: WIDTH_SMALL
                 height: HEIGHT_SMALL
-            chat1:
-                x: WIDTH_LARGE
-                y: CHAT_TAB_HEIGHT
-                width: CHAT_WIDTH
-                height: HEIGHT_LARGE + HEIGHT_SMALL - CHAT_TAB_HEIGHT - 8
-            chat2:
+            chat:
                 x: WIDTH_LARGE
                 y: CHAT_TAB_HEIGHT
                 width: CHAT_WIDTH
@@ -632,12 +614,7 @@ setCoords = ->
                 y: HEIGHT_MED
                 width: WIDTH_MED
                 height: HEIGHT_MED
-            chat1:
-                x: WIDTH_MED
-                y: CHAT_TAB_HEIGHT
-                width: WIDTH_MED
-                height: HEIGHT_MED * 2 - CHAT_TAB_HEIGHT - 8
-            chat2:
+            chat:
                 x: WIDTH_MED
                 y: CHAT_TAB_HEIGHT
                 width: WIDTH_MED
@@ -657,8 +634,10 @@ window.setupLayout = (layoutType) ->
     layoutPlayerSlot 'stream2'
     layoutPlayerSlot 'stream3'
 
-    layoutChat 'chat1'
-    layoutChat 'chat2'
+    layoutChat 'chat-irc'
+    layoutChat 'chat-stream1'
+    layoutChat 'chat-stream2'
+    layoutChat 'chat-stream3'
 
     layoutChatNav 'chatnav'
 
@@ -666,7 +645,7 @@ window.setupLayout = (layoutType) ->
 
 
 layoutChat = (chat) ->
-    layout = layouts[currentLayout][chat]
+    layout = layouts[currentLayout]['chat']
     chat = $('#' + chat)
 
     if layout
@@ -691,10 +670,6 @@ layoutChatNav = (chatnav) ->
         liveAlerts.css 'top', layout.y
         liveAlerts.width layout.width
         liveAlerts.height layout.height
-
-toggleChat = ->
-    $('#chat1').toggle()
-    layout(currentLayout)
 
 layoutPlayerSlot = (slot) ->
     layout = layouts[currentLayout][slot]
@@ -750,6 +725,7 @@ embedPlayer = (channel, replaceElem) ->
 
 addPlayer = (channelName, slotName) ->
     embedPlayer channelName, slotName
+    document.getElementById('chat-' + slotName).src = getChatUrl(channelName)
 
 removePlayer = (playerElement) ->
     name = playerElement.attr 'id'
@@ -791,21 +767,13 @@ window.swapStream = (slot, channel) ->
         setupLayout currentLayout
 
 window.loadChat = (channel) ->
-    channelKey = channel
-    if channel != 'irc'
-        channel = playerChannels[channel]
-        $('#chat1').hide()
-        $('#chat2').show()
-    else 
-        $('#chat2').hide()
-        $('#chat1').show()
-
-    if (channel != currentChat) and (channel != 'irc')
-        document.getElementById('chat2').src = getChatUrl(channel)
+    if channel isnt currentChat
+        $('#chat-' + currentChat).hide()
+        $('#chat-' + channel).show()
         currentChat = channel
-        
-    $('#chatnav ul li a.active').removeClass 'active'
-    $("#chatnav ul li a[data-chat='" + channelKey + "']").addClass 'active'
+
+        $('#chatnav ul li a.active').removeClass 'active'
+        $("#chatnav ul li a[data-chat='" + channel + "']").addClass 'active'
 
 getChatUrl = (channel) ->
     url = ''
@@ -821,8 +789,6 @@ getURLParameter = (name) ->
 ###################
 ### MAIN SCRIPT ###
 ###################
-
-
 
 $(window).load ->
     initPage()
