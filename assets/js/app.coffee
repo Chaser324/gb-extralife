@@ -358,6 +358,8 @@ initPage = ->
         addPlayer value, key
     setupLayout initLayout
 
+    setTimeout refreshAlerts, 10000
+
 initEvents = ->
     $('.alert').bind 'closed.bs.alert', ->
         setTimeout doResize, 100
@@ -424,8 +426,6 @@ initIndex = ->
 
     $('.index-entry').each ->
         refreshStream $(this).attr 'data-channel'
-
-    setTimeout refreshAlerts, 10000
 
 refreshAlerts = ->
     if newAlerts.length is 0
