@@ -159,6 +159,7 @@ ul.dropdown-menu li a:hover {
 #liveAlerts {
     position: absolute;
     z-index: 2;
+    overflow: hidden;
 
     background: darken(#a23131, 5%);
 
@@ -172,6 +173,7 @@ ul.dropdown-menu li a:hover {
         text-shadow: 1px 1px 2px #000;
         padding: 12px 8px 0px 3px;
         margin: 0;
+        z-index: 2;
 
         #gradient .vertical(darken(#a23131, 15%); darken(#a23131, 30%); 50%; 100%);
 
@@ -193,6 +195,8 @@ ul.dropdown-menu li a:hover {
         top: 0;
         bottom: 0;
         margin-left: 90px;
+        margin-right: 10px;
+        white-space: nowrap;
         height: 100%;
         padding-top: 12px;
         font-weight: 300;

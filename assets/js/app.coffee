@@ -423,8 +423,22 @@ refreshAlerts = ->
         alertStr = newAlerts.shift()
 
         $('#liveAlerts').fadeIn 'fast', ->
-            alertTextBox.hide().html(alertStr).fadeIn('fast').delay(3000).fadeOut 'fast', ->
-                refreshAlerts()
+            alertTextBox.hide ->
+                alertTextBox.html(alertStr)
+
+                textWidth = alertTextBox.width()
+                containerWidth = liveAlerts.width() - 90
+
+                if textWidth <= containerWidth
+                    alertTextBox.fadeIn('fast').delay(3000).fadeOut 'fast', ->
+                        refreshAlerts()
+                else
+                    alertTextBox.fadeIn('fast').delay(1500).animate
+                        left: (containerWidth - textWidth - 10) + 'px'
+                        (textWidth - containerWidth) * 10, 'linear', ->
+                            alertTextBox.delay(1500).fadeOut 'fast', ->
+                                alertTextBox.css 'left', '0'
+                                refreshAlerts()
 
 refreshStream = (channel) ->
     $.ajax
@@ -466,7 +480,7 @@ refreshStream = (channel) ->
                 $('.index-entry:nth-child(4n+5)').css "clear", "both"
                 ++onAirStreamCount
                 refreshOnAirCount()
-                alertStr = '<strong>' + gbUserName + '</strong> is now LIVE playing ' + newGame
+                alertStr = '<strong>' + gbUserName + '</strong> is now LIVE playing ' + newGame + '.'
                 newAlerts.push alertStr
             else if stream isnt null
                 # Still On-Air. Check for new game, title, thumbnail.
@@ -478,7 +492,7 @@ refreshStream = (channel) ->
                 channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
                 channelEntry.find('.game-title').text newGame
                 if currentGame != newGame
-                    alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + newGame
+                    alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + newGame + '.'
                     newAlerts.push alertStr
 
 
