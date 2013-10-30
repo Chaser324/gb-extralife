@@ -137,18 +137,6 @@ initComplete = ->
             randomUser = getRandomUsers()
             swapStream key, randomUser
 
-    $('#streamsLoading').fadeOut 'fast', ->
-        $('#streamsLoading').remove()
-        $('#footer').css 'position', 'relative'
-        $('body').css 'height', 'auto'
-        $('html').css 'height', 'auto'
-        $('#info-content').show();
-        $('#info-navbar').show();
-        $('#streams-wrapper').fadeIn 'fast', ->
-            setTimeout refreshAlerts, 3000
-            setTimeout updateTotal, 15000
-            doResize()
-
 initEvents = ->
     $('.alert').bind 'closed.bs.alert', ->
         setTimeout doResize, 100
@@ -651,7 +639,18 @@ $(window).load ->
     initIndex()
     initEvents()
     initPage()
-    setTimeout initComplete, 3000
+    $('#streamsLoading').fadeOut 'fast', ->
+        $('#streamsLoading').remove()
+        $('#footer').css 'position', 'relative'
+        $('body').css 'height', 'auto'
+        $('html').css 'height', 'auto'
+        $('#info-content').show();
+        $('#info-navbar').show();
+        $('#streams-wrapper').fadeIn 'fast', ->
+            setTimeout initComplete, 3000
+            setTimeout refreshAlerts, 3000
+            setTimeout updateTotal, 15000
+            doResize()
 
 $(window).on "resize orientationchange", ->
     doResize()
