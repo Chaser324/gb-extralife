@@ -531,7 +531,14 @@ embedPlayer = (channel, replaceElem) ->
         $('#' + replaceElem).replaceWith '<iframe id="' + replaceElem + '" src="' + url + '" scrolling="no" frameborder="0"></iframe>'
     else
         flashvars.channel = channel
-        flashvars.initCallback = replaceElem + "Loaded"
+
+        if replaceElem is 'stream1'
+            flashvars.initCallback = stream1Loaded
+        else if replaceElem is 'stream2'
+            flashvars.initCallback = stream2Loaded
+        else
+            flashvars.initCallback = stream3Loaded
+
         swfobject.embedSWF(PLAYER_URL,replaceElem,"100","100","9.0.0",
             "expressInstall.swf",flashvars,params,attributes)
 
@@ -545,19 +552,25 @@ removePlayer = (playerElement) ->
     playerElement.replaceWith(div)
 
 stream1Loaded = ->
-    player = $('#stream1')[0]
-    player.playVideo()
-    player.unmute()
+    callback = ->
+        player = $('#stream1')[0]
+        player.playVideo()
+        player.unmute()
+    setTimeout callback, 3000
 
 stream2Loaded = ->
-    player = $('#stream2')[0]
-    player.playVideo()
-    player.mute()
+    callback = ->
+        player = $('#stream2')[0]
+        player.playVideo()
+        player.mute()
+    setTimeout callback, 3000
 
 stream3Loaded = ->
-    player = $('#stream3')[0]
-    player.playVideo()
-    player.mute()
+    callback = ->
+        player = $('#stream3')[0]
+        player.playVideo()
+        player.mute()
+    setTimeout callback, 3000
 
 updateTotal = ->    
     $.ajax
