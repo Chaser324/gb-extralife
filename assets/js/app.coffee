@@ -295,7 +295,7 @@ refreshOnAirCount = ->
     if onAirStreamCount > 0
         $('.liveStreamCount').html onAirStreamCount + ' Streams Are <span class="on-air-count">LIVE!</span> <i class="fa fa-chevron-circle-down"></i>'
     else
-        $('.liveStreamCount').html 'Live Streams'
+        $('.liveStreamCount').html 'Live Streams <i class="fa fa-chevron-circle-down"></i>'
 
 doResize = ->
     setupLayout currentLayout

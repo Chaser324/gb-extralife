@@ -6,6 +6,30 @@ playerChannels =
 
 users = [
     {
+        username: 'Giant Bomb'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=48734'
+        stream: 'giantbomb'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    }
+    {
+        username: 'Rorie'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=48734'
+        stream: 'frailgesture'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/87610/2149139-photo_2_fix.jpg'
+    }
+    {
+        username: 'Brad'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=48734'
+        stream: 'bradshoemaker'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/30/11228-allard.jpg'
+    }
+    {
+        username: 'Jeff'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=48734'
+        stream: 'jeffgerstmann'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/26/2402962-screen_shot_2012_12_28_at_7.08.50_pm.png'
+    }
+    {
         username: 'Matt'
         fund: 'http://www.extra-life.org/participant/pascual'
         stream: 'mattpascual'
@@ -292,5 +316,59 @@ users = [
         fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=64412'
         stream: 'brandonr785'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    }
+    {
+        username: 'CongruentPotato'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=65510'
+        stream: 'congruentpotato'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    }
+    {
+        username: 'Dexboost'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=67346'
+        stream: 'dexboost'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/20/203896/2517948-69248_4168001652185_1861354866_n.jpg'
+    }
+    {
+        username: 'Cimpy'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=67236'
+        stream: 'mselowen'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/16/160338/2473522-5be3fd2fd7b4d2733ca893c9bf00b072c3973ea6_full.jpg'
+    }
+    {
+        username: 'bpriller'
+        fund: 'http://www.extra-life.org/participant/bradpriller'
+        stream: '2idiotgamers'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/7/78739/1335849-album_joystick.png'
+    }
+    {
+        username: 'TheRoadHead'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=66980'
+        stream: 'lawlessbagel'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/2/23664/1513157-28000.png'
+    }
+    {
+        username: 'Zenthere'
+        fund: 'http://www.extra-life.org/participant/Zenthere'
+        stream: 'jwd2003'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/113693/1615364-portrait_square.jpg'
+    }
+    {
+        username: 'Petrok'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=65467'
+        stream: 'vaydus'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    }
+    {
+        username: 'notdavid'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=64841'
+        stream: 'alexrusselburg'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/126321/2511851-ryan.jpg'
+    }
+    {
+        username: 'GnomeonFire'
+        fund: 'http://www.extra-life.org/participant/gnomeonfire'
+        stream: 'gnomeonfire'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/122459/2523821-2523820-6262491607-Beric.jpg'
     }
 ]
