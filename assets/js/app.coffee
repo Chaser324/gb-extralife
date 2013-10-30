@@ -187,6 +187,37 @@ initEvents = ->
 
     $('.footer-logo').popover()
 
+    $('.overlay-move').draggable
+        revert: "valid"
+        revertDuration: 0
+        stack: '.streamOverlay'
+        iframeFix: true
+        cursorAt:
+            top: 10
+            right: 10
+        zIndex: 2000
+        start: (event, ui) ->
+            $(this).parent().css 'z-index', 2000
+        stop: (event, ui) ->
+            $(this).parent().css 'z-index', ''
+            $(this).css
+                'top': ''
+                'left': ''
+    $('.streamOverlay').droppable
+        accept: '.overlay-move'
+        activeClass: 'drop-active'
+        hoverClass: 'drop-hover'
+        drop: (event, ui) ->
+            draggedID = ui.draggable.parent().attr 'id'
+            draggedStream = draggedID.replace 'Overlay', ''
+            
+            droppedID = $(this).attr 'id'
+            droppedStream = droppedID.replace 'Overlay', ''
+
+            if droppedStream isnt draggedStream
+                swapStream droppedStream, playerChannels[draggedStream]
+
+
 initIndex = ->
     Handlebars.registerHelper 'toLowerCase', (value) ->
         return value.toLowerCase()
@@ -489,6 +520,9 @@ layoutPlayerSlot = (slot) ->
     chatLink = $('a[data-chat="' + slot + '"]')
     channelEntry = $("div[data-channel='" + playerChannels[slot] + "']")
     gbUserName = channelEntry.find('.gb-username').text()
+    gbUserIcon = channelEntry.find('.profile-pic').attr 'src'
+    gbUserIconTiny = gbUserIcon.replace('/square_mini/','/square_tiny/')
+    donateLink = channelEntry.find('.btn-donate').attr 'href'
 
     if layout
         if player.is('div')
@@ -504,8 +538,9 @@ layoutPlayerSlot = (slot) ->
             overlay.css 'top', layout.y
             overlay.width layout.width
             overlay.height layout.height - 30
-            overlay.attr 'data-original-title', number + ': ' + gbUserName
-            overlay.tooltip 'fixTitle'
+            overlay.find('.overlay-info h3').text gbUserName
+            overlay.find('.overlay-info img').attr 'src', gbUserIconTiny
+            overlay.find('.overlay-buttons .btn-donate').attr 'href', donateLink
             overlay.show()
 
             chatLink.attr 'data-original-title', 'View ' + gbUserName + '\'s Twitch Chat'
