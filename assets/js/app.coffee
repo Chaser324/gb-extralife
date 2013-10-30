@@ -646,6 +646,10 @@ window.loadChat = (channel) ->
 
         $('#chatnav ul li a.active').removeClass 'active'
         $("#chatnav ul li a[data-chat='" + channel + "']").addClass 'active'
+        
+        $('#chat-' + channel).width '300px'
+        $('#chat-' + channel).height '335px'
+        doResize()
 
 getRandomUsers = ->
     randomUser = null
@@ -698,8 +702,11 @@ $(window).load ->
             setTimeout initComplete, 3000
             setTimeout refreshAlerts, 6000
             setTimeout updateTotal, 15000
+            
             doResize()
 
-$(window).on "resize orientationchange", ->
-    doResize()
+            $(window).on "resize orientationchange", ->
+                doResize()
+
+
 
