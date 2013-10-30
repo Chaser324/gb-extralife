@@ -5,7 +5,7 @@
 
 PLAYER_URL = '//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf'
 STREAM_API_URL = 'https://api.twitch.tv/kraken/streams/'
-IRC_URL = 'http://webchat.quakenet.org/?channels=gbendurancerun&uio=MT1mYWxzZSY4PWZhbHNlJjExPTM2OSYxMz1mYWxzZSYxND1mYWxzZQfc'
+IRC_URL = 'http://webchat.quakenet.org/?channels=GBXL&uio=MT1mYWxzZSYyPXRydWUmOD1mYWxzZSY5PXRydWUmMTE9MzY5JjE0PWZhbHNlc7'
 
 CHAT_WIDTH = 300
 CHAT_TAB_HEIGHT = 42
