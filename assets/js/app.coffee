@@ -123,8 +123,6 @@ initPage = ->
 
     setupLayout initLayout
 
-    setTimeout refreshAlerts, 10000
-
 initComplete = ->
     specifiedCount = 0
     for key, value of specifiedParams when value is true
@@ -146,13 +144,14 @@ initComplete = ->
         $('html').css 'height', 'auto'
         $('#info-content').show();
         $('#info-navbar').show();
-        $('#streams-wrapper').fadeIn 'slow', ->
+        $('#streams-wrapper').fadeIn 'fast', ->
+            setTimeout refreshAlerts, 3000
+            setTimeout updateTotal, 15000
             doResize()
 
 initEvents = ->
     $('.alert').bind 'closed.bs.alert', ->
         setTimeout doResize, 100
-    setTimeout updateTotal, 15000
 
     $("a[href='#info-content']").click ->
         $('#content-nav li a.active').removeClass 'active'
@@ -251,7 +250,6 @@ refreshStream = (channel) ->
         type: 'GET'
         dataType: 'jsonp'
         crossDomain: true
-        jsonp: 'callback'
         url: STREAM_API_URL + channel
         success: (data) ->
             stream = data["stream"]
