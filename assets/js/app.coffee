@@ -1,7 +1,7 @@
 
-#################
-### CONSTANTS ###
-#################
+#############
+# CONSTANTS #
+#############
 
 PLAYER_URL = '//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf'
 STREAM_API_URL = 'https://api.twitch.tv/kraken/streams/'
@@ -41,9 +41,9 @@ params =
 attributes = 
     "class": "layoutElement"
 
-#################
-### VARIABLES ###
-#################
+#############
+# VARIABLES #
+#############
 
 currentLayout = ''
 currentChat = 'irc'
@@ -65,9 +65,9 @@ playerChannels =
     stream2: ''
     stream3: ''
 
-#################
-### FUNCTIONS ###
-#################
+#############
+# FUNCTIONS #
+#############
 
 initPage = ->
     if window.playerChannels?
@@ -108,8 +108,6 @@ initPage = ->
         newAlerts.push '<strong>Welcome Back!</strong>' 
         newAlerts.push 'The Giant Bomb Extra Life marathon rages on! Don\'t forget to <strong><a href="http://www.extra-life.org/team/giantbomb">DONATE</a></strong>.'
 
-    for key, value of playerChannels
-        addPlayer value, key
     setupLayout initLayout
 
     setTimeout refreshAlerts, 10000
@@ -265,8 +263,6 @@ refreshStream = (channel) ->
                 if currentGame != newGame
                     alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + newGame + '.'
                     newAlerts.push alertStr
-
-
         complete:
             setTimeout (-> refreshStream channel), STREAM_UPDATE_RATE
 
@@ -280,36 +276,29 @@ doResize = ->
     setupLayout currentLayout
 
 setCoords = ->
+    streamWrapper = $('#streams-wrapper')
+
     CHAT_WIDTH = 300
 
-    WIDTH_LARGE = $('#streams-wrapper').width() - CHAT_WIDTH
+    WIDTH_LARGE = streamWrapper.width() - CHAT_WIDTH
     HEIGHT_LARGE = (WIDTH_LARGE * 9/16) + 28
 
-    WIDTH_MED = $('#streams-wrapper').width() / 2
+    WIDTH_MED = streamWrapper.width() / 2
     HEIGHT_MED = (WIDTH_MED * 9/16) + 28
 
     WIDTH_SMALL = WIDTH_LARGE / 2
     HEIGHT_SMALL = (WIDTH_SMALL * 9/16) + 28
 
-    if currentLayout == "threeUpHorizontal"
-        WIDTH_SMALL = 300;
-        HEIGHT_SMALL = 200;
-
-        WIDTH_LARGE = $('#streams-wrapper').width() - WIDTH_SMALL;
-        HEIGHT_LARGE = (WIDTH_LARGE * 9/16) + 28
-
     height = 0
 
     if currentLayout == "threeUp"
         height = HEIGHT_LARGE + HEIGHT_SMALL
-    else if currentLayout == "threeUpHorizontal"
-        height = HEIGHT_LARGE
     else if currentLayout == "oneUp"
         height = HEIGHT_LARGE
     else
         height = HEIGHT_MED * 2
 
-    top = $('#streams-wrapper').position().top
+    top = streamWrapper.position().top
     winHeight = $(window).height()
 
     if (top + height) > winHeight
@@ -325,7 +314,7 @@ setCoords = ->
         WIDTH_SMALL = (WIDTH_LARGE / 2)
         HEIGHT_SMALL = (WIDTH_SMALL * 9/16) + 28
 
-        CHAT_WIDTH = $('#streams-wrapper').width() - WIDTH_LARGE
+        CHAT_WIDTH = streamWrapper.width() - WIDTH_LARGE
 
     layouts =
         grid:
@@ -599,9 +588,9 @@ getChatUrl = (channel) ->
 getURLParameter = (name) -> 
     decodeURIComponent((new RegExp("[?|&]#{name}=([^&;]+?)(&|##|;|$)").exec(location.search) || [null,""] )[1].replace(/\+/g, '%20'))||null;
 
-###################
-### MAIN SCRIPT ###
-###################
+###############
+# MAIN SCRIPT #
+###############
 
 $(window).load ->
     initIndex()
