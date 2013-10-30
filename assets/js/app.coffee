@@ -250,6 +250,8 @@ refreshStream = (channel) ->
         type: 'GET'
         dataType: 'jsonp'
         crossDomain: true
+        headers:
+            Accept: 'application/vnd.twitchtv.v2+json'
         url: STREAM_API_URL + channel
         success: (data) ->
             stream = data["stream"]
