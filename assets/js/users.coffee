@@ -1,8 +1,8 @@
 
 playerChannels =
-    stream1: "crispylovesyou",
-    stream2: "chasepettit",
-    stream3: "thefishofwisdom"
+    stream1: "",
+    stream2: "",
+    stream3: ""
 
 users = [
     {

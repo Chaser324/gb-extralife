@@ -72,9 +72,11 @@ playerChannels =
 initPage = ->
     if window.playerChannels?
         for key, value of playerChannels
-            if window.playerChannels.hasOwnProperty(key)
-                playerChannels[key] = window.playerChannels[key].toLowerCase()
-                specifiedParams[key] = true
+            if window.playerChannels.hasOwnProperty(key) and window.playerChannels?
+                window.playerChannels[key].trim()
+                if window.playerChannels[key] isnt ''
+                    playerChannels[key] = window.playerChannels[key].toLowerCase()
+                    specifiedParams[key] = true
 
     param1 = getURLParameter '1'
     param2 = getURLParameter '2'
@@ -82,19 +84,27 @@ initPage = ->
     initLayout = getURLParameter 'layout'
 
     if param1?
-        playerChannels['stream1'] = param1.toLowerCase()
+        playerChannels.stream1 = param1.toLowerCase()
         specifiedParams.stream1 = true
     if param2?
-        playerChannels['stream2'] = param2.toLowerCase()
+        playerChannels.stream2 = param2.toLowerCase()
         specifiedParams.stream2 = true
     if param3?
-        playerChannels['stream3'] = param3.toLowerCase()
+        playerChannels.stream3 = param3.toLowerCase()
         specifiedParams.stream3 = true
     if not initLayout?
         initLayout = 'threeUp'
 
-    for key, value of specifiedParams when value is false
-        specifiedParams[key] = randomUser()
+
+    if playerChannels['stream2'] is playerChannels['stream1']
+        playerChannels['stream2'] = ''
+        specifiedParams.stream2 = false
+    if playerChannels['stream3'] is playerChannels['stream1']
+        playerChannels['stream3'] = ''
+        specifiedParams.stream3 = false
+    if playerChannels['stream3'] is playerChannels['stream2']
+        playerChannels['stream3'] = ''
+        specifiedParams.stream3 = false
 
     $('#chat-irc').show()
 
@@ -108,9 +118,36 @@ initPage = ->
         newAlerts.push '<strong>Welcome Back!</strong>' 
         newAlerts.push 'The Giant Bomb Extra Life marathon rages on! Don\'t forget to <strong><a href="http://www.extra-life.org/team/giantbomb">DONATE</a></strong>.'
 
+    for key, value of specifiedParams when value is false
+        playerChannels[key] = getRandomUsers()
+
     setupLayout initLayout
 
     setTimeout refreshAlerts, 10000
+
+initComplete = ->
+    specifiedCount = 0
+    for key, value of specifiedParams when value is true
+        ++specifiedCount
+
+    for key, value of specifiedParams when value is false
+        channel = playerChannels[key]
+        channelEntry = $("div[data-channel='" + channel + "']")
+        isLive = if channelEntry.find('p.live').hasClass 'on-air' then true else false
+        streamNumber = parseInt key.charAt(key.length-1)
+        if not isLive and (onAirStreamCount + specifiedCount) >= streamNumber
+            randomUser = getRandomUsers()
+            swapStream key, randomUser
+
+    $('#streamsLoading').fadeOut 'fast', ->
+        $('#streamsLoading').remove()
+        $('#footer').css 'position', 'relative'
+        $('body').css 'height', 'auto'
+        $('html').css 'height', 'auto'
+        $('#info-content').show();
+        $('#info-navbar').show();
+        $('#streams-wrapper').fadeIn 'slow', ->
+            doResize()
 
 initEvents = ->
     $('.alert').bind 'closed.bs.alert', ->
@@ -575,7 +612,25 @@ window.loadChat = (channel) ->
         $("#chatnav ul li a[data-chat='" + channel + "']").addClass 'active'
 
 getRandomUsers = ->
-    return null
+    randomUser = null
+    usernames = $('.index-entry').map(-> $(this).attr 'data-channel').get()
+    for key, value of playerChannels
+        index = usernames.indexOf value 
+        if index > -1
+            usernames.splice index, 1
+    while not randomUser?
+        liveUsers = $('.index-entry.on-air').map(-> $(this).attr 'data-channel').get()
+        for key, value of playerChannels
+            index = liveUsers.indexOf value 
+            if index > -1
+                liveUsers.splice index, 1
+        if liveUsers.length > 0
+            randomNum = Math.floor ( Math.random() * (liveUsers.length - 1) )
+            randomUser = liveUsers[randomNum]
+        else
+            randomNum = Math.floor ( Math.random() * (usernames.length - 1) )
+            randomUser = usernames[randomNum]
+    return randomUser
 
 getChatUrl = (channel) ->
     url = ''
@@ -596,14 +651,7 @@ $(window).load ->
     initIndex()
     initEvents()
     initPage()
-    $('#streamsLoading').fadeOut 'fast', ->
-        $('#footer').css 'position', 'relative'
-        $('body').css 'height', 'auto'
-        $('html').css 'height', 'auto'
-        $('#info-content').show();
-        $('#info-navbar').show();
-        $('#streams-wrapper').fadeIn 'slow', ->
-            doResize()
+    setTimeout initComplete, 3000
 
 $(window).on "resize orientationchange", ->
     doResize()
