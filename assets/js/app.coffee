@@ -648,7 +648,7 @@ $(window).load ->
         $('#info-navbar').show();
         $('#streams-wrapper').fadeIn 'fast', ->
             setTimeout initComplete, 3000
-            setTimeout refreshAlerts, 3000
+            setTimeout refreshAlerts, 6000
             setTimeout updateTotal, 15000
             doResize()
 
