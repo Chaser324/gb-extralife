@@ -648,7 +648,17 @@ window.swapStream = (slot, channel) ->
 
             playerChannels[key] = playerChannels[slot]
             playerChannels[slot] = value
+
+            if currentChat is key
+                currentChat = slot
+            else if currentChat is slot
+                currentChat = key
+
+            $('#chatnav ul li a.active').removeClass 'active'
+            $("#chatnav ul li a[data-chat='" + currentChat + "']").addClass 'active'
+
             doResize()
+
             return null
         playerChannels[slot] = channel
         removePlayer $('#'+slot)
@@ -663,6 +673,7 @@ window.loadChat = (channel) ->
         $('#chatnav ul li a.active').removeClass 'active'
         $("#chatnav ul li a[data-chat='" + channel + "']").addClass 'active'
         
+        # IE9 Hack
         $('#chat-' + channel).width '300px'
         $('#chat-' + channel).height '335px'
         doResize()
