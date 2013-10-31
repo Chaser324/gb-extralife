@@ -534,6 +534,8 @@ layoutPlayerSlot = (slot) ->
     gbUserIcon = channelEntry.find('.profile-pic').attr 'src'
     gbUserIconTiny = gbUserIcon.replace('/square_mini/','/square_tiny/')
     donateLink = channelEntry.find('.btn-donate').attr 'href'
+    tweetLink = 'https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/?1=' + playerChannels[slot] + 
+        '&hashtags=GBXL,ExtraLife&text=Check out ' + gbUserName + '\'s stream, and help raise money for sick kids.'
 
     if layout
         if player.is('div')
@@ -552,6 +554,7 @@ layoutPlayerSlot = (slot) ->
             overlay.find('.overlay-info h3').text gbUserName
             overlay.find('.overlay-info img').attr 'src', gbUserIconTiny
             overlay.find('.overlay-buttons .btn-donate').attr 'href', donateLink
+            overlay.find('.overlay-buttons .tweet-link').attr 'href', tweetLink
             overlay.show()
 
             chatLink.attr 'data-original-title', 'View ' + gbUserName + '\'s Twitch Chat'
