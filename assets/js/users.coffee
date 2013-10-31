@@ -129,7 +129,7 @@ users = [
         username: 'jArmAhead'
         fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=52756'
         stream: 'ajarmahead'
-        profilePic: 'http://static.giantbomb.com/uploads/square_mini/3/37622/1059624-playstation_1_one_sony_audiophile_cd_player_transport_rca_1.jpg'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
     }
     {
         username: 'Danteveli'
@@ -376,5 +376,47 @@ users = [
         fund: 'http://www.extra-life.org/participant/gnomeonfire'
         stream: 'gnomeonfire'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/122459/2523821-2523820-6262491607-Beric.jpg'
+    }
+    {
+        username: 'Spotshadow'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=68590'
+        stream: 'skeeball575'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/65410/1190097-digital_shodan.jpg'
+    }
+    {
+        username: 'WavyWood'
+        fund: 'http://www.extra-life.org/participant/tristanp'
+        stream: 'tristanfilups'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    }
+    {
+        username: 'AimlessAJ'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=67640'
+        stream: 'aimlessaj'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/21/215357/2563564-aj+creepy+cartoon+v2.png'
+    }
+    {
+        username: 'TaskBarbarian'
+        fund: 'http://www.extra-life.org/participant/extradamage'
+        stream: 'extradamageofficial'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/121139/2511718-loveryandavis.png'
+    }
+    {
+        username: 'Rawson'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=68227'
+        stream: 'spacepopelive'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/64737/1307227-bestgameever.jpg'
+    }
+    {
+        username: 'archangel0183'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=65824'
+        stream: 'richlee03'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    }
+    {
+        username: 'Ind1gnation'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=67838'
+        stream: 'ind1gnation'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/18/188438/2470902-sagat+avatar.jpg'
     }
 ]
