@@ -393,6 +393,7 @@ ul.dropdown-menu li a:hover {
     margin-top: 5px;
     margin-left: 5px;
     border-right: 0;
+    width: 100%;
 
     &> li > a {
         border-left: 1px solid lighten(#a23131, 5%);
@@ -426,6 +427,21 @@ ul.dropdown-menu li a:hover {
             box-shadow: 2px 2px 3px #000;
         }
     }
+
+    .top-link {
+        a {
+            background: transparent;
+            border: none;
+            font-size: 35px;
+            margin: 7px 30px 0 0;
+            padding: 0;
+
+            &:hover {
+                background: transparent;
+                color: darken(#f5f5f5, 25%);
+            }
+        }
+    }
 }
 
 /****************/
@@ -434,6 +450,13 @@ ul.dropdown-menu li a:hover {
 
 #info-navbar {
     border-top: 3px solid #000;
+
+    &.affix {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
 #info-content {
@@ -671,3 +694,4 @@ span.on-air-count {
     text-shadow: 0 0 10px darken(#a23131, 25%);
     font-weight: 700;
 }
+

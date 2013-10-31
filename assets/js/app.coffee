@@ -5,7 +5,7 @@
 
 PLAYER_URL = '//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf'
 STREAM_API_URL = 'https://api.twitch.tv/kraken/streams/'
-IRC_URL = 'http://webchat.quakenet.org/?channels=GBXL&uio=MT1mYWxzZSYyPXRydWUmOD1mYWxzZSY5PXRydWUmMTE9MzY5JjE0PWZhbHNlc7'
+IRC_URL = 'http://webchat.quakenet.org/?channels=GBXL&uio=MT1mYWxzZSYyPXRydWUmND10cnVlJjg9ZmFsc2UmOT10cnVlJjEwPXRydWUmMTE9MzY5JjE0PWZhbHNlac'
 
 CHAT_WIDTH = 300
 CHAT_TAB_HEIGHT = 42
@@ -147,16 +147,21 @@ initEvents = ->
         $('#stream-index').hide 0
         $('#info-content').show 0, ->
             $('html, body').animate
-                scrollTop: $("#content-nav").offset().top
-                , 600
+                scrollTop: $(window).height()
+                , 400
     $("a[href='#stream-index']").click ->
         $('#content-nav li a.active').removeClass 'active'
         $("#content-nav li a[href='#stream-index']").addClass 'active'
         $('#info-content').hide 0
         $('#stream-index').show 0, ->
             $('html, body').animate
-                scrollTop: $("#content-nav").offset().top
-                , 600
+                scrollTop: $(window).height()
+                , 400
+    $('li.top-link a').click ->
+        $('html, body').animate
+            scrollTop: 0
+            , 400
+
 
     $('a.tweet-link').click (e) ->
         e.preventDefault()
@@ -186,6 +191,12 @@ initEvents = ->
             placement: 'bottom'
 
     $('.footer-logo').popover()
+
+    $('#info-navbar').affix
+        offset:
+            top: -> 
+                $(window).height() + 20
+
 
     $('.overlay-move').draggable
         revert: "valid"

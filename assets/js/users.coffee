@@ -30,6 +30,12 @@ users = [
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/26/2402962-screen_shot_2012_12_28_at_7.08.50_pm.png'
     }
     {
+        username: 'Patrick Klepek'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=48734'
+        stream: 'patrickklepek'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/93998/2309522-pk4.png'
+    }
+    {
         username: 'Matt'
         fund: 'http://www.extra-life.org/participant/pascual'
         stream: 'mattpascual'
