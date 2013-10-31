@@ -298,8 +298,14 @@ refreshStream = (channel) ->
                 $('#stream-container').append channelEntry
                 $('.index-entry').css "clear", "none"
                 $('.index-entry:nth-child(4n+5)').css "clear", "both"
+                
                 --onAirStreamCount
                 refreshOnAirCount()
+
+                for key, value of playerChannels when channel == value
+                    overlay = $('#' + key + 'Overlay')
+                    overlay.find('.overlay-info h3.playing-info').html '<em>playing</em> ' + 'nothing at the moment'
+
             else if stream? and isLive is false
                 # Channel just came on-line
                 newGame = stream["channel"]["game"]
@@ -318,6 +324,11 @@ refreshStream = (channel) ->
                 refreshOnAirCount()
                 alertStr = '<strong>' + gbUserName + '</strong> is now LIVE playing ' + newGame + '.'
                 newAlerts.push alertStr
+
+                for key, value of playerChannels when channel == value
+                    overlay = $('#' + key + 'Overlay')
+                    overlay.find('.overlay-info h3.playing-info').html '<em>playing</em> ' + newGame
+
             else if stream?
                 # Still On-Air. Check for new game, title, thumbnail.
                 currentGame = channelEntry.find('.game-title').text()
@@ -330,6 +341,10 @@ refreshStream = (channel) ->
                 if currentGame != newGame
                     alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + newGame + '.'
                     newAlerts.push alertStr
+                    
+                for key, value of playerChannels when channel == value
+                    overlay = $('#' + key + 'Overlay')
+                    overlay.find('.overlay-info h3.playing-info').html '<em>playing</em> ' + newGame
         complete:
             setTimeout (-> refreshStream channel), STREAM_UPDATE_RATE
 
