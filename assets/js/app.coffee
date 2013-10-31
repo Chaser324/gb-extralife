@@ -531,6 +531,7 @@ layoutPlayerSlot = (slot) ->
     chatLink = $('a[data-chat="' + slot + '"]')
     channelEntry = $("div[data-channel='" + playerChannels[slot] + "']")
     gbUserName = channelEntry.find('.gb-username').text()
+    gameName = channelEntry.find('.game-title').text()
     gbUserIcon = channelEntry.find('.profile-pic').attr 'src'
     gbUserIconTiny = gbUserIcon.replace('/square_mini/','/square_tiny/')
     donateLink = channelEntry.find('.btn-donate').attr 'href'
@@ -551,7 +552,8 @@ layoutPlayerSlot = (slot) ->
             overlay.css 'top', layout.y
             overlay.width layout.width
             overlay.height layout.height - 30
-            overlay.find('.overlay-info h3').text gbUserName
+            overlay.find('.overlay-info h3.name-info').text gbUserName
+            overlay.find('.overlay-info h3.playing-info').html '<em>playing</em> ' + gameName
             overlay.find('.overlay-info img').attr 'src', gbUserIconTiny
             overlay.find('.overlay-buttons .btn-donate').attr 'href', donateLink
             overlay.find('.overlay-buttons .tweet-link').attr 'href', tweetLink

@@ -302,15 +302,15 @@ ul.dropdown-menu li a:hover {
 
         height: 38px;
         width: 105px;
-        background: darken(#a23131, 15%);
+        background: #111111;
         overflow: visible;
 
         img {
             position: absolute;
             top: 5px;
             left: 5px;
-            height: 50px;
-            width: 50px;
+            height: 60px;
+            width: 60px;
             border-radius: 30px;
             border: 2px solid #FFFFFF;
             box-shadow: 1px 1px 1px #000;
@@ -319,16 +319,30 @@ ul.dropdown-menu li a:hover {
 
         h3 {
             position: absolute;
-            top: 9px;
-            left: 37px;
-            font-size: 15px;
+            top: -15px;
+            left: 47px;
+            font-size: 14px;
             font-weight: 300;
             z-index: 100;
             text-shadow: 2px 2px 5px #000;
-            background: #111111;
+            background: darken(#a23131, 10%);
             padding: 5px 5px 5px 20px;
             border-radius: 0 5px 5px 0;
+            border: 2px solid #111111;
             white-space: nowrap;
+            .box-shadow(inset 2px 2px 0px lighten(#a23131, 15%));
+
+            &.playing-info {
+                top: 12px;
+                background: #204863;
+                .box-shadow(inset 2px 2px 0px lighten(#204863, 15%));
+
+                em {
+                    font-size: 10px;
+                    margin-right: 2px;
+                    font-style: normal;
+                }
+            }
         }
     }
 
