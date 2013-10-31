@@ -419,4 +419,16 @@ users = [
         stream: 'ind1gnation'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/18/188438/2470902-sagat+avatar.jpg'
     }
+    {
+        username: 'flameboy84'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=45197'
+        stream: 'flameboy84'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/81233/1491745-boba_fett_by_livio_by_livio27.jpg'
+    }
+    {
+        username: 'flakmunkey'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=50261'
+        stream: 'flakmunkey'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/15/158516/2433661-kirksolo.jpg'
+    }
 ]
