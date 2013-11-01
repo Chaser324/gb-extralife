@@ -473,4 +473,28 @@ users = [
         stream: 'deliciousbees'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/12063/1400444-title_cptunderpant.gif'
     }
+    {
+        username: 'Disembodio'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=69988'
+        stream: 'shortwavegaming'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/13/137075/2550369-0824876966-Elect.jpg'
+    }
+    {
+        username: 'ErinIsADrunk'
+        fund: 'http://www.extra-life.org/participant/dotpatrick'
+        stream: 'dotpatrick'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/10652/2497573-avatar.jpg'
+    }
+    {
+        username: 'lcheek'
+        fund: 'http://www.extra-life.org/participant/altair'
+        stream: 'lcheek'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/13/137367/1972734-150088_10150100494901327_518451326_7889296_3113926_n.jpg'
+    }
+    {
+        username: 'Anomareh'
+        fund: 'http://www.extra-life.org/participant/anomareh'
+        stream: 'anomareh'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/99542/2021921-gray_128x128.png'
+    }
 ]
