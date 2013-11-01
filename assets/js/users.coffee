@@ -431,4 +431,46 @@ users = [
         stream: 'flakmunkey'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/15/158516/2433661-kirksolo.jpg'
     }
+    {
+        username: 'endoworks'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=68772'
+        stream: 'fanbastic'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/66391/2459760-img_2401.jpg'
+    }
+    {
+        username: 'gerp'
+        fund: 'http://www.extra-life.org/participant/crawfordmartin'
+        stream: 'crawfordmartin'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/112949/1762184-you_dont_know_jack.jpg'
+    }
+    {
+        username: 'Clarkers'
+        fund: 'http://www.extra-life.org/participant/60922'
+        stream: 'mikealfus'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/20/202027/2510306-loveryandavis.png'
+    }
+    {
+        username: 'onan'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=64976'
+        stream: 'cptwitch'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/9778/1336763-176637_default_largebluefixed.png'
+    }
+    {
+        username: 'Dinosaursssssss'
+        fund: 'http://www.extra-life.org/participant/dinosaursssssss'
+        stream: 'dinosaursssssss'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/16/167798/2468917-dinosaurs.png'
+    }
+    {
+        username: 'Mahonay'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=68852'
+        stream: 'lil_caravella_and_dillon'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/110367/1639105-mahonay.jpg'
+    }
+    {
+        username: 'deliciousbees'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=56964'
+        stream: 'deliciousbees'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/12063/1400444-title_cptunderpant.gif'
+    }
 ]
