@@ -1,6 +1,17 @@
 
 tmp
 temp
+dist
+
+##################
+# Compass / SASS #
+##################
+.sass-cache
+
+#########
+# Bower #
+#########
+vendor/bower
 
 ########
 # Node #
