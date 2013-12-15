@@ -12,6 +12,12 @@ users = [
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
     }
     {
+        username: 'GameSpot'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=48734'
+        stream: 'gamespot'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    }
+    {
         username: 'Rorie'
         fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=48734'
         stream: 'frailgesture'
