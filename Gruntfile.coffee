@@ -42,38 +42,22 @@ module.exports = (grunt) ->
                     # Minify using UglifyJS.
                     optimize: "uglify2"
 
-        styles:
-            # Out the concatenated contents of the following styles into the below
-            # development file path.
-            "dist/styles.css":
-                # Point this to where your `index.css` file is location.
-                src: "app/styles/index.css"
-
-                # The relative path to use for the @imports.
-                paths: ["app/styles"]
-
-                # Rewrite image paths during release to be relative to the `img`
-                # directory.
-                forceRelative: "/app/img/"
-
-        # Minfiy the distribution CSS.
-        cssmin:
-            release:
+        less:
+            main:
+                options:
+                    paths: ["app/public/assets/less"]
+                    cleancss: true
                 files:
-                    "dist/styles.min.css": ["dist/styles.css"]        
+                    "dist/public/assets/css/app.css": "app/public/assets/less/app.less"
+                    "dist/public/assets/css/chat.css": "app/public/assets/less/chat.less"
 
-        server:
-            options:
-                host: "0.0.0.0"
-                port: 8000
-            # development:
-            release:
-                options:
-                    prefix: "dist"
-            test:
-                options:
-                    forever: false
-                    port: 8001
+        coffee:
+            main:
+                expand: true
+                cwd: "app/"
+                src: ["**/*.coffee"]
+                dest: "dist/"
+                ext: ".js"
 
         processhtml:
             release:
@@ -85,14 +69,27 @@ module.exports = (grunt) ->
             release:
                 files: [
                     {
-                        src: ["app/**"]
-                        dest: "dist/"
-                    },
-                    {
-                        src: "vendor/**"
-                        dest: "dist/"
+                        src: ['views/**', 'routes/**', 'models/**', 'public/*', 'public/assets/**/*.js', 'public/assets/img/**']
+                        dest: 'dist'
+                        cwd: 'app'
+                        filter: 'isFile'
+                        expand: true
                     }
                 ]
+
+        express:
+            main:
+                options:
+                    port: 3700
+                    script: 'dist/app.js'
+
+        watch:
+            express:
+                files: ['app/**']
+                tasks: ["less", "coffee", "copy", "express", "watch"]
+                options:
+                    spawn: false
+                    livereload: true
 
         karma:
             options:
@@ -127,22 +124,22 @@ module.exports = (grunt) ->
 
     # Grunt contribution tasks.
     grunt.loadNpmTasks "grunt-contrib-clean"
-    grunt.loadNpmTasks "grunt-contrib-jshint"
-    grunt.loadNpmTasks "grunt-contrib-cssmin"
     grunt.loadNpmTasks "grunt-contrib-copy"
+    grunt.loadNpmTasks "grunt-contrib-less"
+    grunt.loadNpmTasks "grunt-contrib-coffee"
+    grunt.loadNpmTasks "grunt-contrib-watch"
+    grunt.loadNpmTasks "grunt-express-server"
 
     # Third-party tasks.
     grunt.loadNpmTasks "grunt-karma"
     grunt.loadNpmTasks "grunt-processhtml"
 
     # Grunt BBB tasks.
-    grunt.loadNpmTasks "grunt-bbb-server"
     grunt.loadNpmTasks "grunt-bbb-requirejs"
-    grunt.loadNpmTasks "grunt-bbb-styles"
 
     # When running the default Grunt command, just lint the code.
     grunt.registerTask "default", [
-        "clean", "processhtml", "copy", "requirejs", "styles", "cssmin"
+        "clean", "less", "coffee", "copy", "express", "watch"
     ]
 
     # The test task take care of starting test server and running tests.

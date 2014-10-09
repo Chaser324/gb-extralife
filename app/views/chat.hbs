@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chat Test Page</title>
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+    <link href="assets/css/app.css" rel="stylesheet" media="screen">
+
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="assets/js/chat.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+</head>
+<body style="background-image: none; background: #000000; padding: 20px;">
+    <div id="chat-test" style="width: 450px; height: 100%; background: #111111;">
+
+
+        <div id="chat-wrapper">
+            <div id="chat-content" style="width: 500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;">
+            </div>
+            <div class="chat-controls">
+                <input id="field" type="text" style="width: 350px;">
+                <input id="send" type="button" value="send">
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

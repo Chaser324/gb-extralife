@@ -3,6 +3,8 @@ tmp
 temp
 dist
 
+app/config.coffee
+
 ##################
 # Compass / SASS #
 ##################
