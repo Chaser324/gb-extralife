@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SGDQ2014 - Explosive Runs - Giant Bomb</title>
+    <title>Extra Life 2014 - Explosive Runs - Giant Bomb</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta property="og:title" content="SGDQ2014 - Explosive Runs - Giant Bomb" />
+    <meta property="og:title" content="Extra Life 2014 - Explosive Runs - Giant Bomb" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://www.explosiveruns.com/" />
     <meta property="og:image" content="http://www.explosiveruns.com/assets/img/test.png" />
-    <meta property="og:description" content="Join us as we raise funds to benefit the American Sleep Apnea Association's CPAP Assistance program!" />
+    <meta property="og:description" content="Join us as we raise funds to benefit Extra Life and Children's Miracle Network hospitals!" />
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
@@ -30,9 +30,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
 
-    <script src="assets/js/vendor/vendor.js"></script>
     <script src="assets/js/users.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/scripts.min.js"></script>
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -47,7 +46,7 @@
 <body>
     <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="https://gamesdonequick.com/tracker/donate/10" target="_blank"><span><img src="assets/img/gb-logo.png" /> Explosive Runs - </span>#SGDQ2014</a>
+            <a class="navbar-brand" href="" target="_blank"><span><img src="assets/img/gb-logo.png" /> Explosive Runs</span></a>
         </div>
 
         <ul id="main-nav" class="nav navbar-nav">
@@ -66,16 +65,16 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a class="btn btn-default navbar-btn" href="https://gamesdonequick.com/tracker/donate/10" target="_blank"><i class="fa fa-star"></i> DONATE!</a>
+            <li><a id="nav-donate" class="btn btn-default navbar-btn" href="" target="_blank"><i class="fa fa-star"></i> DONATE!</a>
         </ul>
 
-        <!-- <p id="current-total" class="navbar-text pull-right">Total: <span id="total-value">$</span></p> -->
+        <p id="current-total" class="navbar-text pull-right">Total: <span id="total-value">$</span></p>
     </nav>
 
 
-    <div class="alert alert-info alert-dismissable first-alert" style="display: none;">
+    <div id="donate-alert" class="alert alert-info alert-dismissable first-alert" style="display: none;">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Welcome!</strong> Enjoy the gaming and please <strong><a href="https://gamesdonequick.com/tracker/donate/10">DONATE</a></strong>! All proceeds benefit Doctor's Without Borders.
+        <span></span>
     </div>
     <div class="alert alert-info alert-dismissable first-alert" style="display: none;">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -159,8 +158,8 @@
             <li><a class="active" href="#info-content">Info</a></li>
             <li><a href="#stream-index">Live Streams</a></li>
             <li class="social-header">SPREAD THE WORD:</li>
-            <li class="social-link"><a class="tweet-link" href="https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/&hashtags=SGDQ2014&text=Join us as we raise funds to benefit the American Sleep Apnea Association's CPAP Assistance program!" target="_blank"><i class="fa fa-twitter-square"></i> #SGDQ2014</a></li>
-            <li class="social-link"><a class="tweet-link" href="http://www.facebook.com/sharer.php?u=http://www.explosiveruns.com/&t=Join us as we raise funds to benefit the American Sleep Apnea Association's CPAP Assistance program!"><i class="fa fa-facebook-square"></i> LIKE</a></li>
+            <li id="twitter-link" class="social-link"></li>
+            <li id="fb-link" class="social-link"></li>
             <li class="pull-right top-link"><a href="#"><i class="fa fa-chevron-circle-up"></i></a></li>
         </ul>
     </nav>
@@ -168,15 +167,20 @@
     <div id="info-content" class="container" style="display: none;">
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2 text-center">
-                <a href="https://gamesdonequick.com/" target="_blank"><img class="img-responsive" src="http://static.giantbomb.com/uploads/original/9/92448/2646377-3703193333-banne.jpg" /></a>
+                <a href="http://www.extra-life.org/team/giantbomb" target="_blank"><img class="img-responsive" style="margin: auto;" src="http://static.giantbomb.com/uploads/ignore_jpg_scale_super/0/50/2663274-thread+banner.png" /></a>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-xs-8 col-xs-offset-2">
+                <p>It's that time of year again and that means Extra-Life is back! For those of you that may not know, Extra-Life is an annual gaming event where people play games for 24 hours to raise money for children's hospitals. This year Extra-Life will be happening on October 25th.</p>
+                <p>Last year we did amazingly well. The Giant Bomb team raised $122,680 and ranked 3rd of 3,800 teams. Keeping that in mind I've set the team goal to $175,000 for 2014. It's a lot of money but we can do it for the kids!</p>
             </div>
         </div>
         <div class="row" style="margin-top: 15px;">
             <div class="col-xs-8 col-xs-offset-2 text-center">
-                <p><a href="https://gamesdonequick.com/faq" target="_blank">SGDQ 2014 FAQ</a><p>
-                <p><a href="https://gamesdonequick.com/schedule" target="_blank">Event Schedule</a><p>
-                <p><a href="https://gamesdonequick.com/tracker/bids/10" target="_blank">Donation Incentives</a><p>
-                <p><a href="https://gamesdonequick.com/tracker/donate/10" target="_blank">Donate!</a><p>
+                <p><a href="http://www.extra-life.org/" target="_blank">About Extra Life</a><p>
+                <p><a href="http://www.giantbomb.com/forums/general-discussion-30/extra-life-2014-gb-team-play-games-heal-kids-oct-2-1490765/" target="_blank">Giant Bomb Extra Life Forum Thread</a><p>
+                <p><a href="http://www.extra-life.org/team/giantbomb" target="_blank">Giant Bomb Extra Life Roster</a><p>
             </div>
         </div>
     </div>
@@ -198,17 +202,17 @@
                 <div class="col-xs-2 text-center">
                     <h2 class="ddp">&lt;&gt;</h2>
                 </div>
-                <div class="col-xs-5">
+                <!-- <div class="col-xs-5">
                     <img class="img-responsive pull-right footer-logo" style="margin-left: 10px;" data-title="ModBot says:" data-content="Winners don't use drugs." data-placement="top" data-trigger="hover" src="assets/img/modbot.png" />
                     <img class="img-responsive pull-right footer-logo" style="margin-left: 10px;" data-title="Stream Goblin says:" data-content="NOM NOM NOM. STREAMS ARE DELICIOUS!" data-placement="top" data-trigger="hover" src="assets/img/streamgoblin-face.png" />
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 
     <script id="index-template" type="text/x-handlebars-template">
         {{#each users}}
-        <div class="col-xs-3 index-entry" data-channel="{{toLowerCase stream}}">
+        <div class="col-xs-3 index-entry" data-gbusername="{{username}}" data-channel="{{toLowerCase stream}}" data-site="{{streamsite}}">
             <p class="live">LIVE</p>
             <img class="profile-pic" src="{{profilePic}}" />
             <img class="img-responsive stream-pic" src="assets/img/test.png" />
@@ -217,9 +221,9 @@
             <div class="stream-buttons">
                 <a class="btn btn-default btn-donate" href="{{fund}}" target="_blank">Donate</a>
                 <div class="btn-group btn-view">
-                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream1','{{toLowerCase stream}}');">1</a>
-                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream2','{{toLowerCase stream}}');">2</a>
-                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream3','{{toLowerCase stream}}');">3</a>
+                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream1','{{username}}');">1</a>
+                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream2','{{username}}');">2</a>
+                    <a class="btn btn-default" href="javascript:void(0)" onclick="swapStream('stream3','{{username}}');">3</a>
                 </div>
             </div>
         </div>

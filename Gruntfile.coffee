@@ -69,7 +69,7 @@ module.exports = (grunt) ->
             release:
                 files: [
                     {
-                        src: ['views/**', 'routes/**', 'models/**', 'public/*', 'public/assets/**/*.js', 'public/assets/img/**']
+                        src: ['views/**', 'routes/**', 'models/**', 'public/*', 'public/assets/img/**']
                         dest: 'dist'
                         cwd: 'app'
                         filter: 'isFile'
@@ -83,10 +83,24 @@ module.exports = (grunt) ->
                     port: 3700
                     script: 'dist/app.js'
 
+        uglify:
+            main:
+                # options:
+                    # beautify: true
+                    # preserveComments: true
+                    # mangle: false
+                files:
+                    'dist/public/assets/js/scripts.min.js': [
+                        'app/public/assets/js/vendor/jquery.cookie.js'
+                        'app/public/assets/js/vendor/jquery.xdomainajax.js'
+                        'app/public/assets/js/vendor/screenful.min.js'
+                        'dist/public/assets/js/app.js'
+                    ]
+
         watch:
             express:
                 files: ['app/**']
-                tasks: ["less", "coffee", "copy", "express", "watch"]
+                tasks: ["less", "coffee", "copy", "express", "uglify", "watch"]
                 options:
                     spawn: false
                     livereload: true
@@ -129,6 +143,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks "grunt-contrib-coffee"
     grunt.loadNpmTasks "grunt-contrib-watch"
     grunt.loadNpmTasks "grunt-express-server"
+    grunt.loadNpmTasks "grunt-contrib-uglify"
 
     # Third-party tasks.
     grunt.loadNpmTasks "grunt-karma"
@@ -139,7 +154,7 @@ module.exports = (grunt) ->
 
     # When running the default Grunt command, just lint the code.
     grunt.registerTask "default", [
-        "clean", "less", "coffee", "copy", "express", "watch"
+        "clean", "less", "coffee", "copy", "express", "uglify", "watch"
     ]
 
     # The test task take care of starting test server and running tests.

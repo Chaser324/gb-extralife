@@ -3,9 +3,26 @@
 # CONSTANTS #
 #############
 
-PLAYER_URL = 'http://www.twitch.tv/widgets/live_embed_player.swf'
-STREAM_API_URL = 'https://api.twitch.tv/kraken/streams/'
+TWITCH_PLAYER_URL = 'http://www.twitch.tv/widgets/live_embed_player.swf'
+TWITCH_API_URL = 'https://api.twitch.tv/kraken/streams/'
+
+
+# <iframe width="640" height="360" src="http://hitbox.tv/#!/embed/m00sician" frameborder="0" allowfullscreen></iframe>
+HITBOX_CHAT_URL = 'http://www.hitbox.tv/embedchat/'
+HITBOX_PLAYER_URL = 'http://hitbox.tv/#!/embed/'
+HITBOX_API_URL = 'http://api.hitbox.tv/media/live/'
+
 IRC_URL = 'http://webchat.quakenet.org/?channels=GBXL&uio=MT1mYWxzZSYyPXRydWUmND10cnVlJjg9ZmFsc2UmOT10cnVlJjEwPXRydWUmMTE9MzY5JjE0PWZhbHNlac'
+
+DONATIONS_ACTIVE = true
+BASE_DONATE_URL = 'http://www.extra-life.org/team/giantbomb'
+NAVBAR_BRAND = '<span><img src="assets/img/gb-logo.png" /> Explosive Runs - </span>#GBXL'
+DONATE_ALERT = '<strong>Welcome!</strong> Enjoy the gaming and please <strong><a href="https://gamesdonequick.com/tracker/donate/10">DONATE</a></strong>! All proceeds benefit Extra Life and Children\'s Miracle Network Hospitals.'
+TWITTER_LINK = '<a class="tweet-link" href="https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/&hashtags=GBXL&text=Join us as we raise funds to benefit Extra Life!" target="_blank"><i class="fa fa-twitter-square"></i> #GBXL</a>'
+FB_LINK = '<a class="tweet-link" href="http://www.facebook.com/sharer.php?u=http://www.explosiveruns.com/&t=Join us as we raise funds to benefit Extra Life and Children\'s Miracle Network Hospitals!"><i class="fa fa-facebook-square"></i> LIKE</a>'
+
+STREAM_LINK = ', and help raise money for @ExtraLife4Kids.'
+STREAM_HASHTAG = 'GBXL'
 
 CHAT_WIDTH = 300
 CHAT_TAB_HEIGHT = 42
@@ -22,7 +39,7 @@ HEIGHT_SMALL = 0
 BANNER_HEIGHT = 252
 
 TOTAL_UPDATE_RATE = 300000
-STREAM_UPDATE_RATE = 90000
+STREAM_UPDATE_RATE = 120000
 
 flashvars =
     hostname: "www.twitch.tv"
@@ -77,7 +94,7 @@ initPage = ->
             if window.playerChannels.hasOwnProperty(key) and window.playerChannels?
                 window.playerChannels[key].trim()
                 if window.playerChannels[key] isnt ''
-                    playerChannels[key] = window.playerChannels[key].toLowerCase()
+                    playerChannels[key] = window.playerChannels[key]
                     specifiedParams[key] = true
 
     param1 = getURLParameter '1'
@@ -86,13 +103,13 @@ initPage = ->
     initLayout = getURLParameter 'layout'
 
     if param1?
-        playerChannels.stream1 = param1.toLowerCase()
+        playerChannels.stream1 = param1
         specifiedParams.stream1 = true
     if param2?
-        playerChannels.stream2 = param2.toLowerCase()
+        playerChannels.stream2 = param2
         specifiedParams.stream2 = true
     if param3?
-        playerChannels.stream3 = param3.toLowerCase()
+        playerChannels.stream3 = param3
         specifiedParams.stream3 = true
     if not initLayout?
         initLayout = 'threeUp'
@@ -117,10 +134,13 @@ initPage = ->
         $('.first-alert').show()
     else
         newAlerts.push '<strong>Welcome Back!</strong>'
-        newAlerts.push 'Don\'t forget to <strong><a href="https://gamesdonequick.com/tracker/donate/10">DONATE</a></strong>.'
+        if DONATIONS_ACTIVE
+            newAlerts.push 'Don\'t forget to <strong><a href="' + BASE_DONATE_URL + '">DONATE</a></strong>.'
 
     for key, value of specifiedParams when value is false
         playerChannels[key] = getRandomUsers()
+
+    initLinks()
 
     setupLayout initLayout
 
@@ -137,6 +157,22 @@ initComplete = ->
         if not isLive and (onAirStreamCount + specifiedCount) >= streamNumber
             randomUser = getRandomUsers()
             swapStream key, randomUser
+
+initLinks = ->
+    if not DONATIONS_ACTIVE
+        $('.btn-donate').hide()
+        $('#donate-alert').hide()
+        $('.social-header').hide()
+        $('#twitter-link').hide()
+        $('#fb-link').hide()
+    else
+        $('#nav-donate').attr 'href', BASE_DONATE_URL
+        $('.navbar-brand').attr 'href', BASE_DONATE_URL
+        $('.navbar-brand').html NAVBAR_BRAND
+        $('#donate-alert span').html DONATE_ALERT
+        $('#twitter-link').html TWITTER_LINK
+        $('#fb-link').html FB_LINK
+
 
 initEvents = ->
     $('.alert').bind 'closed.bs.alert', ->
@@ -162,7 +198,6 @@ initEvents = ->
         $('html, body').animate
             scrollTop: 0
             , 400
-
 
     $('a.tweet-link').click (e) ->
         e.preventDefault()
@@ -232,7 +267,10 @@ initEvents = ->
 
 initIndex = ->
     Handlebars.registerHelper 'toLowerCase', (value) ->
-        return value.toLowerCase()
+        if value?
+            return value.toLowerCase()
+        else
+            return ''
 
     source = $('#index-template').html()
     template = Handlebars.compile source
@@ -247,7 +285,9 @@ initIndex = ->
     $('.index-entry:nth-child(4n+5)').css "clear", "both"
 
     $('.index-entry').each ->
-        refreshStream $(this).attr 'data-channel'
+        channel = $(this).attr 'data-channel'
+        site = $(this).attr 'data-site'
+        refreshStream channel, site
 
 refreshAlerts = ->
     if newAlerts.length is 0
@@ -276,14 +316,92 @@ refreshAlerts = ->
                                 alertTextBox.css 'left', '0'
                                 refreshAlerts()
 
-refreshStream = (channel) ->
+refreshStream = (channel, type) ->
+    if type == 'twitch'
+        refreshTwitchStream channel
+    else if type == 'hitbox'
+        refreshHitboxStream channel
+
+refreshHitboxStream = (channel) ->
+    $.ajax
+        type: 'GET'
+        dataType: 'json'
+        crossDomain: true
+        url: HITBOX_API_URL + channel
+        success: (data) ->
+            stream = data["livestream"][0]
+            streamIsLive = stream["media_is_live"] is '1'
+            channelEntry = $("div[data-channel='" + channel + "']")
+            gbUserName = channelEntry.find('.gb-username').text()
+            isLive = if channelEntry.find('p.live').hasClass 'on-air' then true else false
+            if streamIsLive is false and isLive is true
+                # Channel just went off-line
+                channelEntry.removeClass 'on-air'
+                channelEntry.find('p.live').removeClass 'on-air'
+                channelEntry.find('.stream-pic').removeClass 'on-air'
+                channelEntry.find('h2').text 'Off-Air'
+                channelEntry.find('.game-title').text 'nothing at the moment'
+                $('#stream-container').append channelEntry
+                $('.index-entry').css "clear", "none"
+                $('.index-entry:nth-child(4n+5)').css "clear", "both"
+
+                --onAirStreamCount
+                refreshOnAirCount()
+
+                for key, value of playerChannels when channel == value
+                    overlay = $('#' + key + 'Overlay')
+                    overlay.find('.overlay-info h3.playing-info').html '<em>playing</em> ' + 'nothing at the moment'
+
+            else if streamIsLive is true and isLive is false
+                # Channel just came on-line
+                newGame = stream["category_name"]
+                if not newGame?
+                    newGame = "something"
+                channelEntry.addClass 'on-air'
+                channelEntry.find('p.live').addClass 'on-air'
+                channelEntry.find('.stream-pic').addClass 'on-air'
+                channelEntry.find('h2').text stream["media_status"]
+                channelEntry.find('.stream-pic').attr 'src', 'http://edge.sf.hitbox.tv' + stream["media_thumbnail"]
+                channelEntry.find('.game-title').text newGame
+                $('#stream-container').prepend channelEntry
+                $('.index-entry').css "clear", "none"
+                $('.index-entry:nth-child(4n+5)').css "clear", "both"
+                ++onAirStreamCount
+                refreshOnAirCount()
+                alertStr = '<strong>' + gbUserName + '</strong> is now LIVE playing ' + newGame + '.'
+                newAlerts.push alertStr
+
+                for key, value of playerChannels when channel == value
+                    overlay = $('#' + key + 'Overlay')
+                    overlay.find('.overlay-info h3.playing-info').html '<em>playing</em> ' + newGame
+
+            else if streamIsLive
+                # Still On-Air. Check for new game, title, thumbnail.
+                currentGame = channelEntry.find('.game-title').text()
+                newGame = stream["category_name"]
+                if not newGame?
+                    newGame = "something"
+                channelEntry.find('h2').text stream["media_status"]
+                channelEntry.find('.stream-pic').attr 'src', 'http://edge.sf.hitbox.tv' + stream["media_thumbnail"]
+                channelEntry.find('.game-title').text newGame
+                if currentGame != newGame
+                    alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + newGame + '.'
+                    newAlerts.push alertStr
+
+                for key, value of playerChannels when channel == value
+                    overlay = $('#' + key + 'Overlay')
+                    overlay.find('.overlay-info h3.playing-info').html '<em>playing</em> ' + newGame
+        complete:
+            setTimeout (-> refreshHitboxStream channel), STREAM_UPDATE_RATE
+
+refreshTwitchStream = (channel) ->
     $.ajax
         type: 'GET'
         dataType: 'jsonp'
         crossDomain: true
         headers:
             Accept: 'application/vnd.twitchtv.v2+json'
-        url: STREAM_API_URL + channel
+        url: TWITCH_API_URL + channel
         success: (data) ->
             stream = data["stream"]
             channelEntry = $("div[data-channel='" + channel + "']")
@@ -347,7 +465,7 @@ refreshStream = (channel) ->
                     overlay = $('#' + key + 'Overlay')
                     overlay.find('.overlay-info h3.playing-info').html '<em>playing</em> ' + newGame
         complete:
-            setTimeout (-> refreshStream channel), STREAM_UPDATE_RATE
+            setTimeout (-> refreshTwitchStream channel), STREAM_UPDATE_RATE
 
 refreshOnAirCount = ->
     if onAirStreamCount > 0
@@ -545,18 +663,20 @@ layoutPlayerSlot = (slot) ->
     overlay = $('#' + slot + 'Overlay')
     number = slot.charAt (slot.length - 1)
     chatLink = $('a[data-chat="' + slot + '"]')
-    channelEntry = $("div[data-channel='" + playerChannels[slot] + "']")
-    gbUserName = channelEntry.find('.gb-username').text()
+    gbUserName = playerChannels[slot]
+    channelEntry = $("div[data-gbusername='" + gbUserName + "']")
+    channelName = channelEntry.attr('data-channel')
+    channelSite = channelEntry.attr('data-site')
     gameName = channelEntry.find('.game-title').text()
     gbUserIcon = channelEntry.find('.profile-pic').attr 'src'
     gbUserIconTiny = gbUserIcon.replace('/square_mini/','/square_tiny/')
     donateLink = channelEntry.find('.btn-donate').attr 'href'
     tweetLink = 'https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/?1=' + playerChannels[slot] +
-        '&hashtags=GBC3R&text=Check out ' + gbUserName + '\'s stream, and help raise money for @sleepapnea_ed.'
+        '&hashtags=' + STREAM_HASHTAG + '&text=Check out ' + gbUserName + '\'s stream' + STREAM_LINK
 
     if layout
         if player.is('div')
-            addPlayer(playerChannels[slot], slot)
+            addPlayer(channelName, channelSite, slot)
             player = $('#' + slot)
         player.css 'left', layout.x
         player.css 'top', layout.y
@@ -575,7 +695,7 @@ layoutPlayerSlot = (slot) ->
             overlay.find('.overlay-buttons .tweet-link').attr 'href', tweetLink
             overlay.show()
 
-            chatLink.attr 'data-original-title', 'View ' + gbUserName + '\'s Twitch Chat'
+            chatLink.attr 'data-original-title', 'View ' + gbUserName + '\'s Channel Chat'
             chatLink.tooltip 'fixTitle'
     else
         removePlayer player
@@ -592,10 +712,10 @@ layoutElement = (element, layout) ->
     else
         element.hide()
 
-embedPlayer = (channel, replaceElem) ->
+embedTwitchPlayer = (channel, replaceElem) ->
     if iOS
         url = 'http://www.twitch.tv/' + channel + '/hls'
-        $('#' + replaceElem).replaceWith '<iframe id="' + replaceElem + '" src="' + url + '" scrolling="no" frameborder="0"></iframe>'
+        $('#' + replaceElem).replaceWith '<iframe class="layoutElement" id="' + replaceElem + '" src="' + url + '" scrolling="no" frameborder="0"></iframe>'
     else
         flashvars.channel = channel
 
@@ -606,12 +726,20 @@ embedPlayer = (channel, replaceElem) ->
         else
             flashvars.eventsCallback = stream3Loaded
 
-        swfobject.embedSWF(PLAYER_URL,replaceElem,"100","100","9.0.0",
+        swfobject.embedSWF(TWITCH_PLAYER_URL,replaceElem,"100","100","9.0.0",
             "expressInstall.swf",flashvars,params,attributes)
 
-addPlayer = (channelName, slotName) ->
-    embedPlayer channelName, slotName
-    document.getElementById('chat-' + slotName).src = getChatUrl(channelName)
+embedHitboxPlayer = (channel, replaceElem) ->
+    url = HITBOX_PLAYER_URL + channel
+    $('#' + replaceElem).replaceWith '<iframe class="layoutElement" id="' + replaceElem + '" src="' + url + '?autoplay=true" scrolling="no" frameborder="0" allowfullscreen></iframe>'
+
+addPlayer = (channelName, channelSite, slotName) ->
+    if channelSite == "twitch"
+        embedTwitchPlayer channelName, slotName
+    else if channelSite == "hitbox"
+        embedHitboxPlayer channelName, slotName
+    document.getElementById('chat-' + slotName).src = getChatUrl(channelName, channelSite)
+
 
 removePlayer = (playerElement) ->
     name = playerElement.attr 'id'
@@ -648,9 +776,9 @@ stream3Loaded = ->
 updateTotal = ->
     $.ajax
         type: 'GET'
-        url: 'http://www.extra-life.org/index.cfm?fuseaction=widgets.300x250thermo&teamID=10592'
+        url: 'http://www.extra-life.org/index.cfm?fuseaction=widgets.200x420thermo&teamID=14311'
         success: (data) ->
-            value = $(data.responseText).find('#mercury em').text()
+            value = $(data.responseText).find('#raisedflag').text()
             $('#total-value').text(value)
         complete: ->
             setTimeout updateTotal, TOTAL_UPDATE_RATE
@@ -702,13 +830,13 @@ window.loadChat = (channel) ->
 
 getRandomUsers = ->
     randomUser = null
-    usernames = $('.index-entry').map(-> $(this).attr 'data-channel').get()
+    usernames = $('.index-entry').map(-> $(this).attr 'data-gbusername').get()
     for key, value of playerChannels
         index = usernames.indexOf value
         if index > -1
             usernames.splice index, 1
     while not randomUser?
-        liveUsers = $('.index-entry.on-air').map(-> $(this).attr 'data-channel').get()
+        liveUsers = $('.index-entry.on-air').map(-> $(this).attr 'data-gbusername').get()
         for key, value of playerChannels
             index = liveUsers.indexOf value
             if index > -1
@@ -721,12 +849,14 @@ getRandomUsers = ->
             randomUser = usernames[randomNum]
     return randomUser
 
-getChatUrl = (channel) ->
+getChatUrl = (channel, site) ->
     url = ''
     if channel == 'irc'
         url = IRC_URL;
-    else
+    else if site == "twitch"
         url = 'http://www.twitch.tv/chat/embed?channel=' + channel + '&popout_chat=true'
+    else if site == "hitbox"
+        url = HITBOX_CHAT_URL + channel
     return url
 
 getURLParameter = (name) ->
@@ -750,7 +880,7 @@ $(window).load ->
         $('#streams-wrapper').fadeIn 'fast', ->
             setTimeout initComplete, 3000
             setTimeout refreshAlerts, 6000
-            # setTimeout updateTotal, 15000
+            setTimeout updateTotal, 15000
 
             doResize()
 
