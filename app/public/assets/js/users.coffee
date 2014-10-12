@@ -189,7 +189,7 @@ window.users = [
     }
     {
         username: 'PXAbstraction'
-        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=47415'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=93155'
         stream: 'PXAbstraction'
         streamsite: 'twitch'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/17949/1917373-pxaavatar.jpg'
@@ -265,7 +265,7 @@ window.users = [
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/65153/1325815-77522907342156928d992e8he.gif'
     }
     {
-        username: 'Capaneus'
+        username: 'TravistyOJ'
         fund: 'http://www.extra-life.org/participant/travistyoj'
         stream: 'travistyoj'
         streamsite: 'twitch'
@@ -818,10 +818,10 @@ window.users = [
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/15/150142/2309391-crazy_fish.jpg'
     }
     {
-        username: 'randmZer00'
+        username: 'rand0mZer00'
         fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=88982'
-        stream: 'armandojmendoza'
-        streamsite: 'twitch'
+        stream: 'THRILLHOU'
+        streamsite: 'hitbox'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/13/136799/2325654-pwg_twitter_icon.png'
     }
     {
