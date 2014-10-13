@@ -316,8 +316,8 @@ window.users = [
     {
         username: 'Karthas'
         fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=98273'
-        stream: 'Light_Hill'
-        streamsite: 'twitch'
+        stream: 'Karthas'
+        streamsite: 'hitbox'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/19/194980/2574747-e4docava.png'
     }
     {
