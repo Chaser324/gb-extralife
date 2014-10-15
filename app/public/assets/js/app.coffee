@@ -17,7 +17,7 @@ IRC_URL = 'http://webchat.quakenet.org/?channels=GBXL&uio=MT1mYWxzZSYyPXRydWUmND
 DONATIONS_ACTIVE = true
 BASE_DONATE_URL = 'http://www.extra-life.org/team/giantbomb'
 NAVBAR_BRAND = '<span><img src="assets/img/gb-logo.png" /> Explosive Runs - </span>#GBXL'
-DONATE_ALERT = '<strong>Welcome!</strong> Enjoy the gaming and please <strong><a href="https://gamesdonequick.com/tracker/donate/10">DONATE</a></strong>! All proceeds benefit Extra Life and Children\'s Miracle Network Hospitals.'
+DONATE_ALERT = '<strong>Welcome!</strong> Enjoy the gaming and please <strong><a href="' + BASE_DONATE_URL + '">DONATE</a></strong>! All proceeds benefit Extra Life and Children\'s Miracle Network Hospitals.'
 TWITTER_LINK = '<a class="tweet-link" href="https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/&hashtags=GBXL&text=Join us as we raise funds to benefit Extra Life!" target="_blank"><i class="fa fa-twitter-square"></i> #GBXL</a>'
 FB_LINK = '<a class="tweet-link" href="http://www.facebook.com/sharer.php?u=http://www.explosiveruns.com/&t=Join us as we raise funds to benefit Extra Life and Children\'s Miracle Network Hospitals!"><i class="fa fa-facebook-square"></i> LIKE</a>'
 

@@ -182,8 +182,8 @@ window.users = [
     }
     {
         username: 'busted1der'
-        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=48731'
-        stream: 'JacobMcCourt'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=94156'
+        stream: 'jacobmccourt'
         streamsite: 'twitch'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/8525/2207947-2207946-img_20120319_00080.jpg'
     }
@@ -582,8 +582,8 @@ window.users = [
     {
         username: 'Bollard'
         fund: 'http://www.extra-life.org/team/giantbomb'
-        stream: 'bollard'
-        streamsite: 'twitch'
+        stream: 'Bollard'
+        streamsite: 'hitbox'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/66230/1181452-frog....jpg'
     }
     {
@@ -872,6 +872,20 @@ window.users = [
         stream: 'quaglartheiv'
         streamsite: 'twitch'
         profilePic: 'http://static.giantbomb.com/uploads/square_mini/3/31936/2669221-twitter+2.jpg'
+    }
+    {
+        username: 'elko84'
+        fund: 'http://www.extra-life.org/participant/elko84'
+        stream: 'elko84'
+        streamsite: 'twitch'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/775/588963-elkomanga.jpg'
+    }
+    {
+        username: 'Dalai'
+        fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=98134'
+        stream: 'tdllama'
+        streamsite: 'twitch'
+        profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1951/2433681-llamarider.png'
     }
 
 ]
