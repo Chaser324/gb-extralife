@@ -15,19 +15,19 @@ HITBOX_API_URL = 'http://api.hitbox.tv/media/live/'
 # <iframe width="560" height="315" src="https://www.youtube.com/embed/HaPW6hkZLEU" frameborder="0" allowfullscreen></iframe>
 # https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCmeds0MLhjfkjD_5acPnFlQ&eventType=live&type=video&key=AIzaSyDRvZ7eQ8dAjQ9GxDveWEbiuWMvjVeY_Lc
 YOUTUBE_PLAYER_URL = 'https://www.youtube.com/embed/'
-YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId={CHANNEL_ID}&eventType=live&type=video&key=AIzaSyDRvZ7eQ8dAjQ9GxDveWEbiuWMvjVeY_Lc'
+YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId={CHANNEL_ID}&eventType={EVENT_TYPE}&type=video&key=AIzaSyDRvZ7eQ8dAjQ9GxDveWEbiuWMvjVeY_Lc'
 
 IRC_URL = 'http://webchat.quakenet.org/?channels=GBXL&uio=MT1mYWxzZSYyPXRydWUmND10cnVlJjg9ZmFsc2UmOT10cnVlJjEwPXRydWUmMTE9MzY5JjE0PWZhbHNlac'
 
 DONATIONS_ACTIVE = true
-BASE_DONATE_URL = 'http://fundraise.pencilsofpromise.org/gbcendurancerun6'
-NAVBAR_BRAND = '<span><img src="assets/img/gb-logo.png" /> Explosive Runs - </span>GBCER6'
+BASE_DONATE_URL = 'http://www.extra-life.org/team/giantbomb'
+NAVBAR_BRAND = '<span><img src="assets/img/gb-logo.png" /> Explosive Runs - </span>GBXL'
 DONATE_ALERT = '<strong>Welcome!</strong> Enjoy the gaming and please <strong><a href="' + BASE_DONATE_URL + '">DONATE</a></strong>!'
-TWITTER_LINK = '<a class="tweet-link" href="https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/&hashtags=GBCER6&text=Join the Giant Bomb community raising money for Pencils of Promise!" target="_blank"><i class="fa fa-twitter-square"></i> #GBCER6</a>'
-FB_LINK = '<a class="tweet-link" href="http://www.facebook.com/sharer.php?u=http://www.explosiveruns.com/&t=Join the Giant Bomb community raising money for Pencils of Promise!" target="_blank"><i class="fa fa-facebook-square"></i> LIKE</a>'
+TWITTER_LINK = '<a class="tweet-link" href="https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/&hashtags=GBXL&text=Join the Giant Bomb community raising money for Extra Life!" target="_blank"><i class="fa fa-twitter-square"></i> #GBXL</a>'
+FB_LINK = '<a class="tweet-link" href="http://www.facebook.com/sharer.php?u=http://www.explosiveruns.com/&t=Join the Giant Bomb community raising money for Extra Life!" target="_blank"><i class="fa fa-facebook-square"></i> LIKE</a>'
 
-STREAM_LINK = ', raising money for Pencils of Promise.'
-STREAM_HASHTAG = 'GBCER6'
+STREAM_LINK = ', raising money for Extra Life.'
+STREAM_HASHTAG = 'GBXL'
 
 CHAT_WIDTH = 300
 CHAT_TAB_HEIGHT = 42
@@ -55,12 +55,14 @@ flashvars =
     # embed: 1
     eventsCallback: ""
     channel: ""
+    client_id: "256yrtw9swpn6irj0xyn8xzjy5lmgpo"
 
 params =
     allowNetworking: "all"
     allowFullScreen: "true"
     allowscriptaccess: "always"
     wmode: "opaque"
+    client_id: "256yrtw9swpn6irj0xyn8xzjy5lmgpo"
 
 attributes =
     "class": "layoutElement"
@@ -167,12 +169,12 @@ initLinks = ->
     # if not DONATIONS_ACTIVE
     #     $('#current-total').hide()
     #     $('#nav-donate').hide()
-    $('.btn-donate').hide()
+    #     $('.btn-donate').hide()
     #     $('#donate-alert').hide()
     #     $('.social-header').hide()
     #     $('#twitter-link').hide()
     #     $('#fb-link').hide()
-    $('#current-total').hide()
+    #     $('#current-total').hide()
     # else
     #     # $('.btn-donate').hide()
     $('#nav-donate').attr 'href', BASE_DONATE_URL
@@ -408,10 +410,11 @@ refreshHitboxStream = (channel) ->
 refreshTwitchStream = (channel) ->
     $.ajax
         type: 'GET'
-        dataType: 'jsonp'
+        dataType: 'json'
         crossDomain: true
         headers:
-            Accept: 'application/vnd.twitchtv.v2+json'
+            'Accept': 'application/vnd.twitchtv.v2+json'
+            'Client-ID': '256yrtw9swpn6irj0xyn8xzjy5lmgpo'
         url: TWITCH_API_URL + channel
         success: (data) ->
             stream = data["stream"]
@@ -445,7 +448,7 @@ refreshTwitchStream = (channel) ->
                 channelEntry.find('p.live').addClass 'on-air'
                 channelEntry.find('.stream-pic').addClass 'on-air'
                 channelEntry.find('h2').text stream["channel"]["status"]
-                channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
+                channelEntry.find('.stream-pic').attr 'src', stream["preview"]
                 channelEntry.find('.game-title').text newGame
                 channelEntry.parent().prepend channelEntry
                 $('.index-entry').css "clear", "none"
@@ -466,7 +469,7 @@ refreshTwitchStream = (channel) ->
                 if not newGame?
                     newGame = "something"
                 channelEntry.find('h2').text stream["channel"]["status"]
-                channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
+                channelEntry.find('.stream-pic').attr 'src', stream["preview"]
                 channelEntry.find('.game-title').text newGame
                 if currentGame != newGame
                     alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + newGame + '.'
@@ -481,11 +484,13 @@ refreshTwitchStream = (channel) ->
 
 
 refreshYoutubeStream = (channel) ->
+    url = YOUTUBE_API_URL.replace "{CHANNEL_ID}", channel
+    url = url.replace "{EVENT_TYPE}", "live"
     $.ajax
         type: 'GET'
         dataType: 'jsonp'
         crossDomain: true
-        url: YOUTUBE_API_URL.replace "{CHANNEL_ID}", channel
+        url: url
         success: (data) ->
             stream = null
 
@@ -813,36 +818,25 @@ layoutElement = (element, layout) ->
         element.hide()
 
 embedTwitchPlayer = (channel, replaceElem) ->
-    if iOS
-        url = 'http://www.twitch.tv/' + channel + '/hls'
-        $('#' + replaceElem).replaceWith '<iframe class="layoutElement" id="' + replaceElem + '" src="' + url + '" scrolling="no" frameborder="0"></iframe>'
-    else
-        flashvars.channel = channel
-
-        if replaceElem is 'stream1'
-            flashvars.eventsCallback = stream1Loaded
-        else if replaceElem is 'stream2'
-            flashvars.eventsCallback = stream2Loaded
-        else
-            flashvars.eventsCallback = stream3Loaded
-
-        swfobject.embedSWF(TWITCH_PLAYER_URL,replaceElem,"100","100","9.0.0",
-            "expressInstall.swf",flashvars,params,attributes)
+    url = 'http://player.twitch.tv/?channel=' + channel
+    $('#' + replaceElem).replaceWith '<iframe class="layoutElement" id="' + replaceElem + '" src="' + url + '" frameborder="0" scrolling="no" allowfullscreen="true"> </iframe>'
 
 embedHitboxPlayer = (channel, replaceElem) ->
     url = HITBOX_PLAYER_URL + channel
     $('#' + replaceElem).replaceWith '<iframe class="layoutElement" id="' + replaceElem + '" src="' + url + '?autoplay=true" scrolling="no" frameborder="0" allowfullscreen></iframe>'
 
-embedYoutubePlayer = (channel, replaceElem) ->
+embedYoutubePlayer = (channel, replaceElem, eventType) ->
+    url = YOUTUBE_API_URL.replace "{CHANNEL_ID}", channel
+    url = url.replace "{EVENT_TYPE}", eventType
     $.ajax
         type: 'GET'
         dataType: 'jsonp'
         crossDomain: true
-        url: YOUTUBE_API_URL.replace "{CHANNEL_ID}", channel
+        url: url
         success: (data) ->
             stream = null
 
-            if data["items"].length > 0 and data["items"][0]["snippet"]["liveBroadcastContent"] == "live"
+            if data["items"].length > 0
                 stream =
                     id: data["items"][0]["id"]["videoId"]
                     title: data["items"][0]["snippet"]["title"]
@@ -850,6 +844,8 @@ embedYoutubePlayer = (channel, replaceElem) ->
             if stream?
                 $('#' + replaceElem).replaceWith '<iframe class="layoutElement" id="' + replaceElem + '" src="' + YOUTUBE_PLAYER_URL + stream["id"] + '?autoplay=true" scrolling="no" frameborder="0" allowfullscreen></iframe>'
                 doResize()
+            else if eventType == "live"
+                embedYoutubePlayer channel, replaceElem, "upcoming"
 
 addPlayer = (channelName, channelSite, slotName) ->
     if channelSite == "twitch"
@@ -857,7 +853,7 @@ addPlayer = (channelName, channelSite, slotName) ->
     else if channelSite == "hitbox"
         embedHitboxPlayer channelName, slotName
     else if channelSite == "youtube"
-        embedYoutubePlayer channelName, slotName
+        embedYoutubePlayer channelName, slotName, "live"
     document.getElementById('chat-' + slotName).src = getChatUrl(channelName, channelSite)
 
 
@@ -896,9 +892,11 @@ stream3Loaded = ->
 updateTotal = ->
     $.ajax
         type: 'GET'
-        url: 'http://www.extra-life.org/index.cfm?fuseaction=widgets.200x420thermo&teamID=21010'
+        dataType: 'json'
+        url: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.team&teamID=27351&format=json'
         success: (data) ->
-            value = $(data.responseText).find('#raisedflag').text()
+            value = data['totalRaisedAmount']
+            value = '$' + value.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
             $('#total-value').text(value)
         complete: ->
             setTimeout updateTotal, TOTAL_UPDATE_RATE
@@ -1002,7 +1000,7 @@ $(window).load ->
         $('#streams-wrapper').fadeIn 'fast', ->
             setTimeout initComplete, 3000
             setTimeout refreshAlerts, 6000
-            # setTimeout updateTotal, 15000
+            setTimeout updateTotal, 15000
 
             doResize()
 

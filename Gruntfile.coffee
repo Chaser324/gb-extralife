@@ -154,7 +154,7 @@ module.exports = (grunt) ->
 
     # When running the default Grunt command, just lint the code.
     grunt.registerTask "default", [
-        "clean", "less", "coffee", "copy", "express", "uglify", "watch"
+        "clean", "less", "coffee", "copy", "uglify"
     ]
 
     # The test task take care of starting test server and running tests.
