@@ -5,741 +5,540 @@ window.playerChannels =
     stream3: ""
 
 window.usergroups = [
-    {
-        group: 'Giant Bomb Extra Life Team'
-        users: [
-            {
-                username: 'Giant Bomb'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=237453'
-                stream: 'UCmeds0MLhjfkjD_5acPnFlQ'
-                streamsite: 'youtube'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'havochq'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=220883'
-                stream: 'havochq'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/2253/2861127-alexbig.png'
-            }
-            {
-                username: 'zolloz89'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=197436'
-                stream: 'zolloz89'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/3/34025/2513541-music_daft+punk_36793.jpg'
-            }
-            {
-                username: 'trace'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=196782'
-                stream: 'pseg'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/347/2713410-av_spinner300_blfade.jpg'
-            }
-            {
-                username: 'dirtybirdy'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=196782'
-                stream: 'physicshomebrew'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/23/239428/2688933-devowatchus.jpg'
-            }
-            {
-                username: 'endoworks'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221350'
-                stream: 'endoworks'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/66391/2619867-giantbomb-shirt.jpg'
-            }
-            {
-                username: 'riostarwind'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=210327'
-                stream: 'riostarwind'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/5/56971/2897128-2887154-2795553-2641113-hdr.jpg'
-            }
-            {
-                username: 'ramblesnonsense'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221471'
-                stream: 'wedgestreams'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/25/253269/2696185-fry.jpg'
-            }
-            {
-                username: 'kirillorlov'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=202091'
-                stream: 'swansons'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/45575/2576262-yeaaaah.png'
-            }
-            {
-                username: 'auwiz'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221288'
-                stream: 'tocupine'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/18/185187/2890219-tumblr_ocku772yeq1s323epo1_500.jpg'
-            }
-            {
-                username: 'jasonmasters'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=220572'
-                stream: 'chronoshifter'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/17/178158/2892714-14670890_10153985616068733_1641782710628263269_n.jpg'
-            }
-            {
-                username: 'feeltheillinois'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=223312'
-                stream: 'feeltheillinois'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/27/278480/2745912-1097016_10200553478815153_1039214382_o.jpg'
-            }
-            {
-                username: 'nedyahwerd'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=223476'
-                stream: 'nedyah_werd'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/26/269193/2723689-tat.jpg'
-            }
-            {
-                username: 'gnomeonfire'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=223860'
-                stream: 'thelucaslite'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/122459/2889816-whisperman.jpg'
-            }
-            {
-                username: 'buser'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=199158'
-                stream: 'toadinman'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'outbr3ak'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224067'
-                stream: 'whiskeyfueledgames'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/7/74263/1328694-sigown.jpg'
-            }
-            {
-                username: 'propgoat'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224079'
-                stream: 'propgoat'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/17/178556/2419329-jmnv8.png'
-            }
-            {
-                username: 'sojak'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=201100'
-                stream: 'atmafighter'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'bpriller'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=197433'
-                stream: '2idiotgamers'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/7/78739/1335849-album_joystick.png'
-            }
-            {
-                username: 'dig_douglas_iii'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=196331'
-                stream: 'dig_douglas'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/7114/1760752-7gwpr.png'
-            }
-            {
-                username: 'bsstephan'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=207508'
-                stream: 'bsstephan'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/20/208076/2613698-4708491536-bss-c.jpg'
-            }
-            {
-                username: 'fattony12000'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224945'
-                stream: 'UCVKkiqQoCOUoF6ml5ULTLKQ'
-                streamsite: 'youtube'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/88760/2190087-max_opp_crop.jpg'
-            }
-            {
-                username: 'kalimando'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224966'
-                stream: 'UCEnNsdS1hsVgp4phOAgdD2A'
-                streamsite: 'youtube'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/24/246661/2662381-avatar.jpg'
-            }
-            {
-                username: 'warhopper'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224688'
-                stream: 'warhopper'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'afashionablehat'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=225037'
-                stream: 'tracecomplete'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/28/287209/2863197-walrus-512.png'
-            }
-            {
-                username: 'matt'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=196354'
-                stream: 'UCbM0WNSsGGnvE0bnZS2TQ4w'
-                streamsite: 'youtube'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/50/1713152-avatar.png'
-            }
-            {
-                username: 'danteveli'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=226356'
-                stream: 'danteveli24'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/95390/2803267-kakaotalk_20140425_152756.jpg'
-            }
-            {
-                username: 'dobedobedo'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=227106'
-                stream: 'nightmarexcinema'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/25/255585/2701802-7359943617-link_.jpg'
-            }
-            {
-                username: 'core647'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=226426'
-                stream: 'kiddjohnkidd'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/89717/2692036-puppy-wallpaper-dancing-little-animals-28654684-1280-1024.jpg'
-            }
-            {
-                username: 'shifty13'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224551'
-                stream: 'sh1fty13'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1131/258442-jackknife.jpg'
-            }
-            {
-                username: 'shindig'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=228610'
-                stream: 'shindigpsc'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/24/245117/2671716-4567876282-artic.jpg'
-            }
-            {
-                username: 'speedhuntr'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224438'
-                stream: 'UCsk42QKCwgmCHAlT4-ABZzw'
-                streamsite: 'youtube'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'teeknuts'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=216848'
-                stream: 'teeknuts'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/2/25594/1251262-zangief_movie1.jpg'
-            }
-            {
-                username: 'rasgueado'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=227308'
-                stream: 'rasgueado'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/3695/2893383-avatar.jpg'
-            }
-            {
-                username: 'urban_ryoga'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=214337'
-                stream: 'jonbjohns'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/40096/1332028-2266798.gif'
-            }
-            {
-                username: 'meteora3255'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224105'
-                stream: 'meteora3255'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1366/1775330-shepard.jpg'
-            }
-            {
-                username: 'juster25'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=227802'
-                stream: 'errorjuster'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/61835/2785041-entry_bun.jpg'
-            }
-            {
-                username: 'ninnyjams'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=233012'
-                stream: 'ninnyjams'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/17/177527/2407652-2407650-1355794343552.png'
-            }
-            {
-                username: 'deliciousbees'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=198069'
-                stream: 'deliciousbees'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/12063/1400444-title_cptunderpant.gif'
-            }
-            {
-                username: 'ltsquigs'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221393'
-                stream: 'ltsquigs420'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/45967/2587345-wizard.png'
-            }
-            {
-                username: 'awalkawesome'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=222559'
-                stream: 'freddyhead'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/19/195498/2803030-2802980-shodanmas.jpg'
-            }
-            {
-                username: 'jazzyc'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=233338'
-                stream: 'jazzyc2003'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/29/297394/2830535-wilde.gif'
-            }
-            {
-                username: 'revolve'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=234905'
-                stream: 'gregplayingpoorly'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/127658/1749993-robotbird.png'
-            }
-            {
-                username: 'kingringtail85'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=205782'
-                stream: 'jeff_mcfly'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/66397/2787502-halo1.jpg'
-            }
-            {
-                username: 'audiobusting'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=227051'
-                stream: 'audiobusting'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/16/163605/2707129-cabbage.jpg'
-            }
-            {
-                username: 'jubjub677'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=236235'
-                stream: 'justintime4games'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/87790/1395000-bg_ellis.jpg'
-            }
-            {
-                username: 'wrighteous86 and duskvamp'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=235296'
-                stream: 'UC77qYGFqFchJa5sLMfs-wMA'
-                streamsite: 'youtube'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/63875/1738151-6175_529184588168_48700050_31454160_2615325_n.jpg'
-            }
-            {
-                username: 'gpink'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=228173'
-                stream: 'gpink'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/81038/1816580-icongb.jpg'
-            }
-            {
-                username: 'evvan337'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=237391'
-                stream: 'evan_tor'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'big_denim'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=212981'
-                stream: 'cugabuh'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/27/273603/2736983-lincoln+2.jpg'
-            }
-            {
-                username: 'twolines'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=237906'
-                stream: 'twolines'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1150/2281706-burnedman8.png'
-            }
-            {
-                username: 'kiruvi'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=207127'
-                stream: 'kiruvi'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/21/215464/2602122-2602121-0743705213-UEfZp.jpg'
-            }
-            {
-                username: 'pontoon_yacht'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=31509'
-                stream: 'fgcu_esports'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/25/253194/2777424-3379075908-3vqJ1.png'
-            }
-            {
-                username: 'ae_pollux'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=231100'
-                stream: 'ae_pollux'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/28/288063/2849118-5583803117-jazz1.jpg'
-            }
-            {
-                username: 'duecenage'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=213026'
-                stream: 'UCcv9L1smhP3_J_dxIPJOg4g'
-                streamsite: 'youtube'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/60685/2803851-flintyfishsantahat.jpg'
-            }
-            {
-                username: 'whitegreyblack'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=206650'
-                stream: 'whitegreyblackyyc'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/21/215372/2569701-avatar_impossible_mission.gif'
-            }
-            {
-                username: 'syce300'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=238570'
-                stream: 'syce300w'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'wickhaam'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=228557'
-                stream: 'mopgarden'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/18/181127/2430470-url.jpg'
-            }
-            {
-                username: 'empirepaintball'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=200562'
-                stream: 'liquidbionix'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/99678/2586837-6102435186-587980.jpeg'
-            }
-            {
-                username: 'dalai'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=236448'
-                stream: 'dalaigb'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1951/2433681-llamarider.png'
-            }
-            {
-                username: 'scb360'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=236542'
-                stream: 'scb3'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'bigmike'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=239160'
-                stream: 'icanthackit'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/10/104466/2432087-behemoth-ffix.png'
-            }
-            {
-                username: 'datarez'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=29307'
-                stream: 'tmgtp'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1592/2841226-ishikawa_bio_cropped.jpg'
-            }
-            {
-                username: 'offthemark'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=216066'
-                stream: 'themaindamie'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'combustion_man'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=238972'
-                stream: 'section09'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/24/247538/2665341-combustion-man_480x360.jpg'
-            }
-            {
-                username: 'khopps17'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=206978'
-                stream: 'khopps25'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/15006/1346190-q0avatar_copy.png'
-            }
-            {
-                username: 'voodootatum'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=240544'
-                stream: 'voodootatum'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/45019/2803467-7533075953-28033.png'
-            }
-            {
-                username: 'erkablegamer'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=238857'
-                stream: 'erkablegamer'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/24/243999/2841523-mlvlk_q3.jpg'
-            }
-            {
-                username: 'gamedreamer'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221178'
-                stream: 'game_dreamer'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/125870/2889608-gbico.jpg'
-            }
-            {
-                username: 'p4r4digm'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=239000'
-                stream: 'p4r4digm'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/29/295016/2860872-12963699_547200336883_7516536195826375845_n.jpg'
-            }
-            {
-                username: 'spotshadow'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=229079'
-                stream: 'skeeball575'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/65410/1190097-digital_shodan.jpg'
-            }
-            {
-                username: 'verytallman'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=239753'
-                stream: 'very_tall_man'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
-                username: 'optix12'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=240073'
-                stream: 'hebrewjuice'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/4527/1739514-4.jpg'
-            }
-            {
-                username: 'internetpizza'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=207420'
-                stream: 'internetpizza'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/15/154910/2582673-space_cat_icon.jpg'
-            }
-            {
-                username: 'dannyhibiki'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=201477'
-                stream: 'dannyhibiki'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/43643/2650193-2444228-dan.jpg'
-            }
-            {
-                username: 'thouddin'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=239385'
-                stream: 'thouddin'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/18/182525/2857382-chgcif6u_400x400.jpg'
-            }
-            {
-                username: 'cadwr'
-                fund: 'http://www.extra-life.org/participant/Cadwr'
-                stream: 'cadwr0'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/116634/2107379-598968c9a4fe075013fe74c2528213354c4c3511_full.jpg'
-            }
-            {
-                username: 'salisbeary'
-                fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=220738'
-                stream: 'salisbeary'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/22/224463/2884412-enhanced-buzz-28238-1360941672-9.jpg'
-            }
-        ]        
-    }
     # {
-    #     group: 'Giant Bomb Community Endurance Run 6'
+    #     group: 'Giant Bomb Extra Life Team'
     #     users: [
     #         {
-    #             username: 'GBCER'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'gbcer'
-    #             streamsite: 'hitbox'
+    #             username: 'Giant Bomb'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=237453'
+    #             stream: 'UCmeds0MLhjfkjD_5acPnFlQ'
+    #             streamsite: 'youtube'
     #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
     #         }
     #         {
-    #             username: 'ZombiePie'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'ZombiePie'
+    #             username: 'havochq'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=220883'
+    #             stream: 'havochq'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/8273/2595558-capture321.png'
-    #         }
-    #         {
-    #             username: 'thatpinguino'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'thatpinguino'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/6600/2687418-yt_thumbnail_thatpinguinotv.jpg'
-    #         }
-    #         {
-    #             username: 'FlashFlood_29'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'flashflood_29'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/19/192001/2650680-105968b.jpg.square-true_maxheight-160_size-160.jpg'
-    #         }
-    #         {
-    #             username: 'Jakob187'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'lansharxgaming'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/19306/1319460-joe.jpg'
-    #         }
-    #         {
-    #             username: 'jeffrud'
-    #             fund: 'http://www.extra-life.org/team/giantbomb'
-    #             stream: 'electricviking'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/13/139401/1895167-before_and_after_science.jpg'
-    #         }
-    #         {
-    #             username: 'Vash10'
-    #             fund: 'http://www.extra-life.org/team/giantbomb'
-    #             stream: 'isknisark'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/3/38622/1198581-vash.jpg'
-    #         }
-    #         {
-    #             username: 'amlabella'
-    #             fund: 'http://www.extra-life.org/team/giantbomb'
-    #             stream: 'amlabella'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/8792/2098775-wheatley_avatar.jpg'
-    #         }
-    #         {
-    #             username: 'blzzzrrttt'
-    #             fund: 'http://www.extra-life.org/participant/blzzzrrttt'
-    #             stream: 'blzzzrrttt'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/122318/2593996-helmet+dog.png'
-    #         }
-    #         {
-    #             username: 'Nickieroonie'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=98120'
-    #             stream: 'nickieroonie'
-    #             streamsite: 'hitbox'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/116307/1645548-metadp.jpg'
-    #         }
-    #         {
-    #             username: 'Bollard'
-    #             fund: 'http://www.extra-life.org/team/giantbomb'
-    #             stream: 'Bollard'
-    #             streamsite: 'hitbox'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/66230/1181452-frog....jpg'
-    #         }
-    #         {
-    #             username: 'Descends'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'descendss'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/22/223939/2639313-0cb9ce6738ad4394269abcb71b000fd5629276c7_full.jpg'
-    #         }
-    #         {
-    #             username: 'Blu3V3nom07'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'blu3v3nom07'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/98500/2545128-pure+midnight+blue+47p.jpg'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/2253/2861127-alexbig.png'
     #         }
     #         {
     #             username: 'zolloz89'
-    #             fund: 'http://www.extra-life.org/participant/zolloz89'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=197436'
     #             stream: 'zolloz89'
     #             streamsite: 'twitch'
     #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/3/34025/2513541-music_daft+punk_36793.jpg'
     #         }
     #         {
-    #             username: 'The_Boots'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'The_Boots'
+    #             username: 'trace'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=196782'
+    #             stream: 'pseg'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/10/108552/1514392-1068008_foomy_s_icon.gif'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/347/2713410-av_spinner300_blfade.jpg'
     #         }
     #         {
-    #             username: 'Danteveli'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=142276'
-    #             stream: 'danteveli24'
+    #             username: 'dirtybirdy'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=196782'
+    #             stream: 'physicshomebrew'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/95390/2463117-develi.jpg'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/23/239428/2688933-devowatchus.jpg'
     #         }
     #         {
-    #             username: 'TwoLines'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'twolines'
+    #             username: 'endoworks'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221350'
+    #             stream: 'endoworks'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1150/2281706-burnedman8.png'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/66391/2619867-giantbomb-shirt.jpg'
     #         }
     #         {
-    #             username: 'Fattony12000'
-    #             fund: 'http://www.extra-life.org/participant/fattony12000'
+    #             username: 'riostarwind'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=210327'
+    #             stream: 'riostarwind'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/5/56971/2897128-2887154-2795553-2641113-hdr.jpg'
+    #         }
+    #         {
+    #             username: 'ramblesnonsense'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221471'
+    #             stream: 'wedgestreams'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/25/253269/2696185-fry.jpg'
+    #         }
+    #         {
+    #             username: 'kirillorlov'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=202091'
+    #             stream: 'swansons'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/45575/2576262-yeaaaah.png'
+    #         }
+    #         {
+    #             username: 'auwiz'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221288'
+    #             stream: 'tocupine'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/18/185187/2890219-tumblr_ocku772yeq1s323epo1_500.jpg'
+    #         }
+    #         {
+    #             username: 'jasonmasters'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=220572'
+    #             stream: 'chronoshifter'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/17/178158/2892714-14670890_10153985616068733_1641782710628263269_n.jpg'
+    #         }
+    #         {
+    #             username: 'feeltheillinois'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=223312'
+    #             stream: 'feeltheillinois'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/27/278480/2745912-1097016_10200553478815153_1039214382_o.jpg'
+    #         }
+    #         {
+    #             username: 'nedyahwerd'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=223476'
+    #             stream: 'nedyah_werd'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/26/269193/2723689-tat.jpg'
+    #         }
+    #         {
+    #             username: 'gnomeonfire'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=223860'
+    #             stream: 'thelucaslite'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/122459/2889816-whisperman.jpg'
+    #         }
+    #         {
+    #             username: 'buser'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=199158'
+    #             stream: 'toadinman'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    #         }
+    #         {
+    #             username: 'outbr3ak'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224067'
+    #             stream: 'whiskeyfueledgames'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/7/74263/1328694-sigown.jpg'
+    #         }
+    #         {
+    #             username: 'propgoat'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224079'
+    #             stream: 'propgoat'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/17/178556/2419329-jmnv8.png'
+    #         }
+    #         {
+    #             username: 'sojak'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=201100'
+    #             stream: 'atmafighter'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    #         }
+    #         {
+    #             username: 'bpriller'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=197433'
+    #             stream: '2idiotgamers'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/7/78739/1335849-album_joystick.png'
+    #         }
+    #         {
+    #             username: 'dig_douglas_iii'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=196331'
+    #             stream: 'dig_douglas'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/7114/1760752-7gwpr.png'
+    #         }
+    #         {
+    #             username: 'bsstephan'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=207508'
+    #             stream: 'bsstephan'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/20/208076/2613698-4708491536-bss-c.jpg'
+    #         }
+    #         {
+    #             username: 'fattony12000'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224945'
     #             stream: 'UCVKkiqQoCOUoF6ml5ULTLKQ'
     #             streamsite: 'youtube'
     #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/88760/2190087-max_opp_crop.jpg'
     #         }
     #         {
-    #             username: 'MeatsofEvil'
-    #             fund: 'http://www.extra-life.org/participant/luismartinez'
-    #             stream: 'meatsoevil'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/19/195589/2669445-img_10269.jpg'
+    #             username: 'kalimando'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224966'
+    #             stream: 'UCEnNsdS1hsVgp4phOAgdD2A'
+    #             streamsite: 'youtube'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/24/246661/2662381-avatar.jpg'
     #         }
     #         {
-    #             username: 'personz'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'jatzu84'
+    #             username: 'warhopper'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224688'
+    #             stream: 'warhopper'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/80242/2022541-1027540673.jpg'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
     #         }
     #         {
-    #             username: 'Jedted'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'jedted'
+    #             username: 'afashionablehat'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=225037'
+    #             stream: 'tracecomplete'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/14979/2532642-tomshep%28liberty-avatar%29.jpg'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/28/287209/2863197-walrus-512.png'
     #         }
     #         {
-    #             username: 'IsoMentric'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'isomentric'
-    #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/27/270952/2728469-shading%2Bpractice%2B-%2Biso.jpg'
+    #             username: 'matt'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=196354'
+    #             stream: 'UCbM0WNSsGGnvE0bnZS2TQ4w'
+    #             streamsite: 'youtube'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/50/1713152-avatar.png'
     #         }
     #         {
-    #             username: 'Trace'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=92751'
-    #             stream: 'pseg'
+    #             username: 'danteveli'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=226356'
+    #             stream: 'danteveli24'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/347/2456123-av_spinner200.png'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/95390/2803267-kakaotalk_20140425_152756.jpg'
     #         }
     #         {
-    #             username: 'Chaser324'
-    #             fund: 'http://www.extra-life.org/participant/chasepettit'
-    #             stream: 'chasepettit'
+    #             username: 'dobedobedo'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=227106'
+    #             stream: 'nightmarexcinema'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/2840/2713343-cubeface-ds.jpg'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/25/255585/2701802-7359943617-link_.jpg'
     #         }
     #         {
-    #             username: 'Rorie'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=185664'
-    #             stream: 'frailgesture'
+    #             username: 'core647'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=226426'
+    #             stream: 'kiddjohnkidd'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/87610/2149139-photo_2_fix.jpg'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/89717/2692036-puppy-wallpaper-dancing-little-animals-28654684-1280-1024.jpg'
     #         }
     #         {
-    #             username: 'RioStarwind'
-    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=165524'
-    #             stream: 'riostarwind'
+    #             username: 'shifty13'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224551'
+    #             stream: 'sh1fty13'
     #             streamsite: 'twitch'
-    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/5/56971/2641113-hdr.jpg'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1131/258442-jackknife.jpg'
+    #         }
+    #         {
+    #             username: 'shindig'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=228610'
+    #             stream: 'shindigpsc'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/24/245117/2671716-4567876282-artic.jpg'
+    #         }
+    #         {
+    #             username: 'speedhuntr'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224438'
+    #             stream: 'UCsk42QKCwgmCHAlT4-ABZzw'
+    #             streamsite: 'youtube'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    #         }
+    #         {
+    #             username: 'teeknuts'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=216848'
+    #             stream: 'teeknuts'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/2/25594/1251262-zangief_movie1.jpg'
+    #         }
+    #         {
+    #             username: 'rasgueado'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=227308'
+    #             stream: 'rasgueado'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/3695/2893383-avatar.jpg'
+    #         }
+    #         {
+    #             username: 'urban_ryoga'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=214337'
+    #             stream: 'jonbjohns'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/40096/1332028-2266798.gif'
+    #         }
+    #         {
+    #             username: 'meteora3255'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=224105'
+    #             stream: 'meteora3255'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1366/1775330-shepard.jpg'
+    #         }
+    #         {
+    #             username: 'juster25'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=227802'
+    #             stream: 'errorjuster'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/61835/2785041-entry_bun.jpg'
+    #         }
+    #         {
+    #             username: 'ninnyjams'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=233012'
+    #             stream: 'ninnyjams'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/17/177527/2407652-2407650-1355794343552.png'
+    #         }
+    #         {
+    #             username: 'deliciousbees'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=198069'
+    #             stream: 'deliciousbees'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/12063/1400444-title_cptunderpant.gif'
+    #         }
+    #         {
+    #             username: 'ltsquigs'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221393'
+    #             stream: 'ltsquigs420'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/45967/2587345-wizard.png'
+    #         }
+    #         {
+    #             username: 'awalkawesome'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=222559'
+    #             stream: 'freddyhead'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/19/195498/2803030-2802980-shodanmas.jpg'
+    #         }
+    #         {
+    #             username: 'jazzyc'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=233338'
+    #             stream: 'jazzyc2003'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/29/297394/2830535-wilde.gif'
+    #         }
+    #         {
+    #             username: 'revolve'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=234905'
+    #             stream: 'gregplayingpoorly'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/127658/1749993-robotbird.png'
+    #         }
+    #         {
+    #             username: 'kingringtail85'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=205782'
+    #             stream: 'jeff_mcfly'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/66397/2787502-halo1.jpg'
+    #         }
+    #         {
+    #             username: 'audiobusting'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=227051'
+    #             stream: 'audiobusting'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/16/163605/2707129-cabbage.jpg'
+    #         }
+    #         {
+    #             username: 'jubjub677'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=236235'
+    #             stream: 'justintime4games'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/87790/1395000-bg_ellis.jpg'
+    #         }
+    #         {
+    #             username: 'wrighteous86 and duskvamp'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=235296'
+    #             stream: 'UC77qYGFqFchJa5sLMfs-wMA'
+    #             streamsite: 'youtube'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/63875/1738151-6175_529184588168_48700050_31454160_2615325_n.jpg'
+    #         }
+    #         {
+    #             username: 'gpink'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=228173'
+    #             stream: 'gpink'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/81038/1816580-icongb.jpg'
+    #         }
+    #         {
+    #             username: 'evvan337'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=237391'
+    #             stream: 'evan_tor'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    #         }
+    #         {
+    #             username: 'big_denim'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=212981'
+    #             stream: 'cugabuh'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/27/273603/2736983-lincoln+2.jpg'
+    #         }
+    #         {
+    #             username: 'twolines'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=237906'
+    #             stream: 'twolines'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1150/2281706-burnedman8.png'
+    #         }
+    #         {
+    #             username: 'kiruvi'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=207127'
+    #             stream: 'kiruvi'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/21/215464/2602122-2602121-0743705213-UEfZp.jpg'
+    #         }
+    #         {
+    #             username: 'pontoon_yacht'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=31509'
+    #             stream: 'fgcu_esports'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/25/253194/2777424-3379075908-3vqJ1.png'
+    #         }
+    #         {
+    #             username: 'ae_pollux'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=231100'
+    #             stream: 'ae_pollux'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/28/288063/2849118-5583803117-jazz1.jpg'
+    #         }
+    #         {
+    #             username: 'duecenage'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=213026'
+    #             stream: 'UCcv9L1smhP3_J_dxIPJOg4g'
+    #             streamsite: 'youtube'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/60685/2803851-flintyfishsantahat.jpg'
+    #         }
+    #         {
+    #             username: 'whitegreyblack'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=206650'
+    #             stream: 'whitegreyblackyyc'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/21/215372/2569701-avatar_impossible_mission.gif'
+    #         }
+    #         {
+    #             username: 'syce300'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=238570'
+    #             stream: 'syce300w'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    #         }
+    #         {
+    #             username: 'wickhaam'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=228557'
+    #             stream: 'mopgarden'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/18/181127/2430470-url.jpg'
+    #         }
+    #         {
+    #             username: 'empirepaintball'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=200562'
+    #             stream: 'liquidbionix'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/9/99678/2586837-6102435186-587980.jpeg'
+    #         }
+    #         {
+    #             username: 'dalai'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=236448'
+    #             stream: 'dalaigb'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1951/2433681-llamarider.png'
+    #         }
+    #         {
+    #             username: 'scb360'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=236542'
+    #             stream: 'scb3'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    #         }
+    #         {
+    #             username: 'bigmike'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=239160'
+    #             stream: 'icanthackit'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/10/104466/2432087-behemoth-ffix.png'
+    #         }
+    #         {
+    #             username: 'datarez'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=29307'
+    #             stream: 'tmgtp'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/1592/2841226-ishikawa_bio_cropped.jpg'
+    #         }
+    #         {
+    #             username: 'offthemark'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=216066'
+    #             stream: 'themaindamie'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    #         }
+    #         {
+    #             username: 'combustion_man'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=238972'
+    #             stream: 'section09'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/24/247538/2665341-combustion-man_480x360.jpg'
+    #         }
+    #         {
+    #             username: 'khopps17'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=206978'
+    #             stream: 'khopps25'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/1/15006/1346190-q0avatar_copy.png'
+    #         }
+    #         {
+    #             username: 'voodootatum'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=240544'
+    #             stream: 'voodootatum'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/45019/2803467-7533075953-28033.png'
+    #         }
+    #         {
+    #             username: 'erkablegamer'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=238857'
+    #             stream: 'erkablegamer'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/24/243999/2841523-mlvlk_q3.jpg'
+    #         }
+    #         {
+    #             username: 'gamedreamer'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=221178'
+    #             stream: 'game_dreamer'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/12/125870/2889608-gbico.jpg'
+    #         }
+    #         {
+    #             username: 'p4r4digm'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=239000'
+    #             stream: 'p4r4digm'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/29/295016/2860872-12963699_547200336883_7516536195826375845_n.jpg'
+    #         }
+    #         {
+    #             username: 'spotshadow'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=229079'
+    #             stream: 'skeeball575'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/6/65410/1190097-digital_shodan.jpg'
+    #         }
+    #         {
+    #             username: 'verytallman'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=239753'
+    #             stream: 'very_tall_man'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+    #         }
+    #         {
+    #             username: 'optix12'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=240073'
+    #             stream: 'hebrewjuice'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/4527/1739514-4.jpg'
+    #         }
+    #         {
+    #             username: 'internetpizza'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=207420'
+    #             stream: 'internetpizza'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/15/154910/2582673-space_cat_icon.jpg'
+    #         }
+    #         {
+    #             username: 'dannyhibiki'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=201477'
+    #             stream: 'dannyhibiki'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/4/43643/2650193-2444228-dan.jpg'
+    #         }
+    #         {
+    #             username: 'thouddin'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=239385'
+    #             stream: 'thouddin'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/18/182525/2857382-chgcif6u_400x400.jpg'
     #         }
     #         {
     #             username: 'cadwr'
@@ -748,8 +547,129 @@ window.usergroups = [
     #             streamsite: 'twitch'
     #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/116634/2107379-598968c9a4fe075013fe74c2528213354c4c3511_full.jpg'
     #         }
-    #     ]
+    #         {
+    #             username: 'salisbeary'
+    #             fund: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=220738'
+    #             stream: 'salisbeary'
+    #             streamsite: 'twitch'
+    #             profilePic: 'http://static.giantbomb.com/uploads/square_mini/22/224463/2884412-enhanced-buzz-28238-1360941672-9.jpg'
+    #         }
+    #     ]        
     # }
+
+
+    {
+        group: 'Giant Bomb Community Endurance Run VII'
+        users: [
+            {
+                username: 'GBCER'
+                fund: 'https://fundraise.pencilsofpromise.org/team/114589'
+                stream: 'gbcer'
+                streamsite: 'hitbox'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+            }
+            {
+                username: 'ZombiePie'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/954165'
+                stream: 'ZombiePie'
+                streamsite: 'twitch'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/8273/2595558-capture321.png'
+            }
+            {
+                username: 'thatpinguino'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/951866'
+                stream: 'thatpinguino'
+                streamsite: 'twitch'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/6600/2687418-yt_thumbnail_thatpinguinotv.jpg'
+            }
+            {
+                username: 'rothgar'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/962949'
+                stream: 'Rothgar09'
+                streamsite: 'twitch'
+                profilePic: 'https://static.giantbomb.com/uploads/square_mini/16/164557/2286165-387973_2792830622508_1229132258_n.jpg'
+            }
+            {
+                username: 'MajorMitch'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/963664'
+                stream: 'majormitch'
+                streamsite: 'twitch'
+                profilePic: 'https://static.giantbomb.com/uploads/square_mini/0/8263/706724-grit2.jpg'
+            }
+            {
+                username: 'ZandraVandra'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/962953'
+                stream: 'zandravandra'
+                streamsite: 'twitch'
+                profilePic: 'https://static.giantbomb.com/uploads/square_mini/0/2253/2861127-alexbig.png'
+            }
+            {
+                username: 'meldingplague'
+                fund: 'https://fundraise.pencilsofpromise.org/team/114589'
+                stream: 'chthonictonic'
+                streamsite: 'twitch'
+                profilePic: 'https://static.giantbomb.com/uploads/square_mini/14/144995/2062945-rainbow_chicken.jpg'
+            }
+            {
+                username: 'Vash10'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/951855'
+                stream: 'isknisark'
+                streamsite: 'twitch'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/3/38622/1198581-vash.jpg'
+            }
+            {
+                username: 'amlabella'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/969614'
+                stream: 'amlabella'
+                streamsite: 'twitch'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/8792/2098775-wheatley_avatar.jpg'
+            }
+            {
+                username: 'danielkempster'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/967581'
+                stream: 'danieljkempster'
+                streamsite: 'twitch'
+                profilePic: 'https://static.giantbomb.com/uploads/square_mini/0/1481/2585626-avatar+sig+%28vectorised%29.png'
+            }
+            {
+                username: 'Nickieroonie'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/962439'
+                stream: 'nickieroonie'
+                streamsite: 'hitbox'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/11/116307/1645548-metadp.jpg'
+            }
+            {
+                username: 'The_Boots'
+                fund: 'https://fundraise.pencilsofpromise.org/team/114589'
+                stream: 'The_Boots'
+                streamsite: 'twitch'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/10/108552/1514392-1068008_foomy_s_icon.gif'
+            }
+            {
+                username: 'personz'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/967488'
+                stream: 'jatzu84'
+                streamsite: 'twitch'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/80242/2022541-1027540673.jpg'
+            }
+            {
+                username: 'Rorie'
+                fund: 'https://fundraise.pencilsofpromise.org/team/114589'
+                stream: 'frailgesture'
+                streamsite: 'twitch'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/8/87610/2149139-photo_2_fix.jpg'
+            }
+            {
+                username: 'RioStarwind'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/951882'
+                stream: 'riostarwind'
+                streamsite: 'twitch'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/5/56971/2641113-hdr.jpg'
+            }
+        ]
+    }
+
+
     # {
     #     group: 'EVO Streams'
     #     users: [

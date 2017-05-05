@@ -20,14 +20,14 @@ YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&cha
 IRC_URL = 'http://webchat.quakenet.org/?channels=GBXL&uio=MT1mYWxzZSYyPXRydWUmND10cnVlJjg9ZmFsc2UmOT10cnVlJjEwPXRydWUmMTE9MzY5JjE0PWZhbHNlac'
 
 DONATIONS_ACTIVE = true
-BASE_DONATE_URL = 'http://www.extra-life.org/team/giantbomb'
-NAVBAR_BRAND = '<span><img src="assets/img/gb-logo.png" /> Explosive Runs - </span>GBXL'
+BASE_DONATE_URL = 'https://fundraise.pencilsofpromise.org/team/114589'
+NAVBAR_BRAND = '<span><img src="assets/img/gb-logo.png" /> Explosive Runs - </span>GBCER7'
 DONATE_ALERT = '<strong>Welcome!</strong> Enjoy the gaming and please <strong><a href="' + BASE_DONATE_URL + '">DONATE</a></strong>!'
-TWITTER_LINK = '<a class="tweet-link" href="https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/&hashtags=GBXL&text=Join the Giant Bomb community raising money for Extra Life!" target="_blank"><i class="fa fa-twitter-square"></i> #GBXL</a>'
-FB_LINK = '<a class="tweet-link" href="http://www.facebook.com/sharer.php?u=http://www.explosiveruns.com/&t=Join the Giant Bomb community raising money for Extra Life!" target="_blank"><i class="fa fa-facebook-square"></i> LIKE</a>'
+TWITTER_LINK = '<a class="tweet-link" href="https://twitter.com/intent/tweet?url=http://www.explosiveruns.com/&hashtags=GBCER7&text=Join the Giant Bomb community raising money for Pencils of Promise!" target="_blank"><i class="fa fa-twitter-square"></i> #GBCER7</a>'
+FB_LINK = '<a class="tweet-link" href="http://www.facebook.com/sharer.php?u=http://www.explosiveruns.com/&t=Join the Giant Bomb community raising money for Pencils of Promise!" target="_blank"><i class="fa fa-facebook-square"></i> LIKE</a>'
 
-STREAM_LINK = ', raising money for Extra Life.'
-STREAM_HASHTAG = 'GBXL'
+STREAM_LINK = ', raising money for Pencils of Promise.'
+STREAM_HASHTAG = 'GBCER7'
 
 CHAT_WIDTH = 300
 CHAT_TAB_HEIGHT = 42
@@ -183,6 +183,7 @@ initLinks = ->
     $('#donate-alert span').html DONATE_ALERT
     $('#twitter-link').html TWITTER_LINK
     $('#fb-link').html FB_LINK
+    $('#current-total').hide()
 
 
 initEvents = ->
@@ -1000,7 +1001,7 @@ $(window).load ->
         $('#streams-wrapper').fadeIn 'fast', ->
             setTimeout initComplete, 3000
             setTimeout refreshAlerts, 6000
-            setTimeout updateTotal, 15000
+            # setTimeout updateTotal, 15000
 
             doResize()
 
