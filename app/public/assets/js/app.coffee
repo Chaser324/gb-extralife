@@ -484,7 +484,7 @@ refreshTwitchStream = (channel, twitchUser) ->
                 if not newGame? || newGame is ""
                     newGame = "something"
                 channelEntry.find('h2').text stream["channel"]["status"]
-                channelEntry.find('.stream-pic').attr 'src', stream["preview"]
+                channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
                 channelEntry.find('.game-title').text newGame
                 if currentGame != newGame
                     alertStr = '<strong>' + gbUserName + '</strong> switched to playing ' + newGame + '.'

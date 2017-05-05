@@ -562,13 +562,6 @@ window.usergroups = [
         group: 'Giant Bomb Community Endurance Run VII'
         users: [
             {
-                username: 'TESTING'
-                fund: 'https://fundraise.pencilsofpromise.org/team/114589'
-                stream: 'geepm'
-                streamsite: 'twitch'
-                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
-            }
-            {
                 username: 'GBCER'
                 fund: 'https://fundraise.pencilsofpromise.org/team/114589'
                 stream: 'gbcer'
