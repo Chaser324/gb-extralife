@@ -562,6 +562,13 @@ window.usergroups = [
         group: 'Giant Bomb Community Endurance Run VII'
         users: [
             {
+                username: 'TESTING'
+                fund: 'https://fundraise.pencilsofpromise.org/team/114589'
+                stream: 'geepm'
+                streamsite: 'twitch'
+                profilePic: 'http://static.giantbomb.com/uploads/square_mini/0/22/176637-default.png'
+            }
+            {
                 username: 'GBCER'
                 fund: 'https://fundraise.pencilsofpromise.org/team/114589'
                 stream: 'gbcer'
@@ -605,10 +612,17 @@ window.usergroups = [
             }
             {
                 username: 'meldingplague'
-                fund: 'https://fundraise.pencilsofpromise.org/team/114589'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/963541'
                 stream: 'chthonictonic'
                 streamsite: 'twitch'
                 profilePic: 'https://static.giantbomb.com/uploads/square_mini/14/144995/2062945-rainbow_chicken.jpg'
+            }
+            {
+                username: 'devise22'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/970598'
+                stream: 'pajodcastmedia'
+                streamsite: 'twitch'
+                profilePic: 'https://static.giantbomb.com/uploads/square_mini/16/165002/2934757-8770405869-_8ec7379cef6b_latestcb20160804224013.thumb_a12feeb4f32ff03eff7e12c9685068c4.eeea42e6a0013c7198a1a0d55061ad7d'
             }
             {
                 username: 'Vash10'
@@ -640,7 +654,7 @@ window.usergroups = [
             }
             {
                 username: 'The_Boots'
-                fund: 'https://fundraise.pencilsofpromise.org/team/114589'
+                fund: 'https://fundraise.pencilsofpromise.org/fundraiser/966444'
                 stream: 'The_Boots'
                 streamsite: 'twitch'
                 profilePic: 'http://static.giantbomb.com/uploads/square_mini/10/108552/1514392-1068008_foomy_s_icon.gif'

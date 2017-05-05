@@ -5,6 +5,7 @@
 
 TWITCH_PLAYER_URL = 'http://www.twitch.tv/widgets/live_embed_player.swf'
 TWITCH_API_URL = 'https://api.twitch.tv/kraken/streams/'
+TWITCH_USERS_URL = 'https://api.twitch.tv/kraken/users?login='
 
 
 # <iframe width="640" height="360" src="http://hitbox.tv/#!/embed/m00sician" frameborder="0" allowfullscreen></iframe>
@@ -330,7 +331,7 @@ refreshAlerts = ->
 
 refreshStream = (channel, type) ->
     if type == 'twitch'
-        refreshTwitchStream channel
+        initTwitchStream channel
     else if type == 'hitbox'
         refreshHitboxStream channel
     else if type == 'youtube'
@@ -408,15 +409,28 @@ refreshHitboxStream = (channel) ->
         complete:
             setTimeout (-> refreshHitboxStream channel), STREAM_UPDATE_RATE
 
-refreshTwitchStream = (channel) ->
+initTwitchStream = (channel) ->
     $.ajax
         type: 'GET'
         dataType: 'json'
         crossDomain: true
         headers:
-            'Accept': 'application/vnd.twitchtv.v2+json'
+            'Accept': 'application/vnd.twitchtv.v5+json'
             'Client-ID': '256yrtw9swpn6irj0xyn8xzjy5lmgpo'
-        url: TWITCH_API_URL + channel
+        url: TWITCH_USERS_URL + channel
+        success: (data) ->
+            twitchUser = data["users"][0]["_id"]
+            refreshTwitchStream channel, twitchUser
+
+refreshTwitchStream = (channel, twitchUser) ->
+    $.ajax
+        type: 'GET'
+        dataType: 'json'
+        crossDomain: true
+        headers:
+            'Accept': 'application/vnd.twitchtv.v5+json'
+            'Client-ID': '256yrtw9swpn6irj0xyn8xzjy5lmgpo'
+        url: TWITCH_API_URL + twitchUser
         success: (data) ->
             stream = data["stream"]
             channelEntry = $("div[data-channel='" + channel + "']")
@@ -443,13 +457,13 @@ refreshTwitchStream = (channel) ->
             else if stream? and isLive is false
                 # Channel just came on-line
                 newGame = stream["channel"]["game"]
-                if not newGame?
+                if not newGame? || newGame is ""
                     newGame = "something"
                 channelEntry.addClass 'on-air'
                 channelEntry.find('p.live').addClass 'on-air'
                 channelEntry.find('.stream-pic').addClass 'on-air'
                 channelEntry.find('h2').text stream["channel"]["status"]
-                channelEntry.find('.stream-pic').attr 'src', stream["preview"]
+                channelEntry.find('.stream-pic').attr 'src', stream["preview"]["medium"]
                 channelEntry.find('.game-title').text newGame
                 channelEntry.parent().prepend channelEntry
                 $('.index-entry').css "clear", "none"
@@ -467,7 +481,7 @@ refreshTwitchStream = (channel) ->
                 # Still On-Air. Check for new game, title, thumbnail.
                 currentGame = channelEntry.find('.game-title').text()
                 newGame = stream["channel"]["game"]
-                if not newGame?
+                if not newGame? || newGame is ""
                     newGame = "something"
                 channelEntry.find('h2').text stream["channel"]["status"]
                 channelEntry.find('.stream-pic').attr 'src', stream["preview"]
@@ -480,7 +494,7 @@ refreshTwitchStream = (channel) ->
                     overlay = $('#' + key + 'Overlay')
                     overlay.find('.overlay-info h3.playing-info').html '<em>playing</em> ' + newGame
         complete:
-            setTimeout (-> refreshTwitchStream channel), STREAM_UPDATE_RATE
+            setTimeout (-> refreshTwitchStream channel, twitchUser), STREAM_UPDATE_RATE
 
 
 
