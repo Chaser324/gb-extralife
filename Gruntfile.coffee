@@ -85,10 +85,10 @@ module.exports = (grunt) ->
 
         uglify:
             main:
-                options:
-                    beautify: true
-                    preserveComments: true
-                    mangle: false
+                # options:
+                #     beautify: true
+                #     preserveComments: true
+                #     mangle: false
                 files:
                     'dist/public/assets/js/scripts.min.js': [
                         'app/public/assets/js/vendor/jquery.cookie.js'
